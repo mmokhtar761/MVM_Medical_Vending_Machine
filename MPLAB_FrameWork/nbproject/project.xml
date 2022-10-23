@@ -6,19 +6,22 @@
             <name>Stepper_controller</name>
             <creation-uuid>ff99b8a0-cf84-4452-9873-3443568a3379</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
-            <sourceRootList/>
+            <sourceRootList>
+                <sourceRootElem>E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\01_APP</sourceRootElem>
+                <sourceRootElem>E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\00_Lib</sourceRootElem>
+            </sourceRootList>
             <confList>
                 <confElem>
                     <name>default</name>
                     <type>2</type>
                 </confElem>
             </confList>
-            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <formatting>
                 <project-formatting-style>false</project-formatting-style>
             </formatting>
