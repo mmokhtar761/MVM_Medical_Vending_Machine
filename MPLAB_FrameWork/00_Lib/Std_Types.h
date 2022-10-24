@@ -20,7 +20,6 @@
 
 #include "Platform_Types.h"
 #include "Compiler.h"
-#include "MANIPULATOR.h"
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
