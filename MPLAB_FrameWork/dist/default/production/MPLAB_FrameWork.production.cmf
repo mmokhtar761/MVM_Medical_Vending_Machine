@@ -7,17 +7,19 @@
 # Each line that follows describes a psect in that object file, until
 # the next object file.  The lines that describe a psect have the
 # format:
-#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\MPLAB_FrameWork.production.o
-cinit CODE 0 FFEC FFEC 6 1
-text0 CODE 0 FFF2 FFF2 E 1
-$C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
-idloc IDLOC 0 200000 200000 8 1
-init CODE 0 0 0 4 1
-config CONFIG 0 300000 300000 E 1
+cinit CODE 0 FFEC FFEC 6 1 2
+idloc IDLOC 5 200000 200000 8 1 1
+text0 CODE 0 FFF2 FFF2 E 1 2
+config CONFIG 4 300000 300000 E 1 1
+$C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+idloc IDLOC 5 200000 200000 8 1 1
+init CODE 0 0 0 4 1 2
+config CONFIG 4 300000 300000 E 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -37,7 +39,6 @@ BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-FFEB 1
-STACK 80-F7F 1
 SMALLCONST 1000-FFEB 1
 CODE 4-FFEB 1
 BANK10 A00-AFF 1
@@ -47,6 +48,7 @@ BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-F7F 1
 BIGRAM 1-F7F 1
+BIGSFR F80-FFF 1
 COMRAM 1-7F 1
 EEDATA F00000-F003FF 1
 MEDIUMCONST 1000-FFEB 1
@@ -68,12 +70,12 @@ FFF2 text0 CODE >11:E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.
 FFF2 text0 CODE >12:E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c
 FFF6 text0 CODE >13:E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c
 FFF8 text0 CODE >14:E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c
-FFEC cinit CODE >458:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.s
-FFEC cinit CODE >460:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.s
-FFEC cinit CODE >463:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.s
-FFEC cinit CODE >469:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.s
-FFEC cinit CODE >471:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.s
-FFEE cinit CODE >472:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.s
+FFEC cinit CODE >431:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.s
+FFEC cinit CODE >433:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.s
+FFEC cinit CODE >436:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.s
+FFEC cinit CODE >442:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.s
+FFEC cinit CODE >444:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.s
+FFEE cinit CODE >445:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -87,46 +89,37 @@ FFEE cinit CODE >472:C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.s
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\MPLAB_FrameWork.production.o
-__Hspace_0 30000E 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__Hspace_0 10000 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hspace_1 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__Hspace_4 60000E 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\MPLAB_FrameWork.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\MPLAB_FrameWork.production.o
-__CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\MPLAB_FrameWork.production.o
-___sp 0 0 STACK 2 stack C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
+___sp 0 0 STACK 2 stack C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 _main FFF2 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
-start 0 0 CODE 0 init C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
-__size_of_main 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_CCP2MX$PORTBE 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+start 0 0 CODE 0 init C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\MPLAB_FrameWork.production.o
-__accesstop 80 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
-intlevel0 0 0 CODE 0 text C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
-intlevel1 0 0 CODE 0 text C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
-intlevel2 0 0 CODE 0 text C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
-intlevel3 0 0 CODE 0 text C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
+__accesstop 80 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+intlevel0 0 0 CODE 0 text C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+intlevel1 0 0 CODE 0 text C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+intlevel2 0 0 CODE 0 text C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+intlevel3 0 0 CODE 0 text C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\MPLAB_FrameWork.production.o
-__CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\MPLAB_FrameWork.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\MPLAB_FrameWork.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\MPLAB_FrameWork.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\MPLAB_FrameWork.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\MPLAB_FrameWork.production.o
 __Hintcodelo 0 0 CODE 0 intcodelo dist/default/production\MPLAB_FrameWork.production.o
 __Lintcodelo 0 0 CODE 0 intcodelo dist/default/production\MPLAB_FrameWork.production.o
-__CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 start_initialization FFEC 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\MPLAB_FrameWork.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\MPLAB_FrameWork.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\MPLAB_FrameWork.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\MPLAB_FrameWork.production.o
@@ -140,7 +133,7 @@ __Hbank9 0 0 ABS 0 bank9 dist/default/production\MPLAB_FrameWork.production.o
 __Hcinit 0 0 ABS 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __Hconst 0 0 CONST 0 const dist/default/production\MPLAB_FrameWork.production.o
 __Hidata 0 0 CODE 0 idata dist/default/production\MPLAB_FrameWork.production.o
-__Hidloc 200008 0 IDLOC 0 idloc dist/default/production\MPLAB_FrameWork.production.o
+__Hidloc 200008 0 IDLOC 5 idloc dist/default/production\MPLAB_FrameWork.production.o
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\MPLAB_FrameWork.production.o
 __Hparam 0 0 COMRAM 1 rparam dist/default/production\MPLAB_FrameWork.production.o
 __Hrdata 0 0 COMRAM 1 rdata dist/default/production\MPLAB_FrameWork.production.o
@@ -154,10 +147,10 @@ __Hbank14 0 0 ABS 0 bank14 dist/default/production\MPLAB_FrameWork.production.o
 __Hbank15 0 0 ABS 0 bank15 dist/default/production\MPLAB_FrameWork.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\MPLAB_FrameWork.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\MPLAB_FrameWork.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
+__Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\MPLAB_FrameWork.production.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\MPLAB_FrameWork.production.o
-__Hconfig 30000E 0 CONFIG 0 config dist/default/production\MPLAB_FrameWork.production.o
-__CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__Hconfig 30000E 0 CONFIG 4 config dist/default/production\MPLAB_FrameWork.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\MPLAB_FrameWork.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\MPLAB_FrameWork.production.o
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\MPLAB_FrameWork.production.o
@@ -171,7 +164,7 @@ __Lbank9 0 0 ABS 0 bank9 dist/default/production\MPLAB_FrameWork.production.o
 __Lcinit 0 0 ABS 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __Lconst 0 0 CONST 0 const dist/default/production\MPLAB_FrameWork.production.o
 __Lidata 0 0 CODE 0 idata dist/default/production\MPLAB_FrameWork.production.o
-__Lidloc 200000 0 IDLOC 0 idloc dist/default/production\MPLAB_FrameWork.production.o
+__Lidloc 0 0 IDLOC 5 idloc dist/default/production\MPLAB_FrameWork.production.o
 __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\MPLAB_FrameWork.production.o
 __Lparam 0 0 COMRAM 1 rparam dist/default/production\MPLAB_FrameWork.production.o
 __Lrdata 0 0 COMRAM 1 rdata dist/default/production\MPLAB_FrameWork.production.o
@@ -181,6 +174,7 @@ __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\MPLAB_FrameWork.production
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\MPLAB_FrameWork.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\MPLAB_FrameWork.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\MPLAB_FrameWork.production.o
+__Hheap 0 0 HEAP 7 heap dist/default/production\MPLAB_FrameWork.production.o
 __Hinit 4 0 CODE 0 init dist/default/production\MPLAB_FrameWork.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\MPLAB_FrameWork.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\MPLAB_FrameWork.production.o
@@ -188,19 +182,19 @@ __Htemp 0 0 COMRAM 1 temp dist/default/production\MPLAB_FrameWork.production.o
 __Htext 0 0 ABS 0 text dist/default/production\MPLAB_FrameWork.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\MPLAB_FrameWork.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\MPLAB_FrameWork.production.o
+__Lheap 0 0 HEAP 7 heap dist/default/production\MPLAB_FrameWork.production.o
 __Linit 0 0 CODE 0 init dist/default/production\MPLAB_FrameWork.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\MPLAB_FrameWork.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\MPLAB_FrameWork.production.o
 __Ltemp 0 0 COMRAM 1 temp dist/default/production\MPLAB_FrameWork.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\MPLAB_FrameWork.production.o
-__CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\MPLAB_FrameWork.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\MPLAB_FrameWork.production.o
-__S0 30000E 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__S0 10000 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __S1 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__S2 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_PBADEN$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__S4 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__S5 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\MPLAB_FrameWork.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\MPLAB_FrameWork.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\MPLAB_FrameWork.production.o
@@ -216,57 +210,46 @@ __Lbank14 0 0 ABS 0 bank14 dist/default/production\MPLAB_FrameWork.production.o
 __Lbank15 0 0 ABS 0 bank15 dist/default/production\MPLAB_FrameWork.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\MPLAB_FrameWork.production.o
 __Lbigram 0 0 ABS 0 bigram dist/default/production\MPLAB_FrameWork.production.o
-__CFG_BORV$3 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\MPLAB_FrameWork.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\MPLAB_FrameWork.production.o
-__Lconfig 300000 0 CONFIG 0 config dist/default/production\MPLAB_FrameWork.production.o
+__Lconfig 0 0 CONFIG 4 config dist/default/production\MPLAB_FrameWork.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\MPLAB_FrameWork.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\MPLAB_FrameWork.production.o
-stackhi F7F 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
-stacklo 80 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
+isa$std 1 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+stackhi 0 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+stacklo 0 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 __Lintcode 0 0 CODE 0 intcode dist/default/production\MPLAB_FrameWork.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\MPLAB_FrameWork.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\MPLAB_FrameWork.production.o
-__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__Lspace_4 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 end_of_initialization FFEC 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\MPLAB_FrameWork.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\MPLAB_FrameWork.production.o
-__CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_OSC$HS 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hreset_vec 0 0 CODE 0 reset_vec dist/default/production\MPLAB_FrameWork.production.o
 __Lramtop 1000 0 RAM 0 ramtop dist/default/production\MPLAB_FrameWork.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\MPLAB_FrameWork.production.o
 __pcinit FFEC 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __ptext0 FFF2 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\MPLAB_FrameWork.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\MPLAB_FrameWork.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\MPLAB_FrameWork.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\MPLAB_FrameWork.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
+___heap_lo 0 0 ABS 0 - C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAsobg.o
 ___param_bank 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WDT$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\MPLAB_FrameWork.production.o
 __end_of__initialization FFEC 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WRT3$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\MPLAB_FrameWork.production.o
-__CFG_PWRT$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __pcstackCOMRAM 0 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
-__CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __end_of_main 10000 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
 _PORTB F81 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 _TRISB F93 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __HRAM 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hbss 0 0 RAM 1 bss dist/default/production\MPLAB_FrameWork.production.o
 __Hram 0 0 ABS 0 ram dist/default/production\MPLAB_FrameWork.production.o
@@ -275,10 +258,6 @@ __LRAM 1 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lbss 0 0 RAM 1 bss dist/default/production\MPLAB_FrameWork.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\MPLAB_FrameWork.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\MPLAB_FrameWork.production.o
-__CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __initialization FFEC 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\MPLAB_FrameWork.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\MPLAB_FrameWork.production.o
@@ -310,13 +289,11 @@ __Hintcode 0 0 CODE 0 intcode dist/default/production\MPLAB_FrameWork.production
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 FFEC FFEC 6 1
-idloc 0 200000 200000 8 1
 text0 0 FFF2 FFF2 E 1
 reset_vec 0 0 0 4 1
-config 0 300000 300000 E 1
-# OTES Section
+# %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
-# is indicated by OTES. The first line indicates the name and decimal
+# is indicated by %NOTES. The first line indicates the name and decimal
 # byte-length of the first note-psect, e.g.
 #   $codecov_info_hdr 16
 # Each line that follows contains the byte-data of the psect in hexadecimal as a
