@@ -1,56 +1,54 @@
-Microchip MPLAB XC8 Compiler V2.10 ()
+Microchip MPLAB XC8 Compiler V2.40
 
 Linker command line:
 
--W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
-  -cs -h+dist/default/production\MPLAB_FrameWork.production.sym \
+-W-3 \
+  --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
+  -cn -h+dist/default/production\MPLAB_FrameWork.production.sym \
   --cmf=dist/default/production\MPLAB_FrameWork.production.cmf -z -Q18F4620 \
-  -oC:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.2 \
-  --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/MPLAB_FrameWork.production.map -E1 -ver=XC8 \
-  --acfsm=1493 -ASTACK=080h-0F7Fh -pstack=STACK -ACODE=00h-0FFFFh \
-  -ACONST=00h-0FFFFh -ASMALLCONST=01000h-010FFhx240 \
-  -AMEDIUMCONST=01000h-0FFFFh -ACOMRAM=01h-07Fh -AABS1=00h-0F7Fh \
-  -ABIGRAM=01h-0F7Fh -ARAM=080h-0FFh,0100h-01FFhx14,0F00h-0F7Fh \
-  -ABANK0=080h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
-  -ABANK3=0300h-03FFh -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh \
-  -ABANK6=0600h-06FFh -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh \
-  -ABANK9=0900h-09FFh -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh \
-  -ABANK12=0C00h-0CFFh -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh \
-  -ABANK15=0F00h-0F7Fh -ASFR=0F80h-0FFFh \
+  -oC:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAs43g.4 \
+  --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
+  -Mdist/default/production/MPLAB_FrameWork.production.map \
+  --md=C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAs43g.dat -E1 \
+  -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
+  -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
+  -ACOMRAM=01h-07Fh -AABS1=00h-0F7Fh -ABIGRAM=01h-0F7Fh \
+  -ARAM=080h-0FFh,0100h-01FFhx14,0F00h-0F7Fh -ABANK0=080h-0FFh \
+  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
+  -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh -ABANK6=0600h-06FFh \
+  -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
+  -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
+  -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh -ABANK15=0F00h-0F7Fh \
+  -ASFR=0F80h-0FFFh -ABIGSFR=0F80h-0FFFh -ACONFIG=0300000h-030000Dh \
+  -AIDLOC=0200000h-0200007h -AEEDATA=0F00000h-0F003FFh -peeprom_data=EEDATA \
   -preset_vec=00h,intcode,intcodelo,powerup,init -pramtop=01000h \
   -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
-  -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
-  -AIDLOC=0200000h-0200007h -pidloc=IDLOC -AEEDATA=0F00000h-0F003FFh \
-  -peeprom_data=EEDATA \
+  -AFARRAM=00h-00h \
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o \
+  C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAs43g.o \
   dist/default/production\MPLAB_FrameWork.production.o 
 
 Object code version is 3.11
 
 Machine type is 18F4620
 
-Call graph: (short form)
-
-
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Mohamed Mokhtar\AppData\Local\Temp\sda4.o
+C:\Users\Mohamed Mokhtar\AppData\Local\Temp\xcAs43g.o
+                idloc                            200000   200000        8        0       5
+                config                           300000   300000        E        0       4
                 init                                  0        0        4        0       0
-                idloc                            200000   200000        8   200000       0
-                config                           300000   300000        E   300000       0
 dist/default/production\MPLAB_FrameWork.production.o
+                idloc                            200000   200000        8        0       5
+                config                           300000   300000        E        0       4
                 text0                              FFF2     FFF2        E     7FF9       0
                 cinit                              FFEC     FFEC        6     7FF6       0
 
 TOTAL           Name                               Link     Load   Length     Space
-        CLASS   STACK          
-
         CLASS   CODE           
                 init                                  0        0        4         0
                 text0                              FFF2     FFF2        E         0
@@ -104,15 +102,21 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   SFR            
 
-        CLASS   FARRAM         
+        CLASS   BIGSFR         
 
         CLASS   CONFIG         
-                config                           300000   300000        E         0
+                config                           300000   300000        E         4
 
         CLASS   IDLOC          
-                idloc                            200000   200000        8         0
+                idloc                            200000   200000        8         5
 
         CLASS   EEDATA         
+
+        CLASS   FARRAM         
+
+        CLASS   HEAP           
+
+        CLASS   STACK          
 
 
 
@@ -121,8 +125,6 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cinit                          00FFEC  000006  00FFF2      7FF6       0  CODE    
                 text0                          00FFF2  00000E  010000      7FF9       0  CODE    
-                idloc                          200000  000008  200008    200000       0  IDLOC   
-                config                         300000  00000E  30000E    300000       0  CONFIG  
 
 
 UNUSED ADDRESS RANGES
@@ -145,6 +147,7 @@ UNUSED ADDRESS RANGES
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
         BIGRAM           000001-000F7F              F7F
+        BIGSFR           000F80-000FFF               80
         CODE             000004-00FFEB             FFE8
         COMRAM           000001-00007F               7F
         CONST            000004-00FFEB             FFE8
@@ -153,45 +156,11 @@ UNUSED ADDRESS RANGES
         RAM              000080-000F7F              100
         SFR              000F80-000FFF               80
         SMALLCONST       001000-00FFEB              100
-        STACK            000080-000F7F              F00
 
                                   Symbol Table
 
 _PORTB                   (abs)        000F81
 _TRISB                   (abs)        000F93
-__CFG_BOREN$SBORDIS      (abs)        000000
-__CFG_BORV$3             (abs)        000000
-__CFG_CCP2MX$PORTBE      (abs)        000000
-__CFG_CP0$OFF            (abs)        000000
-__CFG_CP1$OFF            (abs)        000000
-__CFG_CP2$OFF            (abs)        000000
-__CFG_CP3$OFF            (abs)        000000
-__CFG_CPB$OFF            (abs)        000000
-__CFG_CPD$OFF            (abs)        000000
-__CFG_EBTR0$OFF          (abs)        000000
-__CFG_EBTR1$OFF          (abs)        000000
-__CFG_EBTR2$OFF          (abs)        000000
-__CFG_EBTR3$OFF          (abs)        000000
-__CFG_EBTRB$OFF          (abs)        000000
-__CFG_FCMEN$OFF          (abs)        000000
-__CFG_IESO$OFF           (abs)        000000
-__CFG_LPT1OSC$OFF        (abs)        000000
-__CFG_LVP$OFF            (abs)        000000
-__CFG_MCLRE$ON           (abs)        000000
-__CFG_OSC$HS             (abs)        000000
-__CFG_PBADEN$OFF         (abs)        000000
-__CFG_PWRT$OFF           (abs)        000000
-__CFG_STVREN$ON          (abs)        000000
-__CFG_WDT$OFF            (abs)        000000
-__CFG_WDTPS$32768        (abs)        000000
-__CFG_WRT0$OFF           (abs)        000000
-__CFG_WRT1$OFF           (abs)        000000
-__CFG_WRT2$OFF           (abs)        000000
-__CFG_WRT3$OFF           (abs)        000000
-__CFG_WRTB$OFF           (abs)        000000
-__CFG_WRTC$OFF           (abs)        000000
-__CFG_WRTD$OFF           (abs)        000000
-__CFG_XINST$OFF          (abs)        000000
 __HRAM                   (abs)        000000
 __Habs1                  abs1         000000
 __Hbank0                 bank0        000000
@@ -213,6 +182,7 @@ __Hbank9                 bank9        000000
 __Hbigbss                bigbss       000000
 __Hbigdata               bigdata      000000
 __Hbigram                bigram       000000
+__Hbigsfr                bigsfr       000000
 __Hbss                   bss          000000
 __Hcinit                 cinit        000000
 __Hclrtext               clrtext      000000
@@ -224,6 +194,7 @@ __Hdata                  data         000000
 __Heeprom_data           eeprom_data  000000
 __Hfarbss                farbss       000000
 __Hfardata               fardata      000000
+__Hheap                  heap         000000
 __Hibigdata              ibigdata     000000
 __Hidata                 idata        000000
 __Hidloc                 idloc        200008
@@ -251,9 +222,10 @@ __Hreset_vec             reset_vec    000000
 __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   000000
-__Hspace_0               (abs)        30000E
+__Hspace_0               (abs)        010000
 __Hspace_1               (abs)        000000
 __Hspace_2               (abs)        000000
+__Hspace_4               (abs)        60000E
 __Hstack                 stack        000000
 __Hstruct                struct       000000
 __Htemp                  temp         000000
@@ -280,20 +252,22 @@ __Lbank9                 bank9        000000
 __Lbigbss                bigbss       000000
 __Lbigdata               bigdata      000000
 __Lbigram                bigram       000000
+__Lbigsfr                bigsfr       000000
 __Lbss                   bss          000000
 __Lcinit                 cinit        000000
 __Lclrtext               clrtext      000000
 __Lcomram                comram       000000
-__Lconfig                config       300000
+__Lconfig                config       000000
 __Lconst                 const        000000
 __LcstackCOMRAM          cstackCOMRAM 000000
 __Ldata                  data         000000
 __Leeprom_data           eeprom_data  000000
 __Lfarbss                farbss       000000
 __Lfardata               fardata      000000
+__Lheap                  heap         000000
 __Libigdata              ibigdata     000000
 __Lidata                 idata        000000
-__Lidloc                 idloc        200000
+__Lidloc                 idloc        000000
 __Lifardata              ifardata     000000
 __Linit                  init         000000
 __Lintcode               intcode      000000
@@ -321,14 +295,18 @@ __Lsmallconst            smallconst   000000
 __Lspace_0               (abs)        000000
 __Lspace_1               (abs)        000000
 __Lspace_2               (abs)        000000
+__Lspace_4               (abs)        000000
 __Lstack                 stack        000000
 __Lstruct                struct       000000
 __Ltemp                  temp         000000
 __Ltext                  text         000000
 __Ltext0                 text0        000000
-__S0                     (abs)        30000E
+__S0                     (abs)        010000
 __S1                     (abs)        000000
-__S2                     (abs)        000000
+__S4                     (abs)        000000
+__S5                     (abs)        000000
+___heap_hi               (abs)        000000
+___heap_lo               (abs)        000000
 ___inthi_sp              stack        000000
 ___intlo_sp              stack        000000
 ___param_bank            (abs)        000000
@@ -344,7 +322,6 @@ __pcinit                 cinit        00FFEC
 __pcstackCOMRAM          cstackCOMRAM 000000
 __ptext0                 text0        00FFF2
 __ramtop                 ramtop       001000
-__size_of_main           (abs)        000000
 __smallconst             smallconst   000000
 _main                    text0        00FFF2
 end_of_initialization    cinit        00FFEC
@@ -352,50 +329,21 @@ intlevel0                text         000000
 intlevel1                text         000000
 intlevel2                text         000000
 intlevel3                text         000000
-stackhi                  (abs)        000F7F
-stacklo                  (abs)        000080
+isa$std                  (abs)        000001
+isa$xinst                (abs)        000000
+stackhi                  (abs)        000000
+stacklo                  (abs)        000000
 start                    init         000000
 start_initialization     cinit        00FFEC
-
-
-FUNCTION INFORMATION:
-
- *************** function _main *****************
- Defined at:
-		line 11 in file "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- This function calls:
-		Nothing
- This function is called by:
-		Startup code after reset
- This function uses a non-reentrant model
-
 
 
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c
-		_main          		CODE           	FFF2	0000	15
+		_main          		CODE           	FFF2	0000	14
 
-E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c estimated size: 15
+E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c estimated size: 14
 
 shared
 		__initialization		CODE           	FFEC	0000	1
