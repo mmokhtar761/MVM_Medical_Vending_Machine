@@ -36,7 +36,8 @@ enum PORTS {
   PORT_A,
   PORT_B,
   PORT_C,
-  PORT_D
+  PORT_D,
+  PORT_E
 }; 
 /* PIN Defines */
 enum PINS {
@@ -50,32 +51,51 @@ enum PINS {
   PIN7
 }; 
 
+/*Max number of pins for port E*/
+#define PORT_E_LAST_PIN 2
+
 /* PIN Directions */
-#define INPUT   1
-#define OUTPUT  0
+#define INPUT            1
+#define INPUT_PORT       255
+#define OUTPUT           0
+#define OUTPUT_PORT      0
 
 /* PIN Value Options */
-#define HIGH    1
-#define LOW     0
+#define HIGH              1
+#define HIGH_PORT         255
+#define LOW               0
+#define LOW_PORT          0
+
+#define FIRST_HALF 1
+#define SECOND_HALF 2
 
 /*
  * Prototypes
  */
 /* Pin Related Prototypes */
 /* Set pin as Output or Input */
-void DIO_VidSetPinDirection (u8 u8PortIdCopy, u8 u8PinIdCopy, u8 u8PinDirCopy);
+void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinDirCopy);
 
 /* if pin is output - Set high or low voltage*/
-void DIO_VidSetPinValue(u8 u8PortIdCopy , u8 u8PinIdCopy, u8 u8PinValCopy);
+void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCopy);
 
 /* if pin is input - get value */
-u8 DIO_u8GetPinValue(u8 u8PortIdCopy, u8 u8PinIdCopy);
+uint8 DIO_u8GetPinValue(uint8 u8PortIdCopy, uint8 u8PinIdCopy);
 
 /* Port Related Prototypes */
 /* Set port direction */
-void DIO_VidSetPortDirection (u8 u8PortId, u8 u8PortDir);
+void DIO_VidSetPortDirection (uint8 u8PortId, uint8 u8PortDir);
 
 /* if port is output - Set high or low on all pins */
-void DIO_VidSetPortValue    (u8 u8PortId, u8 u8PortVal);
+void DIO_VidSetPortValue    (uint8 u8PortId, uint8 u8PortVal);
+
+/*initialize all pins direction*/
+void DIO_Inti(void);
+
+/*initialize the direction of Half a port (use FIRST_HALF or SECOND_HALF)*/ 
+void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortDir);
+
+/*initialize the value of Half a port (use FIRST_HALF or SECOND_HALF)*/ 
+void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 
 #endif

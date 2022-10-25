@@ -3,6 +3,34 @@
 [d edition pro ]
 [d chip 18F4620 ]
 [d frameptr 4065 ]
+"22 E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+[e E2455 PORTS `uc
+PORT_A 0
+PORT_B 1
+PORT_C 2
+PORT_D 3
+PORT_E 4
+]
+"27 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+[e E2450 PORTS `uc
+PORT_A 0
+PORT_B 1
+PORT_C 2
+PORT_D 3
+PORT_E 4
+]
+[e E2456 PINS `uc
+PIN0 0
+PIN1 1
+PIN2 2
+PIN3 3
+PIN4 4
+PIN5 5
+PIN6 6
+PIN7 7
+]
+"21 E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+[v _main main `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\float.c
@@ -27,14 +55,68 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"11 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c
-[v _main main `(v  1 e 1 0 ]
-"189 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
+"189 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+[v _DIO_VidSetHalfPortDirection DIO_VidSetHalfPortDirection `(v  1 e 1 0 ]
+"209
+[v _DIO_VidSetHalfPortSet DIO_VidSetHalfPortSet `(v  1 e 1 0 ]
+"42 E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\03_MCAL/DIO_cfg.h
+[v _PORT_A_DEF PORT_A_DEF `[8]uc  1 e 8 0 ]
+"51
+[v _PORT_B_DEF PORT_B_DEF `[8]uc  1 e 8 0 ]
+"60
+[v _PORT_C_DEF PORT_C_DEF `[8]uc  1 e 8 0 ]
+"69
+[v _PORT_D_DEF PORT_D_DEF `[8]uc  1 e 8 0 ]
+"78
+[v _PORT_E_DEF PORT_E_DEF `[8]uc  1 e 8 0 ]
+"52 C:/Users/omarn/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+"189
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"360
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"535
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"677
+[v _PORTE PORTE `VEuc  1 e 1 @3972 ]
+"1380
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "1602
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-"11 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c
+"1824
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2046
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"2268
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"21 E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
-"16
+"26
+} 0
+"209 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+[v _DIO_VidSetHalfPortSet DIO_VidSetHalfPortSet `(v  1 e 1 0 ]
+{
+[v DIO_VidSetHalfPortSet@u8PortId u8PortId `uc  1 a 1 wreg ]
+"210
+[v DIO_VidSetHalfPortSet@u8PinIdCopy u8PinIdCopy `uc  1 a 1 10 ]
+"209
+[v DIO_VidSetHalfPortSet@u8PortId u8PortId `uc  1 a 1 wreg ]
+[v DIO_VidSetHalfPortSet@u8PortHalf u8PortHalf `uc  1 p 1 0 ]
+[v DIO_VidSetHalfPortSet@u8PortVal u8PortVal `uc  1 p 1 1 ]
+[v DIO_VidSetHalfPortSet@u8PortId u8PortId `uc  1 a 1 9 ]
+"226
+} 0
+"189
+[v _DIO_VidSetHalfPortDirection DIO_VidSetHalfPortDirection `(v  1 e 1 0 ]
+{
+[v DIO_VidSetHalfPortDirection@u8PortId u8PortId `uc  1 a 1 wreg ]
+"190
+[v DIO_VidSetHalfPortDirection@u8PinIdCopy u8PinIdCopy `uc  1 a 1 10 ]
+"189
+[v DIO_VidSetHalfPortDirection@u8PortId u8PortId `uc  1 a 1 wreg ]
+[v DIO_VidSetHalfPortDirection@u8PortHalf u8PortHalf `uc  1 p 1 0 ]
+[v DIO_VidSetHalfPortDirection@u8PortDir u8PortDir `uc  1 p 1 1 ]
+[v DIO_VidSetHalfPortDirection@u8PortId u8PortId `uc  1 a 1 9 ]
+"206
 } 0

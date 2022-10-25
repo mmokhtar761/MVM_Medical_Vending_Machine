@@ -8,9 +8,19 @@
 
 #include <xc.h>
 #include "Config_uC.h"
+#include "Platform_Types.h"
+#include "MANIPULATOR.h"
+
+
+
+#include "DIO_cfg.h"
+#include "DIO_int.h"
+
+
+
 void main(void) {
-    TRISB = 0x0;
-    PORTB = 0xFF;
+ DIO_VidSetHalfPortDirection(PORT_B, SECOND_HALF ,OUTPUT);
+ DIO_VidSetHalfPortSet(PORT_B,SECOND_HALF,HIGH);
     while (1);
     return;
 }
