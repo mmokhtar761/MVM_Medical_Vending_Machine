@@ -13,6 +13,9 @@
       <logicalFolder name="f1" displayName="APP_inc" projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f2" displayName="HAL_inc" projectFiles="true">
+        <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_cfg.h</itemPath>
+        <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_int.h</itemPath>
+        <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prvt.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="MCAL_inc" projectFiles="true">
       </logicalFolder>
@@ -29,6 +32,7 @@
         <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="HAL" projectFiles="true">
+        <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="MCAL" projectFiles="true">
       </logicalFolder>
@@ -42,6 +46,7 @@
   <sourceRootList>
     <Elem>E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\01_APP</Elem>
     <Elem>E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\00_Lib</Elem>
+    <Elem>E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\02_HAL</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -51,7 +56,7 @@
         <targetDevice>PIC18F4620</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>3</platform>
@@ -92,7 +97,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
-                  value="E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork;E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\00_Lib"/>
+                  value="00_Lib;01_APP;02_HAL;03_MCAL;E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -115,7 +120,7 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="verbose" value="false"/>
-        <property key="warning-level" value="-3"/>
+        <property key="warning-level" value="0"/>
         <property key="what-to-do" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>

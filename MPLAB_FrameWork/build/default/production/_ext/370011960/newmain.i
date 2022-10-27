@@ -15,6 +15,88 @@
 
 
 
+# 1 "00_Lib\\Std_Types.h" 1
+# 21 "00_Lib\\Std_Types.h"
+# 1 "00_Lib/Platform_Types.h" 1
+# 52 "00_Lib/Platform_Types.h"
+typedef unsigned char boolean;
+
+typedef signed char sint8;
+typedef unsigned char uint8;
+typedef signed short sint16;
+typedef unsigned short uint16;
+typedef signed long sint32;
+typedef unsigned long uint32;
+
+typedef float float32;
+typedef double float64;
+# 22 "00_Lib\\Std_Types.h" 2
+# 1 "00_Lib/Compiler.h" 1
+# 23 "00_Lib\\Std_Types.h" 2
+# 41 "00_Lib\\Std_Types.h"
+typedef uint8 Std_ReturnType;
+# 9 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c" 2
+
+# 1 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\\Config_uC.h" 1
+# 39 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\\Config_uC.h"
+#pragma config OSC = HS
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
+
+
+#pragma config PWRT = OFF
+#pragma config BOREN = SBORDIS
+#pragma config BORV = 3
+
+
+#pragma config WDT = OFF
+#pragma config WDTPS = 32768
+
+
+#pragma config CCP2MX = PORTBE
+#pragma config PBADEN = OFF
+#pragma config LPT1OSC = OFF
+#pragma config MCLRE = ON
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config XINST = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+
+
+#pragma config EBTRB = OFF
+
+
+
+
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4394,68 +4476,91 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 2 3
-# 9 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c" 2
-
-# 1 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\\Config_uC.h" 1
-# 39 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\\Config_uC.h"
-#pragma config OSC = HS
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 3
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config CCP2MX = PORTBE
-#pragma config PBADEN = OFF
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
+# 96 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\\Config_uC.h" 2
 # 10 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c" 2
 
+# 1 "02_HAL\\STPR_int.h" 1
+# 18 "02_HAL\\STPR_int.h"
+typedef enum
+{
+  IDLE,
+  ACC,
+  Sat,
+  DeAcc,
+} STPR_Stat_type;
+
+typedef enum
+{
+  DIR_Low,
+  DIR_High,
+} STPR_Dir_type;
+
+
+typedef struct
+{
+
+  uint16 stpPerMm;
+  uint16 stpVel;
+  uint32 stpWidth;
+  uint8 stprAccPerInterval;
+  uint8 UniqueId;
+  STPR_Stat_type stprStat;
+
+} STPR_type;
+
+
+
+
+
+
+void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval);
+
+
+
+
+void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir);
+
+
+
+
+void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16 Copy_distMm, STPR_Dir_type Copy_MveDir);
+
+
+
+
+void STPR_voidRotateStprDegr (STPR_type* ptrSTPR, uint16 Copy_angleDeg,float32 Copy_stpAngle, STPR_Dir_type Copy_MveDir);
+
+
+
+
+void STPR_voidCalibStpMm (STPR_type* ptrSTPR, uint8 stpPerMm);
+
+
+
+
+void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel);
+
+
+
+
+void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
+
+
+
+
+
+
+ void STPR_callBack(STPR_type* ptrSTPR);
+# 11 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c" 2
+
 void main(void) {
-    TRISB = 0x0;
-    PORTB = 0xFF;
-    while (1);
+        while (1)
+        {
+         TRISC = 0x0;
+         PORTC = 0xFF;
+         _delay((unsigned long)((1000)*(16000000/4000.0)));
+         PORTC = 0;
+         _delay((unsigned long)((1000)*(16000000/4000.0)));
+        }
     return;
 }

@@ -9,9 +9,13 @@
 #ifndef STPR_CFG_H
 #define STPR_CFG_H
 
-#define STP_MIN_HIGH_PULSE_WIDTH  4   /*In micro seconds*/
-#define STP_MIN_LOW_PULSE_WIDTH   4   /*In micro seconds*/
-#define MAX_STPR_NUM             11   /*The max intended number of steppers*/
+#define STP_MIN_HIGH_PULSE_WIDTH  4       /*In micro seconds*/
+#define STP_MIN_LOW_PULSE_WIDTH   4       /*In micro seconds*/
+
+#define STP_MAX_HIGH_PULSE_WIDTH  12500   /*In micro seconds*/
+#define STP_MAX_LOW_PULSE_WIDTH   12500   /*In micro seconds*/
+
+#define MAX_STPR_NUM              11      /*The max intended number of steppers*/
 
 /************************CONST macros, never touch************************/
 #define STP     0
@@ -21,53 +25,50 @@
 /***************************GPIO config section***************************/
 /**************This section is dependent on MCAL GPIO driver**************/
 /*************************************************************************/
-#define PORT_TYPE
-#define PIN_TYPE
-#define NOT_CONNECTED             
+#define PORT_TYPE     uint8
+#define PIN_TYPE      uint8
+#define NOT_CONNECTED 0xFF        
 
 /*
-*Please add a line for each connected stepper and config its step,directin ports
+*Please add a line for each connected stepper and config its step,direction ports
 *Incase of no connected direction pin, please assign NOT_CONNECTED macro to it 
 */
 const PORT_TYPE STPR_arrStpDirPorts[MAX_STPR_NUM][STP_DIR] =
 {
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 0*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 1*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 2*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 3*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 4*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 5*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 6*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 7*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 8*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 9*/
-    {,}, /*STEP,DIRECTION Port  config for steper unique id 10*/
+    {PORT_A,PORT_A}, /*STEP,DIRECTION Port  config for steper unique id 0*/
+    {PORT_E,PORT_E}, /*STEP,DIRECTION Port  config for steper unique id 1*/
+    {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 2*/
+    {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 3*/
+    {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 4*/
+    {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 5*/
+    {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 6*/
+    {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 7*/
+    {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 8*/
+    {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 9*/
+    {PORT_E,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 10*/
 };
 /*
-*Please add a line for each connected stepper and config its step,directin pins
+*Please add a line for each connected stepper and config its step,direction pins
 *Incase of no connected direction pin, please assign NOT_CONNECTED macro to it 
 */
 const PIN_TYPE STPR_arrDirPortPin[MAX_STPR_NUM][STP_DIR] =
 {
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 0*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 1*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 2*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 3*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 4*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 5*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 6*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 7*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 8*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 9*/
-    {,}, /*STEP,DIRECTION Pin  config for steper unique id 10*/
+    {PIN4,PIN5}, /*STEP,DIRECTION Pin  config for stepper unique id 0*/
+    {PIN6,PIN5}, /*STEP,DIRECTION Pin  config for stepper unique id 1*/
+    {PIN7,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 2*/
+    {PIN6,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 3*/
+    {PIN5,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 4*/
+    {PIN4,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 5*/
+    {PIN3,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 6*/
+    {PIN2,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 7*/
+    {PIN1,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 8*/
+    {PIN0,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 9*/
+    {PIN7,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 10*/
 };
 
 
-#define SET_STP_PIN_HIGH(stprUniqueId)  GPIO_set_Pin(STPR_arrStpDirPorts[stprUniqueId][STP], STPR_arrDirPortPin[stprUniqueId][STP])
-#define SET_STP_PIN_LOW(stprUniqueId)   GPIO_set_Pin(STPR_arrStpDirPorts[stprUniqueId][STP], STPR_arrDirPortPin[stprUniqueId][STP])
+#define SET_PIN_HIGH(stprUniqueId,stp_dir)      DIO_VidSetPinValue(STPR_arrStpDirPorts[stprUniqueId][stp_dir], STPR_arrDirPortPin[stprUniqueId][stp_dir],HIGH);
+#define SET_PIN_LOW(stprUniqueId,stp_dir)       DIO_VidSetPinValue(STPR_arrStpDirPorts[stprUniqueId][stp_dir], STPR_arrDirPortPin[stprUniqueId][stp_dir],LOW);
 
-#define SET_DIR_PIN_HIGH(stprUniqueId)  GPIO_set_Pin(STPR_arrStpDirPorts[stprUniqueId][DIR], STPR_arrDirPortPin[stprUniqueId][DIR])
-#define SET_DIR_PIN_LOW(stprUniqueId)   GPIO_set_Pin(STPR_arrStpDirPorts[stprUniqueId][DIR], STPR_arrDirPortPin[stprUniqueId][DIR])
-
-
+#define BUSY_uSec(Time_uSec)                    __delay_us(Time_uSec)
 #endif  /*STPR_CFG_H*/

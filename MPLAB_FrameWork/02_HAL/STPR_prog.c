@@ -6,6 +6,8 @@
 /* Version       : V00.1                                                 */
 /* GitHub        : https://github.com/mmokhtar761                        */
 /*************************************************************************/
+#define _XTAL_FREQ 16000000
+#include <xc.h>
 
 #include "Std_Types.h"
 #include "MANIPULATOR.h"
@@ -19,15 +21,20 @@
  * This function must be called before any usage for the created stepper instant.
  * Copy_UniqueId: specifies the actual stepper connected in HW as configured in cfg file
  * Copy_stpVel: the needed number of steps per 1 sec
+ * stprAccPerInterval: the needed increase in velocity witnin each configured time interval
  */
-void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_stpPerMm, uint32 Copy_stpVel, uint8  Copy_stprAcc)
+void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_stpPerMm, uint16 Copy_stpVel, uint8  stprAccPerInterval)
 {
     ptrSTPR->UniqueId = Copy_UniqueId;
     ptrSTPR->stpPerMm = Conpy_stpPerMm;
-    if (Copy_stpVel>MAX_STEPS_PER_SEC) ptrSTPR->stpVel = MAX_STEPS_PER_SEC;
-    else                               ptrSTPR->stpVel = Copy_stpVel;
-    ptrSTPR->stprAcc  = Copy_stprAcc;
-    ptrSTPR->InitFlag = STPR_Init_OK;
+    STPR_voidSetStprVel (ptrSTPR,Copy_stpVel);
+    /*Evaluating the needed increase in */
+    ptrSTPR->stprAccPerInterval  = stprAccPerInterval;
+    /*Initialize the live velocity to INIT_VELOCITY*/
+    arrSTPR_LiveVel[ptrSTPR->UniqueId] = INIT_VELOCITY;
+    /*Initialization is ok*/
+    ptrSTPR->stprStat = IDLE;
+    return;
 }
 
 /*
@@ -35,16 +42,53 @@ void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_s
  */
 void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_type Copy_MveDir)
 {
-    if (ptrSTPR->InitFlag != STPR_Init_OK) return; /*not initialized correctlly, get out of here*/
+    uint16 i,satStps,accStps;
+    uint32 width;
+    if (ptrSTPR->stprStat != IDLE) return; /*not initialized correctlly, get out of here*/
+
     /*Set direction of moving*/
-    if      (Copy_MveDir == DIR_High)  SET_DIR_PIN_HIGH(ptrSTPR->UniqueId);
-    else if (Copy_MveDir == DIR_Low)   SET_DIR_PIN_LOW(ptrSTPR->UniqueId);
+    if      (Copy_MveDir == DIR_High)  SET_PIN_HIGH(ptrSTPR->UniqueId,DIR);
+    else if (Copy_MveDir == DIR_Low)   SET_PIN_LOW(ptrSTPR->UniqueId,DIR);
 
-    /*Start Moving with accelerating for the half of steps*/
+    /*Start Moving from INIT_VELOCITY with accelerating until reaching the velocity*/
+    ptrSTPR->stprStat = ACC;
+    for (i=0;arrSTPR_LiveVel[ptrSTPR->UniqueId] < ptrSTPR->stpVel;i++)
+    {
+        /*In this phase, width is dynamically calculated*/
+        width= MICRO_PER_SEC/arrSTPR_LiveVel[ptrSTPR->UniqueId];
+        GenPulse(ptrSTPR,width);
+        /*If if more than the half of needed steps is gone, get out and deacc directly*/
+        if (i >= Copy_steps/2) 
+        {
+            ptrSTPR->stprStat = DeAcc;
+            break;
+        }
+    }
 
-    /*Start Stopping with de-accelerating for the other half*/
-
+    /*if no direct deacleration is needed, Move the steps in targetted velocity (sattle state)*/
+    if (ptrSTPR->stprStat != DeAcc)
+    {
+        /*i in this point represents the number of steps to accelerate*/
+        /*We need to count steps to move in Sat state befor deaceleratig for the same count of i */
+        satStps= Copy_steps-i;
+        ptrSTPR->stprStat = Sat;
+        width = ptrSTPR->stpWidth;
+        for (;i<satStps;i++)
+        {
+            GenPulse(ptrSTPR,width);
+        }
+    }
+    /*Start Stopping with de-accelerating until reaching the INIT_VELOCITY then stop*/
+    ptrSTPR->stprStat = DeAcc;
+    for (;i< Copy_steps;i++)
+    {
+        /*In this phase, width is dynamically calculated*/
+        if (ptrSTPR->stprStat != DeAcc || arrSTPR_LiveVel[ptrSTPR->UniqueId]<= MIN_STEPS_PER_SEC) break;
+        width= MICRO_PER_SEC/arrSTPR_LiveVel[ptrSTPR->UniqueId];
+        GenPulse(ptrSTPR,width);
+    }
 }
+
 
 
 
@@ -53,9 +97,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_typ
  */
 void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16  Copy_distMm, STPR_Dir_type Copy_MveDir)
 {
-    if (ptrSTPR->InitFlag != STPR_Init_OK) return; /*not initialized correctlly, get out of here*/
-
-
+    STPR_voidMoveStprStps (ptrSTPR, (Copy_distMm / ptrSTPR->stpPerMm),Copy_MveDir);
 }
 
 /*
@@ -63,8 +105,7 @@ void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16  Copy_distMm, STPR_Dir_type
  */
 void STPR_voidRotateStprDegr (STPR_type* ptrSTPR, uint16  Copy_angleDeg,float32 Copy_stpAngle, STPR_Dir_type Copy_MveDir)
 {
-    if (ptrSTPR->InitFlag != STPR_Init_OK) return; /*not initialized correctlly, get out of here*/
-
+    STPR_voidMoveStprStps (ptrSTPR, (uint16)(Copy_angleDeg / Copy_stpAngle),Copy_MveDir);
 }
 
 /*
@@ -72,24 +113,77 @@ void STPR_voidRotateStprDegr (STPR_type* ptrSTPR, uint16  Copy_angleDeg,float32 
  */
 void STPR_voidCalibStpMm (STPR_type* ptrSTPR, uint8  stpPerMm)
 {
-    if (ptrSTPR->InitFlag != STPR_Init_OK) return; /*not initialized correctlly, get out of here*/
-
+   if (ptrSTPR->stprStat != IDLE) return; /*not initialized correctlly or moving, get out of here*/
+   ptrSTPR->stpPerMm = stpPerMm;
 }
 
 /*
  * Edits the velocity for the stepper
  */
-void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint8 Copy_stpVel)
+void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel)
 {
-    if (ptrSTPR->InitFlag != STPR_Init_OK) return; /*not initialized correctlly, get out of here*/
-
+    if (ptrSTPR->stprStat != IDLE) return; /*not initialized correctlly or moving, get out of here*/
+    if      (Copy_stpVel>MAX_STEPS_PER_SEC) 
+    {
+        ptrSTPR->stpVel   = MAX_STEPS_PER_SEC;
+        ptrSTPR->stpWidth = MIN_PULSE_WIDTH ;           /*In micro seconds*/
+    }
+    else if (Copy_stpVel<MIN_STEPS_PER_SEC) 
+    {
+        ptrSTPR->stpVel   = MIN_STEPS_PER_SEC;
+        ptrSTPR->stpWidth = MAX_PULSE_WIDTH ;           /*In micro seconds*/
+    }
+    else                                    
+    {
+        ptrSTPR->stpVel   = Copy_stpVel;
+        ptrSTPR->stpWidth = MICRO_PER_SEC/Copy_stpVel;  /*In micro seconds*/
+    }
 }
 
 /*
  * Edits the acceleration for the stepper
  */
-void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_stprAcc)
+void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
 {
-    if (ptrSTPR->InitFlag != STPR_Init_OK) return; /*not initialized correctlly, get out of here*/
-
+    if (ptrSTPR->stprStat != IDLE) return; /*not initialized correctlly or moving, get out of here*/
+    ptrSTPR->stprAccPerInterval = Copy_AccPerInterval;
 }
+
+/*
+* Called in ISR for a timer within each "ACC_INTERVAL"
+*/
+ void STPR_callBack(STPR_type* ptrSTPR)
+ {
+    switch (ptrSTPR->stprStat)
+    {
+        case ACC:
+            arrSTPR_LiveVel[ptrSTPR->UniqueId] += ptrSTPR->stprAccPerInterval;
+            break;
+        case DeAcc:
+            if (arrSTPR_LiveVel[ptrSTPR->UniqueId] <= MIN_STEPS_PER_SEC)
+            {
+                arrSTPR_LiveVel[ptrSTPR->UniqueId] = 0;
+                ptrSTPR->stprStat= IDLE;
+            }
+            else
+            {
+                arrSTPR_LiveVel[ptrSTPR->UniqueId] -= ptrSTPR->stprAccPerInterval;
+            }
+            break;
+    }
+ }
+ /*
+ void STPR_callBack(STPR_type* ptrSTPR)
+ {
+    if (arrSTPR_LiveVel[ptrSTPR->UniqueId] < ptrSTPR->stpVel) 
+    {
+        arrSTPR_LiveVel[ptrSTPR->UniqueId]=(sint16)arrSTPR_LiveVel[ptrSTPR->UniqueId] + ptrSTPR->stprAccPerInterval;
+        
+        if ( ptrSTPR->stprAccPerInterval >0) arrAccIntervalCount[ptrSTPR->UniqueId]++;
+        else                                 arrAccIntervalCount[ptrSTPR->UniqueId]--;
+    }
+    else
+    {
+        arrSTPR_LiveVel[ptrSTPR->UniqueId] =  ptrSTPR->stpVel;
+    }
+ }*/

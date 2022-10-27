@@ -1,11 +1,81 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"1602 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 1602: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"189
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 189: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
-[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"1824 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 1824: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"360
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 360: extern volatile unsigned char PORTC __attribute__((address(0xF82)));
+[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
+[v F2443 `(v ~T0 @X0 1 tf1`ul ]
+"203 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\pic18.h
+[v __delay `JF2443 ~T0 @X0 0 e ]
+[p i __delay ]
+"39 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\Config_uC.h
+[p x OSC  =  HS          ]
+"40
+[p x FCMEN  =  OFF       ]
+"41
+[p x IESO  =  OFF        ]
+"44
+[p x PWRT  =  OFF        ]
+"45
+[p x BOREN  =  SBORDIS   ]
+"46
+[p x BORV  =  3          ]
+"49
+[p x WDT  =  OFF         ]
+"50
+[p x WDTPS  =  32768     ]
+"53
+[p x CCP2MX  =  PORTBE   ]
+"54
+[p x PBADEN  =  OFF      ]
+"55
+[p x LPT1OSC  =  OFF     ]
+"56
+[p x MCLRE  =  ON        ]
+"59
+[p x STVREN  =  ON       ]
+"60
+[p x LVP  =  OFF         ]
+"61
+[p x XINST  =  OFF       ]
+"64
+[p x CP0  =  OFF         ]
+"65
+[p x CP1  =  OFF         ]
+"66
+[p x CP2  =  OFF         ]
+"67
+[p x CP3  =  OFF         ]
+"70
+[p x CPB  =  OFF         ]
+"71
+[p x CPD  =  OFF         ]
+"74
+[p x WRT0  =  OFF        ]
+"75
+[p x WRT1  =  OFF        ]
+"76
+[p x WRT2  =  OFF        ]
+"77
+[p x WRT3  =  OFF        ]
+"80
+[p x WRTC  =  OFF        ]
+"81
+[p x WRTB  =  OFF        ]
+"82
+[p x WRTD  =  OFF        ]
+"85
+[p x EBTR0  =  OFF       ]
+"86
+[p x EBTR1  =  OFF       ]
+"87
+[p x EBTR2  =  OFF       ]
+"88
+[p x EBTR3  =  OFF       ]
+"91
+[p x EBTRB  =  OFF       ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -417,95 +487,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"39 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\Config_uC.h
-[p x OSC  =  HS          ]
-"40
-[p x FCMEN  =  OFF       ]
-"41
-[p x IESO  =  OFF        ]
-"44
-[p x PWRT  =  OFF        ]
-"45
-[p x BOREN  =  SBORDIS   ]
-"46
-[p x BORV  =  3          ]
-"49
-[p x WDT  =  OFF         ]
-"50
-[p x WDTPS  =  32768     ]
-"53
-[p x CCP2MX  =  PORTBE   ]
-"54
-[p x PBADEN  =  OFF      ]
-"55
-[p x LPT1OSC  =  OFF     ]
-"56
-[p x MCLRE  =  ON        ]
-"59
-[p x STVREN  =  ON       ]
-"60
-[p x LVP  =  OFF         ]
-"61
-[p x XINST  =  OFF       ]
-"64
-[p x CP0  =  OFF         ]
-"65
-[p x CP1  =  OFF         ]
-"66
-[p x CP2  =  OFF         ]
-"67
-[p x CP3  =  OFF         ]
-"70
-[p x CPB  =  OFF         ]
-"71
-[p x CPD  =  OFF         ]
-"74
-[p x WRT0  =  OFF        ]
-"75
-[p x WRT1  =  OFF        ]
-"76
-[p x WRT2  =  OFF        ]
-"77
-[p x WRT3  =  OFF        ]
-"80
-[p x WRTC  =  OFF        ]
-"81
-[p x WRTB  =  OFF        ]
-"82
-[p x WRTD  =  OFF        ]
-"85
-[p x EBTR0  =  OFF       ]
-"86
-[p x EBTR1  =  OFF       ]
-"87
-[p x EBTR2  =  OFF       ]
-"88
-[p x EBTR3  =  OFF       ]
-"91
-[p x EBTRB  =  OFF       ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"11 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 11: void main(void) {
+"12 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 12: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"12
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 12:     TRISB = 0x0;
-[e = _TRISB -> -> 0 `i `uc ]
 "13
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 13:     PORTB = 0xFF;
-[e = _PORTB -> -> 255 `i `uc ]
-"14
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 14:     while (1);
-[e :U 272 ]
-[e :U 271 ]
-[e $U 272  ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 13:         while (1)
 [e :U 273 ]
+"14
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 14:         {
+{
 "15
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 15:     return;
-[e $UE 270  ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 15:          TRISC = 0x0;
+[e = _TRISC -> -> 0 `i `uc ]
 "16
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 16: }
-[e :UE 270 ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 16:          PORTC = 0xFF;
+[e = _PORTC -> -> 255 `i `uc ]
+"17
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 17:          _delay((unsigned long)((1000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"18
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 18:          PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"19
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 19:          _delay((unsigned long)((1000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"20
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 20:         }
+}
+[e :U 272 ]
+[e $U 273  ]
+[e :U 274 ]
+"21
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 21:     return;
+[e $UE 271  ]
+"22
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c: 22: }
+[e :UE 271 ]
 }

@@ -15,6 +15,7 @@
             <sourceRootList>
                 <sourceRootElem>E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\01_APP</sourceRootElem>
                 <sourceRootElem>E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\00_Lib</sourceRootElem>
+                <sourceRootElem>E:\05- BOSS PROJECT\Project2\MPLAB_FrameWork\02_HAL</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
