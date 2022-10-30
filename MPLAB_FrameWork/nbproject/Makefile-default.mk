@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/MPLAB_FrameWork.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/MPLAB_FrameWork.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED="E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c" "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c"
+SOURCEFILES_QUOTED_IF_SPACED=01_APP/newmain.c "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/370011960/newmain.p1 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/370011960/newmain.p1.d ${OBJECTDIR}/_ext/370941739/STPR_prog.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1 ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/01_APP/newmain.p1.d ${OBJECTDIR}/_ext/370941739/STPR_prog.p1.d ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/370011960/newmain.p1 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1
+OBJECTFILES=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1 ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1
 
 # Source Files
-SOURCEFILES=E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c
+SOURCEFILES=01_APP/newmain.c E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
 
 
 
@@ -88,19 +88,19 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/MPLAB_FrameWork.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=18F4620
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/370011960/newmain.p1: E\:/05-\ BOSS\ PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/370011960" 
-	@${RM} ${OBJECTDIR}/_ext/370011960/newmain.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/370011960/newmain.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/370011960/newmain.p1 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c" 
-	@-${MV} ${OBJECTDIR}/_ext/370011960/newmain.d ${OBJECTDIR}/_ext/370011960/newmain.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/370011960/newmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/01_APP/newmain.p1: 01_APP/newmain.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/01_APP" 
+	@${RM} ${OBJECTDIR}/01_APP/newmain.p1.d 
+	@${RM} ${OBJECTDIR}/01_APP/newmain.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/01_APP/newmain.p1 01_APP/newmain.c 
+	@-${MV} ${OBJECTDIR}/01_APP/newmain.d ${OBJECTDIR}/01_APP/newmain.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/01_APP/newmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1: E\:/05-\ BOSS\ PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/370941739" 
@@ -110,14 +110,22 @@ ${OBJECTDIR}/_ext/370941739/STPR_prog.p1: E\:/05-\ BOSS\ PROJECT/Project2/MPLAB_
 	@-${MV} ${OBJECTDIR}/_ext/370941739/STPR_prog.d ${OBJECTDIR}/_ext/370941739/STPR_prog.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/370941739/STPR_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/1243022950/DIO_prog.p1: E\:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1243022950" 
+	@${RM} ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c 
+	@-${MV} ${OBJECTDIR}/_ext/1243022950/DIO_prog.d ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
-${OBJECTDIR}/_ext/370011960/newmain.p1: E\:/05-\ BOSS\ PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/370011960" 
-	@${RM} ${OBJECTDIR}/_ext/370011960/newmain.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/370011960/newmain.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/370011960/newmain.p1 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/01_APP/newmain.c" 
-	@-${MV} ${OBJECTDIR}/_ext/370011960/newmain.d ${OBJECTDIR}/_ext/370011960/newmain.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/370011960/newmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/01_APP/newmain.p1: 01_APP/newmain.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/01_APP" 
+	@${RM} ${OBJECTDIR}/01_APP/newmain.p1.d 
+	@${RM} ${OBJECTDIR}/01_APP/newmain.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/01_APP/newmain.p1 01_APP/newmain.c 
+	@-${MV} ${OBJECTDIR}/01_APP/newmain.d ${OBJECTDIR}/01_APP/newmain.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/01_APP/newmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1: E\:/05-\ BOSS\ PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/370941739" 
@@ -126,6 +134,14 @@ ${OBJECTDIR}/_ext/370941739/STPR_prog.p1: E\:/05-\ BOSS\ PROJECT/Project2/MPLAB_
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/370941739/STPR_prog.p1 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 
 	@-${MV} ${OBJECTDIR}/_ext/370941739/STPR_prog.d ${OBJECTDIR}/_ext/370941739/STPR_prog.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/370941739/STPR_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1243022950/DIO_prog.p1: E\:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1243022950" 
+	@${RM} ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c 
+	@-${MV} ${OBJECTDIR}/_ext/1243022950/DIO_prog.d ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
@@ -166,8 +182,8 @@ endif
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r ${OBJECTDIR}
-	${RM} -r ${DISTDIR}
+	${RM} -r build/default
+	${RM} -r dist/default
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl
