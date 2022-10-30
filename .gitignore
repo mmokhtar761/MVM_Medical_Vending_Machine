@@ -1,8 +1,8 @@
-PCBs/
+PCBs/**
 MPLAB_FrameWork/PIC18F4620.pdf
-**/MPLAB_FrameWork/build/
-**/MPLAB_FrameWork/debug/
-**/MPLAB_FrameWork/dist/
-**/MPLAB_FrameWork/nbproject/
+MPLAB_FrameWork/build/**
+MPLAB_FrameWork/debug/**
+MPLAB_FrameWork/dist/**
+MPLAB_FrameWork/nbproject/**
 MPLAB_FrameWork/Makefile
 .vscode
