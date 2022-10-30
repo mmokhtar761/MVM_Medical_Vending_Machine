@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Tue Oct 25 22:09:51 2022
+                                                                                               Mon Oct 31 01:30:59 2022
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	18F4620
@@ -1369,7 +1369,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Tue Oct 25 22:09:51 2022
+Symbol Table                                                                                   Mon Oct 31 01:30:59 2022
 
    __end_of_DIO_VidSetHalfPortDirection FD6A             _DIO_VidSetHalfPortDirection FAD4  
    DIO_VidSetHalfPortDirection@u8PortId 0032                                      l20 FACC  
