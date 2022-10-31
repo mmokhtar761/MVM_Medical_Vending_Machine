@@ -4652,7 +4652,7 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
 void main(void) {
         while (1)
         {
-
+         TRISC = 0x0;
          PORTC = 0xFF;
          _delay((unsigned long)((1000)*(16000000/4000.0)));
          PORTC = 0;

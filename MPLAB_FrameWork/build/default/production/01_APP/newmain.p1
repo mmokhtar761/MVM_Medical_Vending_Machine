@@ -1,6 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"360 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
+"1824 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 1824: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"360
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 360: extern volatile unsigned char PORTC __attribute__((address(0xF82)));
 [v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
 [v F2443 `(v ~T0 @X0 1 tf1`ul ]
@@ -566,6 +569,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 273 ]
 "20
 {
+"21
+[e = _TRISC -> -> 0 `i `uc ]
 "22
 [e = _PORTC -> -> 255 `i `uc ]
 "23
