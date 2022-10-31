@@ -18,7 +18,7 @@
 void main(void) {
         while (1)
         {
-         TRISC = 0x0;
+         //TRISC = 0x0;
          PORTC = 0xFF;
          __delay_ms(1000);
          PORTC = 0;
