@@ -11,6 +11,8 @@
 
 #include "Std_Types.h"
 #include "MANIPULATOR.h"
+#include "DIO_cfg.h"
+#include "DIO_int.h"
 #include "STPR_cfg.h"
 #include "STPR_int.h"
 #include "STPR_prvt.h"
@@ -47,8 +49,14 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_typ
     if (ptrSTPR->stprStat != IDLE) return; /*not initialized correctlly, get out of here*/
 
     /*Set direction of moving*/
-    if      (Copy_MveDir == DIR_High)  SET_PIN_HIGH(ptrSTPR->UniqueId,DIR);
-    else if (Copy_MveDir == DIR_Low)   SET_PIN_LOW(ptrSTPR->UniqueId,DIR);
+    if      (Copy_MveDir == DIR_High)  
+    {
+        SET_PIN_HIGH(ptrSTPR->UniqueId,DIR);
+    }
+    else if (Copy_MveDir == DIR_Low)   
+    {
+        SET_PIN_LOW(ptrSTPR->UniqueId,DIR);
+    }
 
     /*Start Moving from INIT_VELOCITY with accelerating until reaching the velocity*/
     ptrSTPR->stprStat = ACC;

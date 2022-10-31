@@ -35,8 +35,8 @@
 */
 const PORT_TYPE STPR_arrStpDirPorts[MAX_STPR_NUM][STP_DIR] =
 {
-    {PORT_A,PORT_A}, /*STEP,DIRECTION Port  config for steper unique id 0*/
-    {PORT_E,PORT_E}, /*STEP,DIRECTION Port  config for steper unique id 1*/
+    {PORT_A,PORT_A}, /*STEP,DIRECTION Port  config for stepper unique id 0*/
+    {PORT_E,PORT_E}, /*STEP,DIRECTION Port  config for stepper unique id 1*/
     {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 2*/
     {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 3*/
     {PORT_D,NOT_CONNECTED}, /*STEP,DIRECTION Port  config for stepper unique id 4*/
@@ -70,5 +70,10 @@ const PIN_TYPE STPR_arrDirPortPin[MAX_STPR_NUM][STP_DIR] =
 #define SET_PIN_HIGH(stprUniqueId,stp_dir)      DIO_VidSetPinValue(STPR_arrStpDirPorts[stprUniqueId][stp_dir], STPR_arrDirPortPin[stprUniqueId][stp_dir],HIGH);
 #define SET_PIN_LOW(stprUniqueId,stp_dir)       DIO_VidSetPinValue(STPR_arrStpDirPorts[stprUniqueId][stp_dir], STPR_arrDirPortPin[stprUniqueId][stp_dir],LOW);
 
-#define BUSY_uSec(Time_uSec)                    __delay_us(Time_uSec)
+#define BUSY_uSec(Time_uSec)\                    
+for (int mc = 0; mc < Time_uSec; mc++)\
+{\
+   __delay_us(1);\
+}\
+
 #endif  /*STPR_CFG_H*/
