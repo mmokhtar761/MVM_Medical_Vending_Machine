@@ -5,5 +5,5 @@ MPLAB_FrameWork/dist/
 MPLAB_FrameWork/nbproject/
 MPLAB_FrameWork/Makefile
 .vscode/
-MPLAB_FrameWork/build/default/production/
+MPLAB_FrameWork/build/default/production/*/
 
