@@ -4417,9 +4417,9 @@ typedef uint8 Std_ReturnType;
 # 13 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
 # 1 "03_MCAL\\DIO_cfg.h" 1
-# 42 "03_MCAL\\DIO_cfg.h"
+# 20 "03_MCAL\\DIO_cfg.h"
 uint8 PORT_A_DEF[8]= {0,
-                      0,
+                      1,
                       0,
                       0,
                       0,
@@ -4427,7 +4427,7 @@ uint8 PORT_A_DEF[8]= {0,
                       0,
                       0};
 
-uint8 PORT_B_DEF[8]= {0,
+uint8 PORT_B_DEF[8]= {1,
                       0,
                       0,
                       0,
@@ -4440,10 +4440,10 @@ uint8 PORT_C_DEF[8]= {0,
                       0,
                       0,
                       0,
+                      1,
                       0,
                       0,
-                      0,
-                      0};
+                      1};
 
 uint8 PORT_D_DEF[8]= {0,
                       0,
@@ -4454,22 +4454,22 @@ uint8 PORT_D_DEF[8]= {0,
                       0,
                       0};
 
-uint8 PORT_E_DEF[8]= {0,
+uint8 PORT_E_DEF[3]= {0,
                       0,
                       0};
 # 14 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
 # 1 "03_MCAL\\DIO_int.h" 1
 # 35 "03_MCAL\\DIO_int.h"
-enum PORTS {
+typedef enum{
   PORT_A,
   PORT_B,
   PORT_C,
   PORT_D,
   PORT_E
-};
+}_PORTS;
 
-enum PINS {
+typedef enum {
   PIN0,
   PIN1,
   PIN2,
@@ -4478,8 +4478,8 @@ enum PINS {
   PIN5,
   PIN6,
   PIN7
-};
-# 77 "03_MCAL\\DIO_int.h"
+}_Pins;
+# 78 "03_MCAL\\DIO_int.h"
 void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinDirCopy);
 
 
@@ -4528,7 +4528,7 @@ const uint8 STPR_arrStpDirPorts[11][2] =
 const uint8 STPR_arrDirPortPin[11][2] =
 {
     {PIN4,PIN5},
-    {PIN6,PIN5},
+    {PIN1,PIN0},
     {PIN7,0xFF},
     {PIN6,0xFF},
     {PIN5,0xFF},
@@ -4616,9 +4616,9 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
 # 17 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
 # 1 "02_HAL/STPR_prvt.h" 1
-# 24 "02_HAL/STPR_prvt.h"
+# 25 "02_HAL/STPR_prvt.h"
 uint32 arrSTPR_LiveVel[11];
-uint32 arrAccIntervalCount[11];
+
 
 void GenPulse(STPR_type* ptrSTPR , uint32 stpWidth)
 {
@@ -4631,6 +4631,8 @@ void GenPulse(STPR_type* ptrSTPR , uint32 stpWidth)
 # 28 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c"
 void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval)
 {
+
+    if (Copy_UniqueId > (11 -1)) return;
     ptrSTPR->UniqueId = Copy_UniqueId;
     ptrSTPR->stpPerMm = Conpy_stpPerMm;
     STPR_voidSetStprVel (ptrSTPR,Copy_stpVel);
@@ -4699,6 +4701,9 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
         GenPulse(ptrSTPR,width);
     }
+
+    arrSTPR_LiveVel[ptrSTPR->UniqueId] = (uint16)((uint32)(1000000)/(12500 + 12500));
+    ptrSTPR->stprStat= IDLE;
 }
 
 
@@ -4766,6 +4771,7 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
 
  void STPR_callBack(STPR_type* ptrSTPR)
  {
+    if (ptrSTPR->stprStat == IDLE || ptrSTPR->stprStat == Sat) return;
     switch (ptrSTPR->stprStat)
     {
         case ACC:
@@ -4774,7 +4780,7 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
         case DeAcc:
             if (arrSTPR_LiveVel[ptrSTPR->UniqueId] <= (uint16)((uint32)(1000000)/(12500 + 12500)))
             {
-                arrSTPR_LiveVel[ptrSTPR->UniqueId] = 0;
+                arrSTPR_LiveVel[ptrSTPR->UniqueId] = (uint16)((uint32)(1000000)/(12500 + 12500));
                 ptrSTPR->stprStat= IDLE;
             }
             else

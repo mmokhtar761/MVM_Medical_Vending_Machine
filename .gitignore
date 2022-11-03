@@ -4,9 +4,9 @@ MPLAB_FrameWork/dist*/
 
 PCBs/
 
-#MPLAB_FrameWork/nbproject*/
+MPLAB_FrameWork/nbproject/
 
-MPLAB_FrameWork/build/default/production*/
+MPLAB_FrameWork/build/
 
 .vscode/
 

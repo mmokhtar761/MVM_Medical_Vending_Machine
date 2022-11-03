@@ -7,14 +7,7 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "01_APP/newmain.c" 2
-
-
-
-
-
-
-
-
+# 10 "01_APP/newmain.c"
 # 1 "00_Lib\\Std_Types.h" 1
 # 21 "00_Lib\\Std_Types.h"
 # 1 "00_Lib/Platform_Types.h" 1
@@ -36,7 +29,7 @@ typedef double float64;
 # 22 "00_Lib\\Std_Types.h" 2
 # 41 "00_Lib\\Std_Types.h"
 typedef uint8 Std_ReturnType;
-# 9 "01_APP/newmain.c" 2
+# 10 "01_APP/newmain.c" 2
 
 # 1 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\\Config_uC.h" 1
 # 39 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\\Config_uC.h"
@@ -4478,68 +4471,25 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 2 3
 # 96 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\\Config_uC.h" 2
-# 10 "01_APP/newmain.c" 2
-
-# 1 "00_Lib\\MANIPULATOR.h" 1
 # 11 "01_APP/newmain.c" 2
 
+# 1 "00_Lib\\MANIPULATOR.h" 1
+# 12 "01_APP/newmain.c" 2
 
 
 
-# 1 "03_MCAL\\DIO_cfg.h" 1
-# 42 "03_MCAL\\DIO_cfg.h"
-uint8 PORT_A_DEF[8]= {0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0};
-
-uint8 PORT_B_DEF[8]= {0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0};
-
-uint8 PORT_C_DEF[8]= {0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0};
-
-uint8 PORT_D_DEF[8]= {0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0};
-
-uint8 PORT_E_DEF[8]= {0,
-                      0,
-                      0};
-# 15 "01_APP/newmain.c" 2
 
 # 1 "03_MCAL\\DIO_int.h" 1
 # 35 "03_MCAL\\DIO_int.h"
-enum PORTS {
+typedef enum{
   PORT_A,
   PORT_B,
   PORT_C,
   PORT_D,
   PORT_E
-};
+}_PORTS;
 
-enum PINS {
+typedef enum {
   PIN0,
   PIN1,
   PIN2,
@@ -4548,8 +4498,8 @@ enum PINS {
   PIN5,
   PIN6,
   PIN7
-};
-# 77 "03_MCAL\\DIO_int.h"
+}_Pins;
+# 78 "03_MCAL\\DIO_int.h"
 void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinDirCopy);
 
 
@@ -4574,6 +4524,10 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 # 16 "01_APP/newmain.c" 2
+
+void initT0Spaqitti(void);
+
+
 
 # 1 "02_HAL\\STPR_int.h" 1
 # 18 "02_HAL\\STPR_int.h"
@@ -4647,19 +4601,61 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
 
 
  void STPR_callBack(STPR_type* ptrSTPR);
-# 17 "01_APP/newmain.c" 2
+# 20 "01_APP/newmain.c" 2
+
+
+
+STPR_type MyStprs [11];
 
 void main(void) {
+
+        DIO_Inti();
+        initT0Spaqitti();
+
+
+        for (uint8 i=0; i<11;i++)
+        {
+                STPR_voidInitStpr (MyStprs+i,i,2,3000,900);
+        }
+        T0CON|= ((uint32)1<<7);
+        ADCON1= 0b1110;
+        PORTD =0;
         while (1)
         {
-         TRISC = 0x0;
-         PORTC = 0xFF;
-         _delay((unsigned long)((1000)*(16000000/4000.0)));
-         PORTC = 0;
-         _delay((unsigned long)((1000)*(16000000/4000.0)));
+
+            STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
+
+           _delay((unsigned long)((500)*(16000000/4000.0)));
+           STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
+                      _delay((unsigned long)((500)*(16000000/4000.0)));
+
+
         }
-         DIO_VidSetHalfPortDirection(PORT_B, 2 ,0);
- DIO_VidSetHalfPortSet(PORT_B,2,1);
 
     return;
+}
+
+
+void initT0Spaqitti(void)
+{
+
+        TMR0H = 0x3C;
+        TMR0L = 0xAF;
+        T0CON = 0b00000011;
+        INTCONbits.GIE=1;
+        INTCONbits.T0IE =1;
+}
+void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
+{
+        if(INTCONbits.T0IF && INTCONbits.T0IE)
+        {
+                TMR0H = 0x3C;
+                TMR0L = 0xAF;
+                INTCONbits.T0IF = 0;
+
+
+
+
+                STPR_callBack(MyStprs+1);
+        }
 }

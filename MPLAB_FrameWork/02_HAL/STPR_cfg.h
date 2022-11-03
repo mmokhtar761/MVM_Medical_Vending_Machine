@@ -3,7 +3,7 @@
 /* File          : STPR_CFG_H                                            */
 /*Describtion    : Stepper control driver config file                    */
 /* Date          : Oct 2022                                              */
-/* Version       : V00.1                                                 */
+/* Version       : V01.0                                                 */
 /* GitHub        : https://github.com/mmokhtar761                        */
 /*************************************************************************/
 #ifndef STPR_CFG_H
@@ -54,7 +54,7 @@ const PORT_TYPE STPR_arrStpDirPorts[MAX_STPR_NUM][STP_DIR] =
 const PIN_TYPE STPR_arrDirPortPin[MAX_STPR_NUM][STP_DIR] =
 {
     {PIN4,PIN5}, /*STEP,DIRECTION Pin  config for stepper unique id 0*/
-    {PIN6,PIN5}, /*STEP,DIRECTION Pin  config for stepper unique id 1*/
+    {PIN1,PIN0}, /*STEP,DIRECTION Pin  config for stepper unique id 1*/
     {PIN7,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 2*/
     {PIN6,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 3*/
     {PIN5,NOT_CONNECTED}, /*STEP,DIRECTION Pin  config for stepper unique id 4*/

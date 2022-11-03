@@ -3,9 +3,10 @@
 /* File          : STPR_PROG_C                                           */
 /*Describtion    : Stepper control driver module.c file                  */
 /* Date          : Oct 2022                                              */
-/* Version       : V00.1                                                 */
+/* Version       : V01.0                                                 */
 /* GitHub        : https://github.com/mmokhtar761                        */
 /*************************************************************************/
+
 #define _XTAL_FREQ 16000000
 #include <xc.h>
 
@@ -27,6 +28,8 @@
  */
 void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_stpPerMm, uint16 Copy_stpVel, uint8  stprAccPerInterval)
 {
+    /*Check for the id passed*/
+    if (Copy_UniqueId > MAX_STPR_uniqueID) return;
     ptrSTPR->UniqueId = Copy_UniqueId;
     ptrSTPR->stpPerMm = Conpy_stpPerMm;
     STPR_voidSetStprVel (ptrSTPR,Copy_stpVel);
@@ -95,6 +98,9 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_typ
         width= MICRO_PER_SEC/arrSTPR_LiveVel[ptrSTPR->UniqueId];
         GenPulse(ptrSTPR,width);
     }
+    /*Make sure that the stepper is re init to idle and min vel*/
+    arrSTPR_LiveVel[ptrSTPR->UniqueId] = MIN_STEPS_PER_SEC;
+    ptrSTPR->stprStat= IDLE;
 }
 
 
@@ -162,6 +168,7 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
 */
  void STPR_callBack(STPR_type* ptrSTPR)
  {
+    if (ptrSTPR->stprStat == IDLE || ptrSTPR->stprStat == Sat) return; /*not initialized correctlly, get out of here*/
     switch (ptrSTPR->stprStat)
     {
         case ACC:
@@ -170,7 +177,7 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
         case DeAcc:
             if (arrSTPR_LiveVel[ptrSTPR->UniqueId] <= MIN_STEPS_PER_SEC)
             {
-                arrSTPR_LiveVel[ptrSTPR->UniqueId] = 0;
+                arrSTPR_LiveVel[ptrSTPR->UniqueId] = MIN_STEPS_PER_SEC;
                 ptrSTPR->stprStat= IDLE;
             }
             else

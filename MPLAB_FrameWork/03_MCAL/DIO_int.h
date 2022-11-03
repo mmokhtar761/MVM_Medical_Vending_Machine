@@ -32,15 +32,15 @@
 #define _DIO_INT_H
 
 /* Port Defines */
-enum PORTS {
+typedef enum{
   PORT_A,
   PORT_B,
   PORT_C,
   PORT_D,
   PORT_E
-}; 
+}_PORTS; 
 /* PIN Defines */
-enum PINS {
+typedef enum {
   PIN0,
   PIN1,
   PIN2,
@@ -49,7 +49,8 @@ enum PINS {
   PIN5,
   PIN6,
   PIN7
-}; 
+}_Pins; 
+
 
 /*Max number of pins for port E*/
 #define PORT_E_LAST_PIN 2

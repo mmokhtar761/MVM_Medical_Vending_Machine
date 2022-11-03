@@ -4409,15 +4409,15 @@ typedef double float64;
 
 # 1 "03_MCAL/DIO_int.h" 1
 # 35 "03_MCAL/DIO_int.h"
-enum PORTS {
+typedef enum{
   PORT_A,
   PORT_B,
   PORT_C,
   PORT_D,
   PORT_E
-};
+}_PORTS;
 
-enum PINS {
+typedef enum {
   PIN0,
   PIN1,
   PIN2,
@@ -4426,8 +4426,8 @@ enum PINS {
   PIN5,
   PIN6,
   PIN7
-};
-# 77 "03_MCAL/DIO_int.h"
+}_Pins;
+# 78 "03_MCAL/DIO_int.h"
 void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinDirCopy);
 
 
@@ -4453,9 +4453,9 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 # 17 "03_MCAL/DIO_prog.c" 2
 # 1 "03_MCAL/DIO_cfg.h" 1
-# 42 "03_MCAL/DIO_cfg.h"
+# 20 "03_MCAL/DIO_cfg.h"
 uint8 PORT_A_DEF[8]= {0,
-                      0,
+                      1,
                       0,
                       0,
                       0,
@@ -4463,7 +4463,7 @@ uint8 PORT_A_DEF[8]= {0,
                       0,
                       0};
 
-uint8 PORT_B_DEF[8]= {0,
+uint8 PORT_B_DEF[8]= {1,
                       0,
                       0,
                       0,
@@ -4476,10 +4476,10 @@ uint8 PORT_C_DEF[8]= {0,
                       0,
                       0,
                       0,
+                      1,
                       0,
                       0,
-                      0,
-                      0};
+                      1};
 
 uint8 PORT_D_DEF[8]= {0,
                       0,
@@ -4490,7 +4490,7 @@ uint8 PORT_D_DEF[8]= {0,
                       0,
                       0};
 
-uint8 PORT_E_DEF[8]= {0,
+uint8 PORT_E_DEF[3]= {0,
                       0,
                       0};
 # 18 "03_MCAL/DIO_prog.c" 2
@@ -4545,7 +4545,7 @@ void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinD
 void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCopy)
 {
 
- if ((u8PortIdCopy <= PORT_D) && (u8PinIdCopy <= PIN7))
+ if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
  {
   if (u8PinValCopy == 1)
   {
@@ -4557,7 +4557,6 @@ void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCo
     case PORT_C: PORTC|= ((uint32)1<<u8PinIdCopy); break;
     case PORT_D: PORTD|= ((uint32)1<<u8PinIdCopy); break;
                 case PORT_E: PORTE|= ((uint32)1<<u8PinIdCopy); break;
-
    }
   }
   else if (u8PinValCopy == 0)
@@ -4569,7 +4568,7 @@ void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCo
     case PORT_B: PORTB&= ~((uint32)1<<u8PinIdCopy); break;
     case PORT_C: PORTC&= ~((uint32)1<<u8PinIdCopy); break;
     case PORT_D: PORTD&= ~((uint32)1<<u8PinIdCopy); break;
-                case PORT_E: PORTE|= ((uint32)1<<u8PinIdCopy); break;
+                case PORT_E: PORTE&= ~((uint32)1<<u8PinIdCopy); break;
 
    }
   }
@@ -4590,7 +4589,7 @@ uint8 DIO_u8GetPinValue(uint8 u8PortIdCopy, uint8 u8PinIdCopy)
  uint8 u8ResultLocal;
 
 
- if ((u8PortIdCopy <= PORT_D) && (u8PinIdCopy <= PIN7))
+ if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
  {
 
   switch (u8PortIdCopy)

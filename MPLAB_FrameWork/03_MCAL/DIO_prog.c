@@ -66,7 +66,7 @@ void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinD
 void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCopy)
 {
 	/* Make sure that the Port ID and Pin ID are in the valid range */
-	if ((u8PortIdCopy <= PORT_D) && (u8PinIdCopy <= PIN7))
+	if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
 	{
 		if (u8PinValCopy == HIGH)
 		{
@@ -78,7 +78,6 @@ void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCo
 				case PORT_C: BIT_H(PORTC,u8PinIdCopy); break;
 				case PORT_D: BIT_H(PORTD,u8PinIdCopy); break;
                 case PORT_E: BIT_H(PORTE,u8PinIdCopy); break;
-                   
 			}
 		}
 		else if (u8PinValCopy == LOW)
@@ -90,7 +89,7 @@ void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCo
 				case PORT_B: BIT_L(PORTB,u8PinIdCopy); break;
 				case PORT_C: BIT_L(PORTC,u8PinIdCopy); break;
 				case PORT_D: BIT_L(PORTD,u8PinIdCopy); break;
-                case PORT_E: BIT_H(PORTE,u8PinIdCopy); break;
+                case PORT_E: BIT_L(PORTE,u8PinIdCopy); break;
                  
 			}
 		}
@@ -111,7 +110,7 @@ uint8 DIO_u8GetPinValue(uint8 u8PortIdCopy, uint8 u8PinIdCopy)
 	uint8 u8ResultLocal;
 
 	/* Make sure that the Port ID and Pin ID are in the valid range */
-	if ((u8PortIdCopy <= PORT_D) && (u8PinIdCopy <= PIN7))
+	if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
 	{
 		/* Check on the Required PORT Number */
 		switch (u8PortIdCopy)

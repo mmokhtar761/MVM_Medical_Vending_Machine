@@ -3,7 +3,7 @@
 /* File          : STPR_INT_H                                            */
 /* Describtion   : Stepper control driver interface file                 */
 /* Date          : Oct 2022                                              */
-/* Version       : V00.1                                                 */
+/* Version       : V01.0                                                 */
 /* GitHub        : https://github.com/mmokhtar761                        */
 /*************************************************************************/
 #ifndef STPR_INT_H
@@ -79,7 +79,7 @@ void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel);
  */
 void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
 
-#define ACC_INTERVAL              1000    /*In micro seconds*/
+#define ACC_INTERVAL              500    /*In micro seconds*/
 /*
 * Called in ISR for a timer within each "ACC_INTERVAL"
 * A call is needed for each stepper
