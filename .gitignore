@@ -1,9 +1,12 @@
+MPLAB_FrameWork/debug*/
+
+MPLAB_FrameWork/dist*/
+
 PCBs/
-MPLAB_FrameWork/PIC18F4620.pdf
-MPLAB_FrameWork/debug/
-MPLAB_FrameWork/dist/
-MPLAB_FrameWork/nbproject/
-MPLAB_FrameWork/Makefile
+
+#MPLAB_FrameWork/nbproject*/
+
+MPLAB_FrameWork/build/default/production*/
+
 .vscode/
-MPLAB_FrameWork/build/default/production/*/
 
