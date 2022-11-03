@@ -19,8 +19,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p i __delay ]
 "75 02_HAL/STPR_int.h
 [v _STPR_voidSetStprVel `(v ~T0 @X0 0 ef2`*S270`us ]
-"47 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 47: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
+"48 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 48: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
 [c E2509 0 1 .. ]
 [n E2509 . DIR_Low DIR_High  ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
@@ -648,469 +648,469 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [e :UE 271 ]
 }
-"28 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 28: void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval)
+"29 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 29: void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval)
 [v _STPR_voidInitStpr `(v ~T0 @X0 1 ef5`*S270`uc`us`us`uc ]
-"29
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 29: {
+"30
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 30: {
 {
 [e :U _STPR_voidInitStpr ]
-"28
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 28: void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval)
+"29
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 29: void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_UniqueId `uc ~T0 @X0 1 r2 ]
 [v _Conpy_stpPerMm `us ~T0 @X0 1 r3 ]
 [v _Copy_stpVel `us ~T0 @X0 1 r4 ]
 [v _stprAccPerInterval `uc ~T0 @X0 1 r5 ]
-"29
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 29: {
+"30
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 30: {
 [f ]
-"31
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 31:     if (Copy_UniqueId > (11 -1)) return;
+"32
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 32:     if (Copy_UniqueId > (11 -1)) return;
 [e $ ! > -> _Copy_UniqueId `i - -> 11 `i -> 1 `i 281  ]
 [e $UE 280  ]
 [e :U 281 ]
-"32
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 32:     ptrSTPR->UniqueId = Copy_UniqueId;
-[e = . *U _ptrSTPR 4 _Copy_UniqueId ]
 "33
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 33:     ptrSTPR->stpPerMm = Conpy_stpPerMm;
-[e = . *U _ptrSTPR 0 _Conpy_stpPerMm ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 33:     ptrSTPR->UniqueId = Copy_UniqueId;
+[e = . *U _ptrSTPR 4 _Copy_UniqueId ]
 "34
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 34:     STPR_voidSetStprVel (ptrSTPR,Copy_stpVel);
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 34:     ptrSTPR->stpPerMm = Conpy_stpPerMm;
+[e = . *U _ptrSTPR 0 _Conpy_stpPerMm ]
+"35
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 35:     STPR_voidSetStprVel (ptrSTPR,Copy_stpVel);
 [e ( _STPR_voidSetStprVel (2 , _ptrSTPR _Copy_stpVel ]
-"36
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 36:     ptrSTPR->stprAccPerInterval = stprAccPerInterval;
+"37
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 37:     ptrSTPR->stprAccPerInterval = stprAccPerInterval;
 [e = . *U _ptrSTPR 3 _stprAccPerInterval ]
-"38
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 38:     arrSTPR_LiveVel[ptrSTPR->UniqueId] = ((uint32)(1000000)/((12500 + 12500)));
+"39
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 39:     arrSTPR_LiveVel[ptrSTPR->UniqueId] = ((uint32)(1000000)/((12500 + 12500)));
 [e = *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul ]
-"40
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 40:     ptrSTPR->stprStat = IDLE;
-[e = . *U _ptrSTPR 5 . `E2503 0 ]
 "41
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 41:     return;
-[e $UE 280  ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 41:     ptrSTPR->stprStat = IDLE;
+[e = . *U _ptrSTPR 5 . `E2503 0 ]
 "42
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 42: }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 42:     return;
+[e $UE 280  ]
+"43
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 43: }
 [e :UE 280 ]
 }
-"47
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 47: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
-[v _STPR_voidMoveStprStps `(v ~T0 @X0 1 ef3`*S270`us`E2509 ]
 "48
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 48: {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 48: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
+[v _STPR_voidMoveStprStps `(v ~T0 @X0 1 ef3`*S270`us`E2509 ]
+"49
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 49: {
 {
 [e :U _STPR_voidMoveStprStps ]
-"47
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 47: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
+"48
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 48: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_steps `us ~T0 @X0 1 r2 ]
 [v _Copy_MveDir `E2509 ~T0 @X0 1 r3 ]
-"48
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 48: {
-[f ]
 "49
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 49:     uint16 i,satStps,accStps;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 49: {
+[f ]
+"50
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 50:     uint16 i,satStps,accStps;
 [v _i `us ~T0 @X0 1 a ]
 [v _satStps `us ~T0 @X0 1 a ]
 [v _accStps `us ~T0 @X0 1 a ]
-"50
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 50:     uint32 width;
-[v _width `ul ~T0 @X0 1 a ]
 "51
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 51:     if (ptrSTPR->stprStat != IDLE) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 51:     uint32 width;
+[v _width `ul ~T0 @X0 1 a ]
+"52
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 52:     if (ptrSTPR->stprStat != IDLE) return;
 [e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2503 0 `ui 283  ]
 [e $UE 282  ]
 [e :U 283 ]
-"54
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 54:     if (Copy_MveDir == DIR_High)
-[e $ ! == -> _Copy_MveDir `ui -> . `E2509 1 `ui 284  ]
 "55
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 55:     {
-{
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 55:     if (Copy_MveDir == DIR_High)
+[e $ ! == -> _Copy_MveDir `ui -> . `E2509 1 `ui 284  ]
 "56
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 56:         DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR->UniqueId][1], STPR_arrDirPortPin[ptrSTPR->UniqueId][1],1);;
-[e ( _DIO_VidSetPinValue (3 , , *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 56:     {
+{
 "57
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 57:     }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 57:         DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR->UniqueId][1], STPR_arrDirPortPin[ptrSTPR->UniqueId][1],1);;
+[e ( _DIO_VidSetPinValue (3 , , *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"58
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 58:     }
 }
 [e $U 285  ]
-"58
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 58:     else if (Copy_MveDir == DIR_Low)
+"59
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 59:     else if (Copy_MveDir == DIR_Low)
 [e :U 284 ]
 [e $ ! == -> _Copy_MveDir `ui -> . `E2509 0 `ui 286  ]
-"59
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 59:     {
-{
 "60
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 60:         DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR->UniqueId][1], STPR_arrDirPortPin[ptrSTPR->UniqueId][1],0);;
-[e ( _DIO_VidSetPinValue (3 , , *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 60:     {
+{
 "61
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 61:     }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 61:         DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR->UniqueId][1], STPR_arrDirPortPin[ptrSTPR->UniqueId][1],0);;
+[e ( _DIO_VidSetPinValue (3 , , *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+"62
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 62:     }
 }
 [e :U 286 ]
 [e :U 285 ]
-"64
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 64:     ptrSTPR->stprStat = ACC;
-[e = . *U _ptrSTPR 5 . `E2503 1 ]
 "65
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 65:     for (i=0;arrSTPR_LiveVel[ptrSTPR->UniqueId] < ptrSTPR->stpVel;i++)
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 65:     ptrSTPR->stprStat = ACC;
+[e = . *U _ptrSTPR 5 . `E2503 1 ]
+"66
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 66:     for (i=0;arrSTPR_LiveVel[ptrSTPR->UniqueId] < ptrSTPR->stpVel;i++)
 {
 [e = _i -> -> 0 `i `us ]
 [e $U 290  ]
 [e :U 287 ]
-"66
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 66:     {
+"67
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 67:     {
 {
-"68
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 68:         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
-[e = _width / -> -> 1000000 `l `ul *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux ]
 "69
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 69:         GenPulse(ptrSTPR,width);
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 69:         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
+[e = _width / -> -> 1000000 `l `ul *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux ]
+"70
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 70:         GenPulse(ptrSTPR,width);
 [e ( _GenPulse (2 , _ptrSTPR _width ]
-"71
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 71:         if (i >= Copy_steps/2)
-[e $ ! >= -> _i `ui / -> _Copy_steps `ui -> -> 2 `i `ui 291  ]
 "72
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 72:         {
-{
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 72:         if (i >= Copy_steps/2)
+[e $ ! >= -> _i `ui / -> _Copy_steps `ui -> -> 2 `i `ui 291  ]
 "73
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 73:             ptrSTPR->stprStat = DeAcc;
-[e = . *U _ptrSTPR 5 . `E2503 3 ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 73:         {
+{
 "74
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 74:             break;
-[e $U 288  ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 74:             ptrSTPR->stprStat = DeAcc;
+[e = . *U _ptrSTPR 5 . `E2503 3 ]
 "75
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 75:         }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 75:             break;
+[e $U 288  ]
+"76
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 76:         }
 }
 [e :U 291 ]
-"76
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 76:     }
+"77
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 77:     }
 }
 [e ++ _i -> -> 1 `i `us ]
 [e :U 290 ]
 [e $ < *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> . *U _ptrSTPR 1 `ul 287  ]
 [e :U 288 ]
 }
-"79
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 79:     if (ptrSTPR->stprStat != DeAcc)
-[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2503 3 `ui 292  ]
 "80
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 80:     {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 80:     if (ptrSTPR->stprStat != DeAcc)
+[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2503 3 `ui 292  ]
+"81
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 81:     {
 {
-"83
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 83:         satStps= Copy_steps-i;
-[e = _satStps -> - -> _Copy_steps `ui -> _i `ui `us ]
 "84
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 84:         ptrSTPR->stprStat = Sat;
-[e = . *U _ptrSTPR 5 . `E2503 2 ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 84:         satStps= Copy_steps-i;
+[e = _satStps -> - -> _Copy_steps `ui -> _i `ui `us ]
 "85
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 85:         width = ptrSTPR->stpWidth;
-[e = _width . *U _ptrSTPR 2 ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 85:         ptrSTPR->stprStat = Sat;
+[e = . *U _ptrSTPR 5 . `E2503 2 ]
 "86
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 86:         for (;i<satStps;i++)
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 86:         width = ptrSTPR->stpWidth;
+[e = _width . *U _ptrSTPR 2 ]
+"87
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 87:         for (;i<satStps;i++)
 {
 [e $U 296  ]
 [e :U 293 ]
-"87
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 87:         {
-{
 "88
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 88:             GenPulse(ptrSTPR,width);
-[e ( _GenPulse (2 , _ptrSTPR _width ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 88:         {
+{
 "89
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 89:         }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 89:             GenPulse(ptrSTPR,width);
+[e ( _GenPulse (2 , _ptrSTPR _width ]
+"90
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 90:         }
 }
 [e ++ _i -> -> 1 `i `us ]
 [e :U 296 ]
 [e $ < -> _i `ui -> _satStps `ui 293  ]
 [e :U 294 ]
 }
-"90
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 90:     }
+"91
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 91:     }
 }
 [e :U 292 ]
-"92
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 92:     ptrSTPR->stprStat = DeAcc;
-[e = . *U _ptrSTPR 5 . `E2503 3 ]
 "93
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 93:     for (;i< Copy_steps;i++)
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 93:     ptrSTPR->stprStat = DeAcc;
+[e = . *U _ptrSTPR 5 . `E2503 3 ]
+"94
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 94:     for (;i< Copy_steps;i++)
 {
 [e $U 300  ]
 [e :U 297 ]
-"94
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 94:     {
+"95
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 95:     {
 {
-"96
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 96:         if (ptrSTPR->stprStat != DeAcc || arrSTPR_LiveVel[ptrSTPR->UniqueId]<= (uint16)((uint32)(1000000)/(12500 + 12500))) break;
+"97
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 97:         if (ptrSTPR->stprStat != DeAcc || arrSTPR_LiveVel[ptrSTPR->UniqueId]<= (uint16)((uint32)(1000000)/(12500 + 12500))) break;
 [e $ ! || != -> . *U _ptrSTPR 5 `ui -> . `E2503 3 `ui <= *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul 301  ]
 [e $U 298  ]
 [e :U 301 ]
-"97
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 97:         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
-[e = _width / -> -> 1000000 `l `ul *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux ]
 "98
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 98:         GenPulse(ptrSTPR,width);
-[e ( _GenPulse (2 , _ptrSTPR _width ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 98:         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
+[e = _width / -> -> 1000000 `l `ul *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux ]
 "99
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 99:     }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 99:         GenPulse(ptrSTPR,width);
+[e ( _GenPulse (2 , _ptrSTPR _width ]
+"100
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 100:     }
 }
 [e ++ _i -> -> 1 `i `us ]
 [e :U 300 ]
 [e $ < -> _i `ui -> _Copy_steps `ui 297  ]
 [e :U 298 ]
 }
-"101
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 101:     arrSTPR_LiveVel[ptrSTPR->UniqueId] = (uint16)((uint32)(1000000)/(12500 + 12500));
-[e = *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul ]
 "102
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 102:     ptrSTPR->stprStat= IDLE;
-[e = . *U _ptrSTPR 5 . `E2503 0 ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 102:     arrSTPR_LiveVel[ptrSTPR->UniqueId] = (uint16)((uint32)(1000000)/(12500 + 12500));
+[e = *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul ]
 "103
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 103: }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 103:     ptrSTPR->stprStat= IDLE;
+[e = . *U _ptrSTPR 5 . `E2503 0 ]
+"104
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 104: }
 [e :UE 282 ]
 }
-"111
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 111: void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16 Copy_distMm, STPR_Dir_type Copy_MveDir)
-[v _STPR_voidMoveStprMm `(v ~T0 @X0 1 ef3`*S270`us`E2509 ]
 "112
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 112: {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 112: void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16 Copy_distMm, STPR_Dir_type Copy_MveDir)
+[v _STPR_voidMoveStprMm `(v ~T0 @X0 1 ef3`*S270`us`E2509 ]
+"113
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 113: {
 {
 [e :U _STPR_voidMoveStprMm ]
-"111
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 111: void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16 Copy_distMm, STPR_Dir_type Copy_MveDir)
+"112
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 112: void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16 Copy_distMm, STPR_Dir_type Copy_MveDir)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_distMm `us ~T0 @X0 1 r2 ]
 [v _Copy_MveDir `E2509 ~T0 @X0 1 r3 ]
-"112
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 112: {
-[f ]
 "113
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 113:     STPR_voidMoveStprStps (ptrSTPR, (Copy_distMm / ptrSTPR->stpPerMm),Copy_MveDir);
-[e ( _STPR_voidMoveStprStps (3 , , _ptrSTPR -> / -> _Copy_distMm `ui -> . *U _ptrSTPR 0 `ui `us _Copy_MveDir ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 113: {
+[f ]
 "114
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 114: }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 114:     STPR_voidMoveStprStps (ptrSTPR, (Copy_distMm / ptrSTPR->stpPerMm),Copy_MveDir);
+[e ( _STPR_voidMoveStprStps (3 , , _ptrSTPR -> / -> _Copy_distMm `ui -> . *U _ptrSTPR 0 `ui `us _Copy_MveDir ]
+"115
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 115: }
 [e :UE 302 ]
 }
-"119
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 119: void STPR_voidRotateStprDegr (STPR_type* ptrSTPR, uint16 Copy_angleDeg,float32 Copy_stpAngle, STPR_Dir_type Copy_MveDir)
-[v _STPR_voidRotateStprDegr `(v ~T0 @X0 1 ef4`*S270`us`f`E2509 ]
 "120
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 120: {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 120: void STPR_voidRotateStprDegr (STPR_type* ptrSTPR, uint16 Copy_angleDeg,float32 Copy_stpAngle, STPR_Dir_type Copy_MveDir)
+[v _STPR_voidRotateStprDegr `(v ~T0 @X0 1 ef4`*S270`us`f`E2509 ]
+"121
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 121: {
 {
 [e :U _STPR_voidRotateStprDegr ]
-"119
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 119: void STPR_voidRotateStprDegr (STPR_type* ptrSTPR, uint16 Copy_angleDeg,float32 Copy_stpAngle, STPR_Dir_type Copy_MveDir)
+"120
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 120: void STPR_voidRotateStprDegr (STPR_type* ptrSTPR, uint16 Copy_angleDeg,float32 Copy_stpAngle, STPR_Dir_type Copy_MveDir)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_angleDeg `us ~T0 @X0 1 r2 ]
 [v _Copy_stpAngle `f ~T0 @X0 1 r3 ]
 [v _Copy_MveDir `E2509 ~T0 @X0 1 r4 ]
-"120
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 120: {
-[f ]
 "121
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 121:     STPR_voidMoveStprStps (ptrSTPR, (uint16)(Copy_angleDeg / Copy_stpAngle),Copy_MveDir);
-[e ( _STPR_voidMoveStprStps (3 , , _ptrSTPR -> / -> -> _Copy_angleDeg `ui `f _Copy_stpAngle `us _Copy_MveDir ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 121: {
+[f ]
 "122
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 122: }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 122:     STPR_voidMoveStprStps (ptrSTPR, (uint16)(Copy_angleDeg / Copy_stpAngle),Copy_MveDir);
+[e ( _STPR_voidMoveStprStps (3 , , _ptrSTPR -> / -> -> _Copy_angleDeg `ui `f _Copy_stpAngle `us _Copy_MveDir ]
+"123
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 123: }
 [e :UE 303 ]
 }
-"127
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 127: void STPR_voidCalibStpMm (STPR_type* ptrSTPR, uint8 stpPerMm)
-[v _STPR_voidCalibStpMm `(v ~T0 @X0 1 ef2`*S270`uc ]
 "128
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 128: {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 128: void STPR_voidCalibStpMm (STPR_type* ptrSTPR, uint8 stpPerMm)
+[v _STPR_voidCalibStpMm `(v ~T0 @X0 1 ef2`*S270`uc ]
+"129
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 129: {
 {
 [e :U _STPR_voidCalibStpMm ]
-"127
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 127: void STPR_voidCalibStpMm (STPR_type* ptrSTPR, uint8 stpPerMm)
+"128
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 128: void STPR_voidCalibStpMm (STPR_type* ptrSTPR, uint8 stpPerMm)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _stpPerMm `uc ~T0 @X0 1 r2 ]
-"128
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 128: {
-[f ]
 "129
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 129:    if (ptrSTPR->stprStat != IDLE) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 129: {
+[f ]
+"130
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 130:    if (ptrSTPR->stprStat != IDLE) return;
 [e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2503 0 `ui 305  ]
 [e $UE 304  ]
 [e :U 305 ]
-"130
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 130:    ptrSTPR->stpPerMm = stpPerMm;
-[e = . *U _ptrSTPR 0 -> _stpPerMm `us ]
 "131
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 131: }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 131:    ptrSTPR->stpPerMm = stpPerMm;
+[e = . *U _ptrSTPR 0 -> _stpPerMm `us ]
+"132
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 132: }
 [e :UE 304 ]
 }
-"136
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 136: void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel)
-[v _STPR_voidSetStprVel `(v ~T0 @X0 1 ef2`*S270`us ]
 "137
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 137: {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 137: void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel)
+[v _STPR_voidSetStprVel `(v ~T0 @X0 1 ef2`*S270`us ]
+"138
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 138: {
 {
 [e :U _STPR_voidSetStprVel ]
-"136
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 136: void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel)
+"137
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 137: void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_stpVel `us ~T0 @X0 1 r2 ]
-"137
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 137: {
-[f ]
 "138
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 138:     if (ptrSTPR->stprStat != IDLE) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 138: {
+[f ]
+"139
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 139:     if (ptrSTPR->stprStat != IDLE) return;
 [e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2503 0 `ui 307  ]
 [e $UE 306  ]
 [e :U 307 ]
-"139
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 139:     if (Copy_stpVel>(uint16)((uint32)(1000000)/(4 + 4)))
-[e $ ! > -> _Copy_stpVel `ui -> -> / -> -> 1000000 `l `ul -> -> + -> 4 `i -> 4 `i `l `ul `us `ui 308  ]
 "140
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 140:     {
-{
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 140:     if (Copy_stpVel>(uint16)((uint32)(1000000)/(4 + 4)))
+[e $ ! > -> _Copy_stpVel `ui -> -> / -> -> 1000000 `l `ul -> -> + -> 4 `i -> 4 `i `l `ul `us `ui 308  ]
 "141
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 141:         ptrSTPR->stpVel = (uint16)((uint32)(1000000)/(4 + 4));
-[e = . *U _ptrSTPR 1 -> / -> -> 1000000 `l `ul -> -> + -> 4 `i -> 4 `i `l `ul `us ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 141:     {
+{
 "142
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 142:         ptrSTPR->stpWidth = (4 + 4) ;
-[e = . *U _ptrSTPR 2 -> -> + -> 4 `i -> 4 `i `l `ul ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 142:         ptrSTPR->stpVel = (uint16)((uint32)(1000000)/(4 + 4));
+[e = . *U _ptrSTPR 1 -> / -> -> 1000000 `l `ul -> -> + -> 4 `i -> 4 `i `l `ul `us ]
 "143
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 143:     }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 143:         ptrSTPR->stpWidth = (4 + 4) ;
+[e = . *U _ptrSTPR 2 -> -> + -> 4 `i -> 4 `i `l `ul ]
+"144
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 144:     }
 }
 [e $U 309  ]
-"144
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 144:     else if (Copy_stpVel<(uint16)((uint32)(1000000)/(12500 + 12500)))
+"145
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 145:     else if (Copy_stpVel<(uint16)((uint32)(1000000)/(12500 + 12500)))
 [e :U 308 ]
 [e $ ! < -> _Copy_stpVel `ui -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ui 310  ]
-"145
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 145:     {
-{
 "146
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 146:         ptrSTPR->stpVel = (uint16)((uint32)(1000000)/(12500 + 12500));
-[e = . *U _ptrSTPR 1 -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 146:     {
+{
 "147
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 147:         ptrSTPR->stpWidth = (12500 + 12500) ;
-[e = . *U _ptrSTPR 2 -> -> + -> 12500 `i -> 12500 `i `l `ul ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 147:         ptrSTPR->stpVel = (uint16)((uint32)(1000000)/(12500 + 12500));
+[e = . *U _ptrSTPR 1 -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us ]
 "148
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 148:     }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 148:         ptrSTPR->stpWidth = (12500 + 12500) ;
+[e = . *U _ptrSTPR 2 -> -> + -> 12500 `i -> 12500 `i `l `ul ]
+"149
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 149:     }
 }
 [e $U 311  ]
-"149
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 149:     else
-[e :U 310 ]
 "150
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 150:     {
-{
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 150:     else
+[e :U 310 ]
 "151
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 151:         ptrSTPR->stpVel = Copy_stpVel;
-[e = . *U _ptrSTPR 1 _Copy_stpVel ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 151:     {
+{
 "152
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 152:         ptrSTPR->stpWidth = (uint32)(1000000)/Copy_stpVel;
-[e = . *U _ptrSTPR 2 / -> -> 1000000 `l `ul -> _Copy_stpVel `ul ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 152:         ptrSTPR->stpVel = Copy_stpVel;
+[e = . *U _ptrSTPR 1 _Copy_stpVel ]
 "153
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 153:     }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 153:         ptrSTPR->stpWidth = (uint32)(1000000)/Copy_stpVel;
+[e = . *U _ptrSTPR 2 / -> -> 1000000 `l `ul -> _Copy_stpVel `ul ]
+"154
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 154:     }
 }
 [e :U 311 ]
 [e :U 309 ]
-"154
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 154: }
+"155
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 155: }
 [e :UE 306 ]
 }
-"159
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 159: void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
-[v _STPR_voidSetStprAcc `(v ~T0 @X0 1 ef2`*S270`uc ]
 "160
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 160: {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 160: void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
+[v _STPR_voidSetStprAcc `(v ~T0 @X0 1 ef2`*S270`uc ]
+"161
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 161: {
 {
 [e :U _STPR_voidSetStprAcc ]
-"159
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 159: void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
+"160
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 160: void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_AccPerInterval `uc ~T0 @X0 1 r2 ]
-"160
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 160: {
-[f ]
 "161
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 161:     if (ptrSTPR->stprStat != IDLE) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 161: {
+[f ]
+"162
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 162:     if (ptrSTPR->stprStat != IDLE) return;
 [e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2503 0 `ui 313  ]
 [e $UE 312  ]
 [e :U 313 ]
-"162
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 162:     ptrSTPR->stprAccPerInterval = Copy_AccPerInterval;
-[e = . *U _ptrSTPR 3 _Copy_AccPerInterval ]
 "163
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 163: }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 163:     ptrSTPR->stprAccPerInterval = Copy_AccPerInterval;
+[e = . *U _ptrSTPR 3 _Copy_AccPerInterval ]
+"164
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 164: }
 [e :UE 312 ]
 }
-"168
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 168:  void STPR_callBack(STPR_type* ptrSTPR)
-[v _STPR_callBack `(v ~T0 @X0 1 ef1`*S270 ]
 "169
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 169:  {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 169:  void STPR_callBack(STPR_type* ptrSTPR)
+[v _STPR_callBack `(v ~T0 @X0 1 ef1`*S270 ]
+"170
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 170:  {
 {
 [e :U _STPR_callBack ]
-"168
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 168:  void STPR_callBack(STPR_type* ptrSTPR)
-[v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 "169
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 169:  {
-[f ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 169:  void STPR_callBack(STPR_type* ptrSTPR)
+[v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 "170
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 170:     if (ptrSTPR->stprStat == IDLE || ptrSTPR->stprStat == Sat) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 170:  {
+[f ]
+"171
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 171:     if (ptrSTPR->stprStat == IDLE || ptrSTPR->stprStat == Sat) return;
 [e $ ! || == -> . *U _ptrSTPR 5 `ui -> . `E2503 0 `ui == -> . *U _ptrSTPR 5 `ui -> . `E2503 2 `ui 315  ]
 [e $UE 314  ]
 [e :U 315 ]
-"171
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 171:     switch (ptrSTPR->stprStat)
-[e $U 317  ]
 "172
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 172:     {
-{
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 172:     switch (ptrSTPR->stprStat)
+[e $U 317  ]
 "173
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 173:         case ACC:
-[e :U 318 ]
-"174
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 174:             arrSTPR_LiveVel[ptrSTPR->UniqueId] += ptrSTPR->stprAccPerInterval;
-[e =+ *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> . *U _ptrSTPR 3 `ul ]
-"175
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 175:             break;
-[e $U 316  ]
-"176
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 176:         case DeAcc:
-[e :U 319 ]
-"177
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 177:             if (arrSTPR_LiveVel[ptrSTPR->UniqueId] <= (uint16)((uint32)(1000000)/(12500 + 12500)))
-[e $ ! <= *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul 320  ]
-"178
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 178:             {
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 173:     {
 {
+"174
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 174:         case ACC:
+[e :U 318 ]
+"175
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 175:             arrSTPR_LiveVel[ptrSTPR->UniqueId] += ptrSTPR->stprAccPerInterval;
+[e =+ *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> . *U _ptrSTPR 3 `ul ]
+"176
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 176:             break;
+[e $U 316  ]
+"177
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 177:         case DeAcc:
+[e :U 319 ]
+"178
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 178:             if (arrSTPR_LiveVel[ptrSTPR->UniqueId] <= (uint16)((uint32)(1000000)/(12500 + 12500)))
+[e $ ! <= *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul 320  ]
 "179
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 179:                 arrSTPR_LiveVel[ptrSTPR->UniqueId] = (uint16)((uint32)(1000000)/(12500 + 12500));
-[e = *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 179:             {
+{
 "180
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 180:                 ptrSTPR->stprStat= IDLE;
-[e = . *U _ptrSTPR 5 . `E2503 0 ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 180:                 arrSTPR_LiveVel[ptrSTPR->UniqueId] = (uint16)((uint32)(1000000)/(12500 + 12500));
+[e = *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul ]
 "181
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 181:             }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 181:                 ptrSTPR->stprStat= IDLE;
+[e = . *U _ptrSTPR 5 . `E2503 0 ]
+"182
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 182:             }
 }
 [e $U 321  ]
-"182
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 182:             else
-[e :U 320 ]
 "183
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 183:             {
-{
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 183:             else
+[e :U 320 ]
 "184
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 184:                 arrSTPR_LiveVel[ptrSTPR->UniqueId] -= ptrSTPR->stprAccPerInterval;
-[e =- *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> . *U _ptrSTPR 3 `ul ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 184:             {
+{
 "185
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 185:             }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 185:                 arrSTPR_LiveVel[ptrSTPR->UniqueId] -= ptrSTPR->stprAccPerInterval;
+[e =- *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> . *U _ptrSTPR 3 `ul ]
+"186
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 186:             }
 }
 [e :U 321 ]
-"186
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 186:             break;
-[e $U 316  ]
 "187
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 187:     }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 187:             break;
+[e $U 316  ]
+"188
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 188:     }
 }
 [e $U 316  ]
 [e :U 317 ]
@@ -1118,7 +1118,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E2503 3 `ui 319
  316 ]
 [e :U 316 ]
-"188
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 188:  }
+"189
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 189:  }
 [e :UE 314 ]
 }

@@ -21,6 +21,9 @@
       <logicalFolder name="f3" displayName="MCAL_inc" projectFiles="true">
         <itemPath>03_MCAL/DIO_cfg.h</itemPath>
         <itemPath>03_MCAL/DIO_int.h</itemPath>
+        <itemPath>03_MCAL/UART_cfg.h</itemPath>
+        <itemPath>03_MCAL/UART_int.h</itemPath>
+        <itemPath>03_MCAL/UART_prvt.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -38,6 +41,7 @@
       </logicalFolder>
       <logicalFolder name="f3" displayName="MCAL" projectFiles="true">
         <itemPath>03_MCAL/DIO_prog.c</itemPath>
+        <itemPath>03_MCAL/UART_prog.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -60,7 +64,7 @@
         <targetDevice>PIC18F4620</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>3</platform>

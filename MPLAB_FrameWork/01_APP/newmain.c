@@ -14,6 +14,7 @@
 
 /*MCAL modules inc*/
 #include "DIO_int.h"
+#include "UART_int.h"
 void initT0Spaqitti(void);
 
 /*HAL modules inc*/
@@ -21,10 +22,11 @@ void initT0Spaqitti(void);
 
 /*Array of stepper handlers*/
 STPR_type MyStprs [11];
-
+sint8 mymsg;
 void main(void) {
         /*Init MCAL modules*/
         DIO_Inti(); //Init pin dir as configured
+        UART_voidInit ();
         initT0Spaqitti();//100ms simple timer
         /*Init HAL modules*/
         /*INIT all the steppers needed*/
@@ -37,12 +39,18 @@ void main(void) {
         PORTD =0;
         while (1)
         {
+            //UART_TxMsgSyn  ('x',100);
+            mymsg = UART_RxMsgSyn  (10000);
 
-            STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
-    
-           __delay_ms(500);
-           STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
-                      __delay_ms(500);
+            //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
+            
+           //__delay_ms(500);
+           //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
+           if (mymsg != -1 && mymsg!=-2) UART_TxArrMsg ("I want to sleep", 16);
+           //else UART_TxArrMsg ("ERROR", 6);
+            UART_TxMsgSyn  ('\n',100);
+            UART_TxMsgSyn  ('\r',100);
+           __delay_ms(2000);
 
 
         }

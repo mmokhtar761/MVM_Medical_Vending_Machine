@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=01_APP/newmain.c "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 03_MCAL/DIO_prog.c
+SOURCEFILES_QUOTED_IF_SPACED=01_APP/newmain.c "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 03_MCAL/DIO_prog.c 03_MCAL/UART_prog.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1 ${OBJECTDIR}/03_MCAL/DIO_prog.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/01_APP/newmain.p1.d ${OBJECTDIR}/_ext/370941739/STPR_prog.p1.d ${OBJECTDIR}/03_MCAL/DIO_prog.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1 ${OBJECTDIR}/03_MCAL/DIO_prog.p1 ${OBJECTDIR}/03_MCAL/UART_prog.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/01_APP/newmain.p1.d ${OBJECTDIR}/_ext/370941739/STPR_prog.p1.d ${OBJECTDIR}/03_MCAL/DIO_prog.p1.d ${OBJECTDIR}/03_MCAL/UART_prog.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1 ${OBJECTDIR}/03_MCAL/DIO_prog.p1
+OBJECTFILES=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/370941739/STPR_prog.p1 ${OBJECTDIR}/03_MCAL/DIO_prog.p1 ${OBJECTDIR}/03_MCAL/UART_prog.p1
 
 # Source Files
-SOURCEFILES=01_APP/newmain.c E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c 03_MCAL/DIO_prog.c
+SOURCEFILES=01_APP/newmain.c E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c 03_MCAL/DIO_prog.c 03_MCAL/UART_prog.c
 
 
 
@@ -118,6 +118,14 @@ ${OBJECTDIR}/03_MCAL/DIO_prog.p1: 03_MCAL/DIO_prog.c  nbproject/Makefile-${CND_C
 	@-${MV} ${OBJECTDIR}/03_MCAL/DIO_prog.d ${OBJECTDIR}/03_MCAL/DIO_prog.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/03_MCAL/DIO_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/03_MCAL/UART_prog.p1: 03_MCAL/UART_prog.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/03_MCAL" 
+	@${RM} ${OBJECTDIR}/03_MCAL/UART_prog.p1.d 
+	@${RM} ${OBJECTDIR}/03_MCAL/UART_prog.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/03_MCAL/UART_prog.p1 03_MCAL/UART_prog.c 
+	@-${MV} ${OBJECTDIR}/03_MCAL/UART_prog.d ${OBJECTDIR}/03_MCAL/UART_prog.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/03_MCAL/UART_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/01_APP/newmain.p1: 01_APP/newmain.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/01_APP" 
@@ -143,6 +151,14 @@ ${OBJECTDIR}/03_MCAL/DIO_prog.p1: 03_MCAL/DIO_prog.c  nbproject/Makefile-${CND_C
 	@-${MV} ${OBJECTDIR}/03_MCAL/DIO_prog.d ${OBJECTDIR}/03_MCAL/DIO_prog.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/03_MCAL/DIO_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/03_MCAL/UART_prog.p1: 03_MCAL/UART_prog.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/03_MCAL" 
+	@${RM} ${OBJECTDIR}/03_MCAL/UART_prog.p1.d 
+	@${RM} ${OBJECTDIR}/03_MCAL/UART_prog.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/03_MCAL/UART_prog.p1 03_MCAL/UART_prog.c 
+	@-${MV} ${OBJECTDIR}/03_MCAL/UART_prog.d ${OBJECTDIR}/03_MCAL/UART_prog.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/03_MCAL/UART_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 endif
 
 # ------------------------------------------------------------------------------------
@@ -162,7 +178,7 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.map  -D__DEBUG=1  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -mrom=default,-fd30-ffff -mram=default,-ef4-eff,-f9c-f9c,-fd4-fd4,-fdb-fdf,-fe3-fe7,-feb-fef,-ffd-fff  $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.map  -D__DEBUG=1  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp=${DFP_DIR}/xc8  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"01_APP" -I"02_HAL" -I"03_MCAL" -I"E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork" -mwarn=0 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto        $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB_FrameWork.${IMAGE_TYPE}.hex 
 	
 else

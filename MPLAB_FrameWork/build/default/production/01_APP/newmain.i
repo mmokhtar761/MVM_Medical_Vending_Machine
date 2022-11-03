@@ -4525,6 +4525,51 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 # 16 "01_APP/newmain.c" 2
 
+# 1 "03_MCAL\\UART_int.h" 1
+# 17 "03_MCAL\\UART_int.h"
+void UART_voidInit (void);
+
+
+
+
+
+
+
+void UART_TxMsgSyn (uint8 msg,uint16 TimeOutCount);
+
+
+
+
+sint16 UART_RxMsgSyn (uint16 TimeOutCount);
+
+
+
+
+
+void UART_RxMsgAsyn (void);
+
+sint16 Rx_ISR_Handler(void);
+
+void Rx_ISR_arrHandler(sint16* msg, uint8 ArrSize,uint16 TimeOutCount);
+# 50 "03_MCAL\\UART_int.h"
+void UART_TxArrMsg (uint8 * msgArr, uint8 ArrSize);
+
+
+
+
+
+void UART_RxArrMsg (sint16* msg, uint8 ArrSize, uint16 TimeOutCount);
+
+
+
+
+
+void UART_ReSetBaudRate (uint32 BR);
+
+
+uint32 UART_getBaudRate(void);
+# 17 "01_APP/newmain.c" 2
+
 void initT0Spaqitti(void);
 
 
@@ -4601,15 +4646,16 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
 
 
  void STPR_callBack(STPR_type* ptrSTPR);
-# 20 "01_APP/newmain.c" 2
+# 21 "01_APP/newmain.c" 2
 
 
 
 STPR_type MyStprs [11];
-
+sint8 mymsg;
 void main(void) {
 
         DIO_Inti();
+        UART_voidInit ();
         initT0Spaqitti();
 
 
@@ -4623,11 +4669,17 @@ void main(void) {
         while (1)
         {
 
-            STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
+            mymsg = UART_RxMsgSyn (10000);
 
-           _delay((unsigned long)((500)*(16000000/4000.0)));
-           STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
-                      _delay((unsigned long)((500)*(16000000/4000.0)));
+
+
+
+
+           if (mymsg != -1 && mymsg!=-2) UART_TxArrMsg ("I want to sleep", 16);
+
+            UART_TxMsgSyn ('\n',100);
+            UART_TxMsgSyn ('\r',100);
+           _delay((unsigned long)((2000)*(16000000/4000.0)));
 
 
         }
