@@ -449,8 +449,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PORT_A_DEF `uc ~T0 @X0 -> 8 `i e ]
 [i _PORT_A_DEF
 :U ..
--> -> 0 `i `uc
 -> -> 1 `i `uc
+-> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -1383,4 +1383,316 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "225
 [e :UE 408 ]
+}
+"227
+[v _DIO_VidDirPortNibble `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _DIO_VidDirPortNibble ]
+[v _u8PortId `uc ~T0 @X0 1 r1 ]
+[v _u8StPin `uc ~T0 @X0 1 r2 ]
+[v _u8PortDir `uc ~T0 @X0 1 r3 ]
+[f ]
+"228
+[e $ ! <= -> _u8StPin `i -> . `E2457 4 `i 442  ]
+{
+"229
+{
+[v _u8PinIdCopy `uc ~T0 @X0 1 a ]
+[e = _u8PinIdCopy _u8StPin ]
+[e $U 446  ]
+[e :U 443 ]
+{
+"230
+[e $U 448  ]
+"231
+{
+"232
+[e :U 449 ]
+[e $ ! == -> _u8PortDir `i -> 0 `i 450  ]
+{
+[e =& _TRISA -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 451  ]
+"233
+[e :U 450 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 452  ]
+{
+[e =| _TRISA -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 453  ]
+[e :U 452 ]
+{
+}
+[e :U 453 ]
+[e :U 451 ]
+"234
+[e :U 454 ]
+[e $ ! == -> _u8PortDir `i -> 0 `i 455  ]
+{
+[e =& _TRISB -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 456  ]
+"235
+[e :U 455 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 457  ]
+{
+[e =| _TRISB -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 458  ]
+[e :U 457 ]
+{
+}
+[e :U 458 ]
+[e :U 456 ]
+"236
+[e :U 459 ]
+[e $ ! == -> _u8PortDir `i -> 0 `i 460  ]
+{
+[e =& _TRISC -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 461  ]
+"237
+[e :U 460 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 462  ]
+{
+[e =| _TRISC -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 463  ]
+[e :U 462 ]
+{
+}
+[e :U 463 ]
+[e :U 461 ]
+"238
+[e :U 464 ]
+[e $ ! == -> _u8PortDir `i -> 0 `i 465  ]
+{
+[e =& _TRISD -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 466  ]
+"239
+[e :U 465 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 467  ]
+{
+[e =| _TRISD -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 468  ]
+[e :U 467 ]
+{
+}
+[e :U 468 ]
+[e :U 466 ]
+"240
+[e :U 469 ]
+[e $ ! <= -> _u8PinIdCopy `i -> 2 `i 470  ]
+{
+"241
+[e $ ! == -> _u8PortDir `i -> 0 `i 471  ]
+{
+[e =& _TRISE -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 472  ]
+"242
+[e :U 471 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 473  ]
+{
+[e =| _TRISE -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 474  ]
+[e :U 473 ]
+{
+}
+[e :U 474 ]
+[e :U 472 ]
+}
+[e :U 470 ]
+"243
+}
+[e $U 447  ]
+[e :U 448 ]
+[e [\ -> _u8PortId `i , $ . `E2450 0 449
+ , $ . `E2450 1 454
+ , $ . `E2450 2 459
+ , $ . `E2450 3 464
+ , $ . `E2450 4 469
+ 447 ]
+[e :U 447 ]
+"244
+}
+[e ++ _u8PinIdCopy -> -> 1 `i `uc ]
+[e :U 446 ]
+[e $ <= -> _u8PinIdCopy `i + -> _u8StPin `i -> 3 `i 443  ]
+[e :U 444 ]
+}
+"246
+}
+[e :U 442 ]
+"247
+[e :UE 441 ]
+}
+"250
+[v _DIO_VidSetPortNibble `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _DIO_VidSetPortNibble ]
+[v _u8PortId `uc ~T0 @X0 1 r1 ]
+[v _u8StPin `uc ~T0 @X0 1 r2 ]
+[v _u8PortVal `uc ~T0 @X0 1 r3 ]
+[f ]
+"251
+[e $ ! <= -> _u8StPin `i -> . `E2457 4 `i 476  ]
+{
+"252
+{
+[v _u8PinIdCopy `uc ~T0 @X0 1 a ]
+[e = _u8PinIdCopy _u8StPin ]
+[e $U 480  ]
+[e :U 477 ]
+{
+"253
+[e $U 482  ]
+"254
+{
+"255
+[e :U 483 ]
+[e $ ! == -> _u8PortVal `i -> 0 `i 484  ]
+{
+[e =& _PORTA -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 485  ]
+"256
+[e :U 484 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 486  ]
+{
+[e =| _PORTA -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 487  ]
+[e :U 486 ]
+{
+}
+[e :U 487 ]
+[e :U 485 ]
+"257
+[e :U 488 ]
+[e $ ! == -> _u8PortVal `i -> 0 `i 489  ]
+{
+[e =& _PORTB -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 490  ]
+"258
+[e :U 489 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 491  ]
+{
+[e =| _PORTB -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 492  ]
+[e :U 491 ]
+{
+}
+[e :U 492 ]
+[e :U 490 ]
+"259
+[e :U 493 ]
+[e $ ! == -> _u8PortVal `i -> 0 `i 494  ]
+{
+[e =& _PORTC -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 495  ]
+"260
+[e :U 494 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 496  ]
+{
+[e =| _PORTC -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 497  ]
+[e :U 496 ]
+{
+}
+[e :U 497 ]
+[e :U 495 ]
+"261
+[e :U 498 ]
+[e $ ! == -> _u8PortVal `i -> 0 `i 499  ]
+{
+[e =& _PORTD -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 500  ]
+"262
+[e :U 499 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 501  ]
+{
+[e =| _PORTD -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 502  ]
+[e :U 501 ]
+{
+}
+[e :U 502 ]
+[e :U 500 ]
+"263
+[e :U 503 ]
+[e $ ! <= -> _u8PinIdCopy `i -> 2 `i 504  ]
+{
+"264
+[e $ ! == -> _u8PortVal `i -> 0 `i 505  ]
+{
+[e =& _PORTE -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 506  ]
+"265
+[e :U 505 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 507  ]
+{
+[e =| _PORTE -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 508  ]
+[e :U 507 ]
+{
+}
+[e :U 508 ]
+[e :U 506 ]
+}
+[e :U 504 ]
+"266
+}
+[e $U 481  ]
+[e :U 482 ]
+[e [\ -> _u8PortId `i , $ . `E2450 0 483
+ , $ . `E2450 1 488
+ , $ . `E2450 2 493
+ , $ . `E2450 3 498
+ , $ . `E2450 4 503
+ 481 ]
+[e :U 481 ]
+"267
+}
+[e ++ _u8PinIdCopy -> -> 1 `i `uc ]
+[e :U 480 ]
+[e $ <= -> _u8PinIdCopy `i + -> _u8StPin `i -> 3 `i 477  ]
+[e :U 478 ]
+}
+"268
+}
+[e :U 476 ]
+"269
+[e :UE 475 ]
 }

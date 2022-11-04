@@ -26,7 +26,7 @@
  * Copy_stpVel: the needed number of steps per 1 sec
  * stprAccPerInterval: the needed increase in velocity witnin each configured time interval
  */
-void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_stpPerMm, uint16 Copy_stpVel, uint8  stprAccPerInterval)
+void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_stpPerMm, uint16 Copy_stpVel, uint16  stprAccPerInterval)
 {
     /*Check for the id passed*/
     if (Copy_UniqueId > MAX_STPR_uniqueID) return;
@@ -157,7 +157,7 @@ void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel)
 /*
  * Edits the acceleration for the stepper
  */
-void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
+void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval)
 {
     if (ptrSTPR->stprStat != IDLE) return; /*not initialized correctlly or moving, get out of here*/
     ptrSTPR->stprAccPerInterval = Copy_AccPerInterval;
@@ -184,6 +184,12 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
             {
                 arrSTPR_LiveVel[ptrSTPR->UniqueId] -= ptrSTPR->stprAccPerInterval;
             }
+            break;
+        case IDLE:
+            /*do no thing*/
+            break;
+        case Sat:
+            /*do no thing*/
             break;
     }
  }

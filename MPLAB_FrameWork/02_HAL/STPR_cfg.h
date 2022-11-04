@@ -70,8 +70,7 @@ const PIN_TYPE STPR_arrDirPortPin[MAX_STPR_NUM][STP_DIR] =
 #define SET_PIN_HIGH(stprUniqueId,stp_dir)      DIO_VidSetPinValue(STPR_arrStpDirPorts[stprUniqueId][stp_dir], STPR_arrDirPortPin[stprUniqueId][stp_dir],HIGH);
 #define SET_PIN_LOW(stprUniqueId,stp_dir)       DIO_VidSetPinValue(STPR_arrStpDirPorts[stprUniqueId][stp_dir], STPR_arrDirPortPin[stprUniqueId][stp_dir],LOW);
 
-#define BUSY_uSec(Time_uSec)\                    
-for (int mc = 0; mc < Time_uSec; mc++)\
+#define BUSY_uSec(Time_uSec)for (int mc = 0; mc < Time_uSec; mc++)\
 {\
    __delay_us(1);\
 }\

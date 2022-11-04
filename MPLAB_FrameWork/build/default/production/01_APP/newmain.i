@@ -4523,6 +4523,9 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 
 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
+
+void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir);
 # 16 "01_APP/newmain.c" 2
 
 # 1 "03_MCAL\\UART_int.h" 1
@@ -4570,6 +4573,17 @@ void UART_ReSetBaudRate (uint32 BR);
 uint32 UART_getBaudRate(void);
 # 17 "01_APP/newmain.c" 2
 
+# 1 "02_HAL\\LCD_int.h" 1
+# 39 "02_HAL\\LCD_int.h"
+void LCD_voidInit (void);
+
+uint8 IS_BUSY (void);
+void LCD_SetCursor (uint8 p);
+void LCD_wCmd (uint8 d);
+void LCD_wData (uint8 d);
+void LCD_wStr (uint8* str);
+# 18 "01_APP/newmain.c" 2
+
 void initT0Spaqitti(void);
 
 
@@ -4597,7 +4611,7 @@ typedef struct
   uint16 stpPerMm;
   uint16 stpVel;
   uint32 stpWidth;
-  uint8 stprAccPerInterval;
+  uint16 stprAccPerInterval;
   uint8 UniqueId;
   STPR_Stat_type stprStat;
 
@@ -4608,7 +4622,7 @@ typedef struct
 
 
 
-void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval);
+void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint16 stprAccPerInterval);
 
 
 
@@ -4638,7 +4652,7 @@ void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel);
 
 
 
-void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
+void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval);
 
 
 
@@ -4646,39 +4660,34 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
 
 
  void STPR_callBack(STPR_type* ptrSTPR);
-# 21 "01_APP/newmain.c" 2
+# 22 "01_APP/newmain.c" 2
 
 
 
 STPR_type MyStprs [11];
-sint8 mymsg;
+sint16 mymsg;
 void main(void) {
 
         DIO_Inti();
-        UART_voidInit ();
-        initT0Spaqitti();
+        LCD_voidInit ();
+        _delay((unsigned long)((50)*(16000000/4000.0)));
+
+
 
 
         for (uint8 i=0; i<11;i++)
         {
-                STPR_voidInitStpr (MyStprs+i,i,2,3000,900);
+                STPR_voidInitStpr (MyStprs+i,i,(uint16)2,3000,900);
         }
-        T0CON|= ((uint32)1<<7);
+
         ADCON1= 0b1110;
-        PORTD =0;
+
         while (1)
         {
 
-            mymsg = UART_RxMsgSyn (10000);
 
-
-
-
-
-           if (mymsg != -1 && mymsg!=-2) UART_TxArrMsg ("I want to sleep", 16);
-
-            UART_TxMsgSyn ('\n',100);
-            UART_TxMsgSyn ('\r',100);
+            LCD_wStr ((uint8 *)"I am here");
+# 56 "01_APP/newmain.c"
            _delay((unsigned long)((2000)*(16000000/4000.0)));
 
 

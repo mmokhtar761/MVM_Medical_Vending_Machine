@@ -36,7 +36,7 @@ typedef struct
   uint16  stpPerMm;
   uint16  stpVel;
   uint32  stpWidth;
-  uint8   stprAccPerInterval;
+  uint16  stprAccPerInterval;
   uint8   UniqueId;
   STPR_Stat_type   stprStat;
   /*STPR_InitStat_type  InitFlag;*/
@@ -47,7 +47,7 @@ typedef struct
  * Copy_UniqueId: specifies the actual stepper connected in HW as configured in cfg file
  * Copy_stpVel: the needed number of steps per 1 sec
  */
-void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_stpPerMm, uint16 Copy_stpVel, uint8  stprAccPerInterval);
+void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_stpPerMm, uint16 Copy_stpVel, uint16  stprAccPerInterval);
 
 /*
  * Move the stepper some steps.
@@ -77,7 +77,7 @@ void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel);
 /*
  * Edits the acceleration for the stepper
  */
-void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
+void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval);
 
 #define ACC_INTERVAL              500    /*In micro seconds*/
 /*

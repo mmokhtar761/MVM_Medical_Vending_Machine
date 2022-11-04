@@ -17,8 +17,8 @@
 
 #if ENABLE_FOR_CONFIG == 1
 /* Ports state */
-uint8 PORT_A_DEF[8]= {OUTPUT,  /*PIN 0*/
-                      INPUT,  /*PIN 1*/
+uint8 PORT_A_DEF[8]= {INPUT,  /*PIN 0*/
+                      OUTPUT,  /*PIN 1*/
                       OUTPUT,  /*PIN 2*/
                       OUTPUT,  /*PIN 3*/
                       OUTPUT,  /*PIN 4*/

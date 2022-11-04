@@ -223,3 +223,47 @@ void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal){
 			} 
         }   
 } 
+
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
+    if(u8StPin <= PIN4){
+    for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3  ;u8PinIdCopy++){
+			switch (u8PortId)
+			{
+				case PORT_A: if      (u8PortDir == OUTPUT){BIT_L(TRISA,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISA,u8PinIdCopy); break;}else{}
+				case PORT_B: if      (u8PortDir == OUTPUT){BIT_L(TRISB,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISB,u8PinIdCopy); break;}else{}
+				case PORT_C: if      (u8PortDir == OUTPUT){BIT_L(TRISC,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISC,u8PinIdCopy); break;}else{}
+				case PORT_D: if      (u8PortDir == OUTPUT){BIT_L(TRISD,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISD,u8PinIdCopy); break;}else{}
+                case PORT_E: if(u8PinIdCopy<=PORT_E_LAST_PIN){
+                             if      (u8PortDir == OUTPUT){BIT_L(TRISE,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISE,u8PinIdCopy); break;}else{}}
+			} 
+        }   
+    
+    }
+}
+
+
+void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal){
+    if(u8StPin <= PIN4){
+     for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3  ;u8PinIdCopy++){
+			switch (u8PortId)
+			{
+				case PORT_A: if      (u8PortVal == LOW) {BIT_L(PORTA,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTA,u8PinIdCopy); break;}else{}
+				case PORT_B: if      (u8PortVal == LOW) {BIT_L(PORTB,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTB,u8PinIdCopy); break;}else{}
+				case PORT_C: if      (u8PortVal == LOW) {BIT_L(PORTC,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTC,u8PinIdCopy); break;}else{}
+				case PORT_D: if      (u8PortVal == LOW) {BIT_L(PORTD,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTD,u8PinIdCopy); break;}else{}
+                case PORT_E: if(u8PinIdCopy<=PORT_E_LAST_PIN){
+                             if      (u8PortVal == LOW) {BIT_L(PORTE,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTE,u8PinIdCopy); break;}else{}}
+			} 
+        }    
+    }
+}

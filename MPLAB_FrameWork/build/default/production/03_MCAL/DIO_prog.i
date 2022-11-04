@@ -4451,11 +4451,14 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 
 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
+
+void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir);
 # 17 "03_MCAL/DIO_prog.c" 2
 # 1 "03_MCAL/DIO_cfg.h" 1
 # 20 "03_MCAL/DIO_cfg.h"
-uint8 PORT_A_DEF[8]= {0,
-                      1,
+uint8 PORT_A_DEF[8]= {1,
+                      0,
                       0,
                       0,
                       0,
@@ -4701,4 +4704,48 @@ void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal){
                              else if (u8PortVal == 1){PORTE|= ((uint32)1<<u8PinIdCopy); break;}else{}}
    }
         }
+}
+
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
+    if(u8StPin <= PIN4){
+    for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3 ;u8PinIdCopy++){
+   switch (u8PortId)
+   {
+    case PORT_A: if (u8PortDir == 0){TRISA&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortDir == 1) {TRISA|= ((uint32)1<<u8PinIdCopy); break;}else{}
+    case PORT_B: if (u8PortDir == 0){TRISB&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortDir == 1) {TRISB|= ((uint32)1<<u8PinIdCopy); break;}else{}
+    case PORT_C: if (u8PortDir == 0){TRISC&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortDir == 1) {TRISC|= ((uint32)1<<u8PinIdCopy); break;}else{}
+    case PORT_D: if (u8PortDir == 0){TRISD&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortDir == 1) {TRISD|= ((uint32)1<<u8PinIdCopy); break;}else{}
+                case PORT_E: if(u8PinIdCopy<=2){
+                             if (u8PortDir == 0){TRISE&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortDir == 1) {TRISE|= ((uint32)1<<u8PinIdCopy); break;}else{}}
+   }
+        }
+
+    }
+}
+
+
+void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal){
+    if(u8StPin <= PIN4){
+     for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3 ;u8PinIdCopy++){
+   switch (u8PortId)
+   {
+    case PORT_A: if (u8PortVal == 0) {PORTA&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortVal == 1){PORTA|= ((uint32)1<<u8PinIdCopy); break;}else{}
+    case PORT_B: if (u8PortVal == 0) {PORTB&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortVal == 1){PORTB|= ((uint32)1<<u8PinIdCopy); break;}else{}
+    case PORT_C: if (u8PortVal == 0) {PORTC&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortVal == 1){PORTC|= ((uint32)1<<u8PinIdCopy); break;}else{}
+    case PORT_D: if (u8PortVal == 0) {PORTD&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortVal == 1){PORTD|= ((uint32)1<<u8PinIdCopy); break;}else{}
+                case PORT_E: if(u8PinIdCopy<=2){
+                             if (u8PortVal == 0) {PORTE&= ~((uint32)1<<u8PinIdCopy); break;}
+                             else if (u8PortVal == 1){PORTE|= ((uint32)1<<u8PinIdCopy); break;}else{}}
+   }
+        }
+    }
 }

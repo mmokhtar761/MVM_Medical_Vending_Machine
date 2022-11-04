@@ -4418,8 +4418,8 @@ typedef uint8 Std_ReturnType;
 
 # 1 "03_MCAL\\DIO_cfg.h" 1
 # 20 "03_MCAL\\DIO_cfg.h"
-uint8 PORT_A_DEF[8]= {0,
-                      1,
+uint8 PORT_A_DEF[8]= {1,
+                      0,
                       0,
                       0,
                       0,
@@ -4503,6 +4503,9 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 
 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
+
+void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir);
 # 16 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
 # 1 "02_HAL/STPR_cfg.h" 1
@@ -4564,7 +4567,7 @@ typedef struct
   uint16 stpPerMm;
   uint16 stpVel;
   uint32 stpWidth;
-  uint8 stprAccPerInterval;
+  uint16 stprAccPerInterval;
   uint8 UniqueId;
   STPR_Stat_type stprStat;
 
@@ -4575,7 +4578,7 @@ typedef struct
 
 
 
-void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval);
+void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint16 stprAccPerInterval);
 
 
 
@@ -4605,7 +4608,7 @@ void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel);
 
 
 
-void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval);
+void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval);
 
 
 
@@ -4629,7 +4632,7 @@ void GenPulse(STPR_type* ptrSTPR , uint32 stpWidth)
 }
 # 19 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 # 29 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c"
-void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint8 stprAccPerInterval)
+void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_stpPerMm, uint16 Copy_stpVel, uint16 stprAccPerInterval)
 {
 
     if (Copy_UniqueId > (11 -1)) return;
@@ -4760,7 +4763,7 @@ void STPR_voidSetStprVel (STPR_type* ptrSTPR, uint16 Copy_stpVel)
 
 
 
-void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
+void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval)
 {
     if (ptrSTPR->stprStat != IDLE) return;
     ptrSTPR->stprAccPerInterval = Copy_AccPerInterval;
@@ -4787,6 +4790,12 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint8 Copy_AccPerInterval)
             {
                 arrSTPR_LiveVel[ptrSTPR->UniqueId] -= ptrSTPR->stprAccPerInterval;
             }
+            break;
+        case IDLE:
+
+            break;
+        case Sat:
+
             break;
     }
  }

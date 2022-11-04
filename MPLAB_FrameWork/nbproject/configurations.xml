@@ -17,6 +17,9 @@
         <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_cfg.h</itemPath>
         <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_int.h</itemPath>
         <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prvt.h</itemPath>
+        <itemPath>02_HAL/LCD_cfg.h</itemPath>
+        <itemPath>02_HAL/LCD_int.h</itemPath>
+        <itemPath>02_HAL/LCD_prvt.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="MCAL_inc" projectFiles="true">
         <itemPath>03_MCAL/DIO_cfg.h</itemPath>
@@ -38,6 +41,7 @@
       </logicalFolder>
       <logicalFolder name="f2" displayName="HAL" projectFiles="true">
         <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c</itemPath>
+        <itemPath>02_HAL/LCD_prog.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="MCAL" projectFiles="true">
         <itemPath>03_MCAL/DIO_prog.c</itemPath>
