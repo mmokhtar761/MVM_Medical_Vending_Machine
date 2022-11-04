@@ -12,15 +12,22 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\MPLAB_FrameWork.production.o
-cinit CODE 0 FA9A FA9A 16 1 2
+cinit CODE 0 EEF0 EEF0 16 1 2
 idloc IDLOC 5 200000 200000 8 1 1
-text0 CODE 0 FAB0 FAB0 24 1 2
-text1 CODE 0 FD6A FD6A 296 1 2
-text2 CODE 0 FAD4 FAD4 296 1 2
-cstackCOMRAM COMRAM 1 29 29 B 1 1
-bssCOMRAM COMRAM 1 1 1 28 1 1
+text0 CODE 0 F0B8 F0B8 120 1 2
+text1 CODE 0 F1D8 F1D8 1B4 1 2
+text2 CODE 0 EF28 EF28 26 1 2
+text3 CODE 0 EFB2 EFB2 106 1 2
+text4 CODE 0 FBD6 FBD6 42A 1 2
+text5 CODE 0 F83C F83C 39A 1 2
+text6 CODE 0 F38C F38C 21A 1 2
+text7 CODE 0 F5A6 F5A6 296 1 2
+text8 CODE 0 EF4E EF4E 64 1 2
+text9 CODE 0 EF06 EF06 22 1 2
+cstackCOMRAM COMRAM 1 1 1 54 1 1
+bssCOMRAM COMRAM 1 55 55 28 1 1
 config CONFIG 4 300000 300000 E 1 1
-$C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+$C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
 idloc IDLOC 5 200000 200000 8 1 1
 init CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 E 1 1
@@ -42,20 +49,20 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 4-FA99 1
-SMALLCONST 1000-FA99 1
-CODE 4-FA99 1
+CONST 4-EEEF 1
+SMALLCONST 1000-EEEF 1
+CODE 4-EEEF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-F7F 1
-BIGRAM 34-F7F 1
+BIGRAM 7D-F7F 1
 BIGSFR F80-FFF 1
-COMRAM 34-7F 1
+COMRAM 7D-7F 1
 EEDATA F00000-F003FF 1
-MEDIUMCONST 1000-FA99 1
+MEDIUMCONST 1000-EEEF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -70,68 +77,329 @@ MEDIUMCONST 1000-FA99 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\MPLAB_FrameWork.production.o
-FAD4 text2 CODE >189:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FAD6 text2 CODE >190:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FAE4 text2 CODE >193:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FB16 text2 CODE >194:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FB46 text2 CODE >195:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FB78 text2 CODE >196:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FBA8 text2 CODE >197:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FBDA text2 CODE >198:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FC0A text2 CODE >199:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FC3C text2 CODE >200:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FC6C text2 CODE >201:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FC7C text2 CODE >202:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FCAE text2 CODE >203:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FCDE text2 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FCEC text2 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FCFA text2 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD02 text2 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD0A text2 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD12 text2 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD1A text2 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD24 text2 CODE >205:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD68 text2 CODE >206:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD6A text1 CODE >209:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD6C text1 CODE >210:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FD7A text1 CODE >213:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FDAC text1 CODE >214:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FDDC text1 CODE >215:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FE0E text1 CODE >216:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FE3E text1 CODE >217:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FE70 text1 CODE >218:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FEA0 text1 CODE >219:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FED2 text1 CODE >220:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FF02 text1 CODE >221:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FF12 text1 CODE >222:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FF44 text1 CODE >223:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FF74 text1 CODE >224:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FF82 text1 CODE >224:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FF90 text1 CODE >224:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FF98 text1 CODE >224:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FFA0 text1 CODE >224:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FFA8 text1 CODE >224:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FFB0 text1 CODE >224:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FFBA text1 CODE >225:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FFFE text1 CODE >226:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
-FAB0 text0 CODE >21:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
-FAB0 text0 CODE >22:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
-FABE text0 CODE >23:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
-FACC text0 CODE >24:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
-FA9A cinit CODE >728:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FA9A cinit CODE >730:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FA9A cinit CODE >733:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FA9A cinit CODE >757:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FA9E cinit CODE >758:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAA0 cinit CODE >759:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAA0 cinit CODE >760:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAA2 cinit CODE >761:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAA4 cinit CODE >762:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAA6 cinit CODE >768:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAA6 cinit CODE >771:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAA8 cinit CODE >772:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAAA cinit CODE >773:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
-FAAC cinit CODE >774:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
+EF06 text9 CODE >17:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF06 text9 CODE >20:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF0A text9 CODE >24:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF0C text9 CODE >25:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF0E text9 CODE >28:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF16 text9 CODE >31:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF18 text9 CODE >32:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF1A text9 CODE >33:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF1C text9 CODE >36:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF24 text9 CODE >39:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF26 text9 CODE >40:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF4E text8 CODE >42:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF50 text8 CODE >45:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF54 text8 CODE >48:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF5E text8 CODE >51:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF6E text8 CODE >53:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF70 text8 CODE >56:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF86 text8 CODE >58:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EF96 text8 CODE >64:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EFA8 text8 CODE >67:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+EFB0 text8 CODE >68:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
+F5A6 text7 CODE >189:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F5A8 text7 CODE >190:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F5B6 text7 CODE >193:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F5E8 text7 CODE >194:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F618 text7 CODE >195:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F64A text7 CODE >196:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F67A text7 CODE >197:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F6AC text7 CODE >198:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F6DC text7 CODE >199:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F70E text7 CODE >200:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F73E text7 CODE >201:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F74E text7 CODE >202:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F780 text7 CODE >203:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F7B0 text7 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F7BE text7 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F7CC text7 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F7D4 text7 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F7DC text7 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F7E4 text7 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F7EC text7 CODE >204:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F7F6 text7 CODE >205:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F83A text7 CODE >206:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F38C text6 CODE >66:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F38E text6 CODE >69:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F3AE text6 CODE >71:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F3C2 text6 CODE >76:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F3E2 text6 CODE >77:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F402 text6 CODE >78:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F422 text6 CODE >79:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F442 text6 CODE >80:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F462 text6 CODE >82:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F46C text6 CODE >82:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F47A text6 CODE >82:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F482 text6 CODE >82:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F48A text6 CODE >82:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F492 text6 CODE >82:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F49A text6 CODE >82:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F4A4 text6 CODE >84:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F4B8 text6 CODE >89:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F4DA text6 CODE >90:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F4FC text6 CODE >91:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F51E text6 CODE >92:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F540 text6 CODE >93:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F562 text6 CODE >95:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F56C text6 CODE >95:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F57A text6 CODE >95:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F582 text6 CODE >95:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F58A text6 CODE >95:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F592 text6 CODE >95:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F59A text6 CODE >95:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F5A4 text6 CODE >100:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F5A4 text6 CODE >106:E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+F83C text5 CODE >11:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F83C text5 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F842 text5 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F848 text5 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F856 text5 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F858 text5 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F868 text5 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F878 text5 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F888 text5 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F88A text5 CODE >42:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F88E text5 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F892 text5 CODE >46:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8A2 text5 CODE >49:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8A8 text5 CODE >50:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8AE text5 CODE >51:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8BC text5 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8BE text5 CODE >56:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8CE text5 CODE >58:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8DE text5 CODE >60:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8EE text5 CODE >63:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8F0 text5 CODE >65:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8F4 text5 CODE >66:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F8F8 text5 CODE >69:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F908 text5 CODE >75:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F91E text5 CODE >76:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F92E text5 CODE >77:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F936 text5 CODE >78:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F93A text5 CODE >79:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F94E text5 CODE >83:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F95E text5 CODE >84:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F95E text5 CODE >85:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F972 text5 CODE >89:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F98C text5 CODE >92:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F99C text5 CODE >93:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9AC text5 CODE >94:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9BC text5 CODE >96:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9C0 text5 CODE >97:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9C4 text5 CODE >100:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9D4 text5 CODE >101:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9DE text5 CODE >102:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9E8 text5 CODE >103:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9F6 text5 CODE >104:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9F8 text5 CODE >105:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+F9F8 text5 CODE >106:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA02 text5 CODE >112:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA20 text5 CODE >115:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA22 text5 CODE >116:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA32 text5 CODE >118:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA34 text5 CODE >97:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA34 text5 CODE >119:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA44 text5 CODE >122:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA5A text5 CODE >123:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA60 text5 CODE >128:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA6A text5 CODE >129:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA78 text5 CODE >130:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA7A text5 CODE >131:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA7A text5 CODE >132:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA84 text5 CODE >133:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA8A text5 CODE >127:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA98 text5 CODE >139:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FA9C text5 CODE >140:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FAAA text5 CODE >141:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FAD8 text5 CODE >142:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FADC text5 CODE >143:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FAE0 text5 CODE >144:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FAE0 text5 CODE >145:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FAF2 text5 CODE >149:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FAF2 text5 CODE >150:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB02 text5 CODE >151:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB0E text5 CODE >152:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB1C text5 CODE >153:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB46 text5 CODE >154:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB4A text5 CODE >159:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB64 text5 CODE >160:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB6A text5 CODE >161:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB7A text5 CODE >165:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB94 text5 CODE >166:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FB9C text5 CODE >167:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBAC text5 CODE >169:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBB0 text5 CODE >173:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBB4 text5 CODE >175:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBC2 text5 CODE >176:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBC4 text5 CODE >177:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBC8 text5 CODE >180:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBCA text5 CODE >182:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBD4 text5 CODE >185:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+FBD6 text4 CODE >8:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FBD6 text4 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FBDC text4 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FBE2 text4 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FBF0 text4 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FBF2 text4 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC02 text4 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC12 text4 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC22 text4 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC24 text4 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC28 text4 CODE >36:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC38 text4 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC3E text4 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC44 text4 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC52 text4 CODE >42:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC54 text4 CODE >45:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC64 text4 CODE >48:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC74 text4 CODE >50:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC84 text4 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC86 text4 CODE >54:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC8A text4 CODE >57:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC9A text4 CODE >58:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FC9A text4 CODE >65:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FCBA text4 CODE >66:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FCCE text4 CODE >95:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FCDA text4 CODE >96:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FCE4 text4 CODE >97:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FCEE text4 CODE >98:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FCFA text4 CODE >99:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD06 text4 CODE >100:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD12 text4 CODE >101:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD1E text4 CODE >102:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD2A text4 CODE >103:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD36 text4 CODE >104:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD44 text4 CODE >105:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD50 text4 CODE >106:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD60 text4 CODE >107:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD6C text4 CODE >108:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD7C text4 CODE >109:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD8A text4 CODE >110:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FD96 text4 CODE >111:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FDA6 text4 CODE >112:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FDB2 text4 CODE >113:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FDC2 text4 CODE >114:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FDCE text4 CODE >115:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FDDE text4 CODE >116:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FDEA text4 CODE >117:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE14 text4 CODE >145:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE4A text4 CODE >146:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE58 text4 CODE >149:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE72 text4 CODE >152:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE76 text4 CODE >153:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE80 text4 CODE >154:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE8E text4 CODE >155:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE90 text4 CODE >156:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE90 text4 CODE >157:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FE9A text4 CODE >158:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FEA0 text4 CODE >152:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FEAE text4 CODE >163:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FEB2 text4 CODE >164:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FEC0 text4 CODE >165:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FEEE text4 CODE >166:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FEF2 text4 CODE >167:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FEF6 text4 CODE >168:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FEF6 text4 CODE >169:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF08 text4 CODE >173:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF08 text4 CODE >174:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF18 text4 CODE >175:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF24 text4 CODE >176:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF32 text4 CODE >177:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF5C text4 CODE >178:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF60 text4 CODE >183:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF7A text4 CODE >184:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF8A text4 CODE >185:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FF8E text4 CODE >187:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFA8 text4 CODE >188:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFB8 text4 CODE >190:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFBC text4 CODE >191:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFC0 text4 CODE >192:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFC0 text4 CODE >194:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFC4 text4 CODE >195:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFD4 text4 CODE >196:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFE2 text4 CODE >197:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFE4 text4 CODE >199:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFEA text4 CODE >201:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFEE text4 CODE >203:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+FFFE text4 CODE >205:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+EFB2 text3 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+EFB2 text3 CODE >47:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+EFC8 text3 CODE >48:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+EFDC text3 CODE >49:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F006 text3 CODE >50:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F008 text3 CODE >51:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F018 text3 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F01C text3 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F02A text3 CODE >54:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F042 text3 CODE >57:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F056 text3 CODE >60:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F06A text3 CODE >63:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F074 text3 CODE >64:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F076 text3 CODE >62:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F086 text3 CODE >67:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F096 text3 CODE >68:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F0A6 text3 CODE >69:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+F0B6 text3 CODE >70:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
+EF28 text2 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+EF28 text2 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+EF34 text2 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+EF3C text2 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+EF44 text2 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+EF4C text2 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+F1D8 text1 CODE >10:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F1DA text1 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F1F8 text1 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F22A text1 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F22E text1 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F22E text1 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F23E text1 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F254 text1 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F268 text1 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F26C text1 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F270 text1 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F272 text1 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F27C text1 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F2AE text1 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F2B0 text1 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F2BC text1 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F2C6 text1 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F2C6 text1 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F2F8 text1 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F2FA text1 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F304 text1 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F322 text1 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F330 text1 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F332 text1 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F336 text1 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F35A text1 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F378 text1 CODE >42:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F37A text1 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F38A text1 CODE >44:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
+F0B8 text0 CODE >25:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F0B8 text0 CODE >26:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F0C6 text0 CODE >27:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F0D4 text0 CODE >29:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F0D8 text0 CODE >32:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F0E6 text0 CODE >33:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F170 text0 CODE >34:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F17E text0 CODE >35:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F18C text0 CODE >36:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+F19A text0 CODE >37:E:\MVM_Medical_Vending_Machine\MPLAB_FrameWork\01_APP/newmain.c
+EEF0 cinit CODE >1019:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEF0 cinit CODE >1021:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEF0 cinit CODE >1024:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEF0 cinit CODE >1048:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEF4 cinit CODE >1049:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEF6 cinit CODE >1050:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEF6 cinit CODE >1051:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEF8 cinit CODE >1052:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEFA cinit CODE >1053:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEFC cinit CODE >1059:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEFC cinit CODE >1062:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EEFE cinit CODE >1063:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EF00 cinit CODE >1064:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
+EF02 cinit CODE >1065:C:\Users\omarn\AppData\Local\Temp\xcAs57g.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -146,41 +414,67 @@ FAAC cinit CODE >774:C:\Users\omarn\AppData\Local\Temp\xcAs814.s
 %SYMTAB
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\MPLAB_FrameWork.production.o
 __Hspace_0 10000 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__Hspace_1 34 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__Hspace_1 7D 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-DIO_VidSetHalfPortSet@u8PortId 32 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\MPLAB_FrameWork.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\MPLAB_FrameWork.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\MPLAB_FrameWork.production.o
-___sp 0 0 STACK 2 stack C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-_main FAB0 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
-start 0 0 CODE 0 init C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+___sp 0 0 STACK 2 stack C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+_main F0B8 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
+?_ADC_u16GetChannelReading 1 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+start 0 0 CODE 0 init C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+___flmul@aexp 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___flmul@bexp 40 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___flmul@prod 41 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___flmul@sign 3A 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___flmul@temp 45 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+?___wmul 1 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\MPLAB_FrameWork.production.o
-__accesstop 80 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-intlevel0 0 0 CODE 0 text C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-intlevel1 0 0 CODE 0 text C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-intlevel2 0 0 CODE 0 text C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-intlevel3 0 0 CODE 0 text C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+__accesstop 80 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+intlevel0 0 0 CODE 0 text C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+intlevel1 0 0 CODE 0 text C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+intlevel2 0 0 CODE 0 text C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+intlevel3 0 0 CODE 0 text C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\MPLAB_FrameWork.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\MPLAB_FrameWork.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-DIO_VidSetHalfPortSet@u8PortHalf 29 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+DIO_VidSetPinValue@u8PinValCopy 2 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+ADC_u16GetChannelReading@Channel 5 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+_ADCON0 FC2 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+_ADCON1 FC1 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+_ADCON2 FC0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+_ADRESH FC4 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+_ADRESL FC3 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\MPLAB_FrameWork.production.o
+__end_of___wmul EF4E 0 CODE 0 text2 dist/default/production\MPLAB_FrameWork.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\MPLAB_FrameWork.production.o
+___fldiv@aexp 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___fldiv@bexp 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___fldiv@sign 25 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\MPLAB_FrameWork.production.o
 __Hintcodelo 0 0 CODE 0 intcodelo dist/default/production\MPLAB_FrameWork.production.o
-DIO_VidSetHalfPortDirection@u8PinIdCopy 33 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+DIO_VidSetHalfPortDirection@u8PinIdCopy B 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+__end_of___fldiv FBD6 0 CODE 0 text5 dist/default/production\MPLAB_FrameWork.production.o
+__end_of___flmul 10000 0 CODE 0 text4 dist/default/production\MPLAB_FrameWork.production.o
+__end_of___fltol F0B8 0 CODE 0 text3 dist/default/production\MPLAB_FrameWork.production.o
+___fldiv@a 19 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___fldiv@b 15 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___flmul@a 32 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___flmul@b 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Lintcodelo 0 0 CODE 0 intcodelo dist/default/production\MPLAB_FrameWork.production.o
-start_initialization FA9A 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
+start_initialization EEF0 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\MPLAB_FrameWork.production.o
+__end_of_ADC_u16GetChannelReading EFB2 0 CODE 0 text8 dist/default/production\MPLAB_FrameWork.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+isa$xinst 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+DIO_VidSetPinValue@u8PortIdCopy 5 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\MPLAB_FrameWork.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\MPLAB_FrameWork.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\MPLAB_FrameWork.production.o
@@ -198,10 +492,18 @@ __Hidloc 200008 0 IDLOC 5 idloc dist/default/production\MPLAB_FrameWork.producti
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\MPLAB_FrameWork.production.o
 __Hparam 0 0 COMRAM 1 rparam dist/default/production\MPLAB_FrameWork.production.o
 __Hrdata 0 0 COMRAM 1 rdata dist/default/production\MPLAB_FrameWork.production.o
+ADC_u16GetChannelReading@u16ReadingReturn 6 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hstack 0 0 STACK 2 stack dist/default/production\MPLAB_FrameWork.production.o
 __Htext0 0 0 ABS 0 text0 dist/default/production\MPLAB_FrameWork.production.o
 __Htext1 0 0 ABS 0 text1 dist/default/production\MPLAB_FrameWork.production.o
 __Htext2 0 0 ABS 0 text2 dist/default/production\MPLAB_FrameWork.production.o
+__Htext3 0 0 ABS 0 text3 dist/default/production\MPLAB_FrameWork.production.o
+__Htext4 0 0 ABS 0 text4 dist/default/production\MPLAB_FrameWork.production.o
+__Htext5 0 0 ABS 0 text5 dist/default/production\MPLAB_FrameWork.production.o
+__Htext6 0 0 ABS 0 text6 dist/default/production\MPLAB_FrameWork.production.o
+__Htext7 0 0 ABS 0 text7 dist/default/production\MPLAB_FrameWork.production.o
+__Htext8 0 0 ABS 0 text8 dist/default/production\MPLAB_FrameWork.production.o
+__Htext9 0 0 ABS 0 text9 dist/default/production\MPLAB_FrameWork.production.o
 __Hbank10 0 0 ABS 0 bank10 dist/default/production\MPLAB_FrameWork.production.o
 __Hbank11 0 0 ABS 0 bank11 dist/default/production\MPLAB_FrameWork.production.o
 __Hbank12 0 0 ABS 0 bank12 dist/default/production\MPLAB_FrameWork.production.o
@@ -211,14 +513,17 @@ __Hbank15 0 0 ABS 0 bank15 dist/default/production\MPLAB_FrameWork.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\MPLAB_FrameWork.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\MPLAB_FrameWork.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\MPLAB_FrameWork.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+___xxtofl@arg 11 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___xxtofl@exp 10 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___xxtofl@val 7 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\MPLAB_FrameWork.production.o
 __Hconfig 30000E 0 CONFIG 4 config dist/default/production\MPLAB_FrameWork.production.o
-_PORT_A_DEF 21 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
-_PORT_B_DEF 19 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
-_PORT_C_DEF 11 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
-_PORT_D_DEF 9 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
-_PORT_E_DEF 1 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+_PORT_A_DEF 75 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+_PORT_B_DEF 6D 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+_PORT_C_DEF 65 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+_PORT_D_DEF 5D 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+_PORT_E_DEF 55 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\MPLAB_FrameWork.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\MPLAB_FrameWork.production.o
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\MPLAB_FrameWork.production.o
@@ -240,7 +545,15 @@ __Lstack 0 0 STACK 2 stack dist/default/production\MPLAB_FrameWork.production.o
 __Ltext0 0 0 ABS 0 text0 dist/default/production\MPLAB_FrameWork.production.o
 __Ltext1 0 0 ABS 0 text1 dist/default/production\MPLAB_FrameWork.production.o
 __Ltext2 0 0 ABS 0 text2 dist/default/production\MPLAB_FrameWork.production.o
+__Ltext3 0 0 ABS 0 text3 dist/default/production\MPLAB_FrameWork.production.o
+__Ltext4 0 0 ABS 0 text4 dist/default/production\MPLAB_FrameWork.production.o
+__Ltext5 0 0 ABS 0 text5 dist/default/production\MPLAB_FrameWork.production.o
+__Ltext6 0 0 ABS 0 text6 dist/default/production\MPLAB_FrameWork.production.o
+__Ltext7 0 0 ABS 0 text7 dist/default/production\MPLAB_FrameWork.production.o
+__Ltext8 0 0 ABS 0 text8 dist/default/production\MPLAB_FrameWork.production.o
+__Ltext9 0 0 ABS 0 text9 dist/default/production\MPLAB_FrameWork.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\MPLAB_FrameWork.production.o
+___flmul@grs 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\MPLAB_FrameWork.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\MPLAB_FrameWork.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\MPLAB_FrameWork.production.o
@@ -258,22 +571,27 @@ __Lrbit 0 0 COMRAM 1 rbit dist/default/production\MPLAB_FrameWork.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\MPLAB_FrameWork.production.o
 __Ltemp 0 0 COMRAM 1 temp dist/default/production\MPLAB_FrameWork.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\MPLAB_FrameWork.production.o
+___wmul EF28 0 CODE 0 text2 dist/default/production\MPLAB_FrameWork.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\MPLAB_FrameWork.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\MPLAB_FrameWork.production.o
 __S0 10000 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__S1 34 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
+__S1 7D 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __S4 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __S5 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-DIO_VidSetHalfPortSet@u8PortVal 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\MPLAB_FrameWork.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\MPLAB_FrameWork.production.o
-__end_of_DIO_VidSetHalfPortDirection FD6A 0 CODE 0 text2 dist/default/production\MPLAB_FrameWork.production.o
+__end_of_DIO_VidSetHalfPortDirection F83C 0 CODE 0 text7 dist/default/production\MPLAB_FrameWork.production.o
+___xxtofl F1D8 0 CODE 0 text1 dist/default/production\MPLAB_FrameWork.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\MPLAB_FrameWork.production.o
 __Hramtop 1000 0 RAM 0 ramtop dist/default/production\MPLAB_FrameWork.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\MPLAB_FrameWork.production.o
+__end_of___xxtofl F38C 0 CODE 0 text1 dist/default/production\MPLAB_FrameWork.production.o
 __activetblptr 2 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\MPLAB_FrameWork.production.o
+___fldiv F83C 0 CODE 0 text5 dist/default/production\MPLAB_FrameWork.production.o
+___flmul FBD6 0 CODE 0 text4 dist/default/production\MPLAB_FrameWork.production.o
+___fltol EFB2 0 CODE 0 text3 dist/default/production\MPLAB_FrameWork.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\MPLAB_FrameWork.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\MPLAB_FrameWork.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\MPLAB_FrameWork.production.o
@@ -285,48 +603,70 @@ __Lbigram 0 0 ABS 0 bigram dist/default/production\MPLAB_FrameWork.production.o
 __Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\MPLAB_FrameWork.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\MPLAB_FrameWork.production.o
 __Lconfig 0 0 CONFIG 4 config dist/default/production\MPLAB_FrameWork.production.o
+___wmul@multiplier 1 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___fldiv@grs 28 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+___fldiv@rem 21 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+main@temp 53 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\MPLAB_FrameWork.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\MPLAB_FrameWork.production.o
-isa$std 1 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-stackhi 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-stacklo 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+isa$std 1 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+___fldiv@new_exp 26 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+DIO_VidSetPinValue@u8PinIdCopy 1 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+stackhi 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+stacklo 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
 __Lintcode 0 0 CODE 0 intcode dist/default/production\MPLAB_FrameWork.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\MPLAB_FrameWork.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\MPLAB_FrameWork.production.o
-DIO_VidSetHalfPortDirection@u8PortId 32 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+DIO_VidSetHalfPortDirection@u8PortId A 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lspace_4 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
-__pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+__pbssCOMRAM 55 0 COMRAM 1 bssCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
-__end_of_DIO_VidSetHalfPortSet 10000 0 CODE 0 text1 dist/default/production\MPLAB_FrameWork.production.o
-end_of_initialization FAA6 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
+___fltol@exp1 50 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+end_of_initialization EEFC 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\MPLAB_FrameWork.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\MPLAB_FrameWork.production.o
+?___fldiv 15 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+?___flmul 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+?___fltol 47 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+_ADC_VoidInit EF06 0 CODE 0 text9 dist/default/production\MPLAB_FrameWork.production.o
 __Hreset_vec 0 0 CODE 0 reset_vec dist/default/production\MPLAB_FrameWork.production.o
 __Lramtop 1000 0 RAM 0 ramtop dist/default/production\MPLAB_FrameWork.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\MPLAB_FrameWork.production.o
-__pcinit FA9A 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
-__ptext0 FAB0 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
-__ptext1 FD6A 0 CODE 0 text1 dist/default/production\MPLAB_FrameWork.production.o
-__ptext2 FAD4 0 CODE 0 text2 dist/default/production\MPLAB_FrameWork.production.o
-_DIO_VidSetHalfPortSet FD6A 0 CODE 0 text1 dist/default/production\MPLAB_FrameWork.production.o
+__pcinit EEF0 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
+__ptext0 F0B8 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
+__ptext1 F1D8 0 CODE 0 text1 dist/default/production\MPLAB_FrameWork.production.o
+__ptext2 EF28 0 CODE 0 text2 dist/default/production\MPLAB_FrameWork.production.o
+__ptext3 EFB2 0 CODE 0 text3 dist/default/production\MPLAB_FrameWork.production.o
+__ptext4 FBD6 0 CODE 0 text4 dist/default/production\MPLAB_FrameWork.production.o
+__ptext5 F83C 0 CODE 0 text5 dist/default/production\MPLAB_FrameWork.production.o
+__ptext6 F38C 0 CODE 0 text6 dist/default/production\MPLAB_FrameWork.production.o
+__ptext7 F5A6 0 CODE 0 text7 dist/default/production\MPLAB_FrameWork.production.o
+__ptext8 EF4E 0 CODE 0 text8 dist/default/production\MPLAB_FrameWork.production.o
+__ptext9 EF06 0 CODE 0 text9 dist/default/production\MPLAB_FrameWork.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\MPLAB_FrameWork.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\MPLAB_FrameWork.production.o
+?___xxtofl 7 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\MPLAB_FrameWork.production.o
+___fltol@sign1 4F 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\MPLAB_FrameWork.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs814.o
-___heap_lo 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs814.o
+___heap_hi 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+___heap_lo 0 0 ABS 0 - C:\Users\omarn\AppData\Local\Temp\xcAs57g.o
+___fltol@f1 47 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+main@adc_value 51 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\MPLAB_FrameWork.production.o
-__end_of__initialization FAA6 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
+__end_of__initialization EEFC 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\MPLAB_FrameWork.production.o
+__end_of_DIO_VidSetPinValue F5A6 0 CODE 0 text6 dist/default/production\MPLAB_FrameWork.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\MPLAB_FrameWork.production.o
-__pcstackCOMRAM 29 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
-__end_of_main FAD4 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
-DIO_VidSetHalfPortSet@u8PinIdCopy 33 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+__end_of_main F1D8 0 CODE 0 text0 dist/default/production\MPLAB_FrameWork.production.o
+__end_of_ADC_VoidInit EF28 0 CODE 0 text9 dist/default/production\MPLAB_FrameWork.production.o
+_ADC_u16GetChannelReading EF4E 0 CODE 0 text8 dist/default/production\MPLAB_FrameWork.production.o
 _PORTA F80 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 _PORTB F81 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 _PORTC F82 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
@@ -345,13 +685,16 @@ __LRAM 1 0 ABS 0 - dist/default/production\MPLAB_FrameWork.production.o
 __Lbss 0 0 RAM 1 bss dist/default/production\MPLAB_FrameWork.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\MPLAB_FrameWork.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\MPLAB_FrameWork.production.o
-DIO_VidSetHalfPortDirection@u8PortHalf 29 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
-__initialization FA9A 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
-DIO_VidSetHalfPortDirection@u8PortDir 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+_DIO_VidSetPinValue F38C 0 CODE 0 text6 dist/default/production\MPLAB_FrameWork.production.o
+DIO_VidSetHalfPortDirection@u8PortHalf 1 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+__initialization EEF0 0 CODE 0 cinit dist/default/production\MPLAB_FrameWork.production.o
+___xxtofl@sign F 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
+DIO_VidSetHalfPortDirection@u8PortDir 2 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\MPLAB_FrameWork.production.o
+___wmul@product 5 0 COMRAM 1 cstackCOMRAM dist/default/production\MPLAB_FrameWork.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\MPLAB_FrameWork.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\MPLAB_FrameWork.production.o
-_DIO_VidSetHalfPortDirection FAD4 0 CODE 0 text2 dist/default/production\MPLAB_FrameWork.production.o
+_DIO_VidSetHalfPortDirection F5A6 0 CODE 0 text7 dist/default/production\MPLAB_FrameWork.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\MPLAB_FrameWork.production.o
 __Hintcode 0 0 CODE 0 intcode dist/default/production\MPLAB_FrameWork.production.o
 # %SPLITSTAB Section
@@ -378,12 +721,19 @@ __Hintcode 0 0 CODE 0 intcode dist/default/production\MPLAB_FrameWork.production
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 FA9A FA9A 16 1
-text0 0 FAB0 FAB0 24 1
-text1 0 FD6A FD6A 296 1
-text2 0 FAD4 FAD4 296 1
+cinit 0 EEF0 EEF0 16 1
+text0 0 F0B8 F0B8 120 1
+text1 0 F1D8 F1D8 1B4 1
+text2 0 EF28 EF28 26 1
+text3 0 EFB2 EFB2 106 1
+text4 0 FBD6 FBD6 42A 1
+text5 0 F83C F83C 39A 1
+text6 0 F38C F38C 21A 1
+text7 0 F5A6 F5A6 296 1
+text8 0 EF4E EF4E 64 1
+text9 0 EF06 EF06 22 1
+cstackCOMRAM 1 1 1 7C 1
 reset_vec 0 0 0 4 1
-bssCOMRAM 1 1 1 33 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

@@ -2,9 +2,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 27:  if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
 [c E2450 0 1 2 3 4 .. ]
-[n E2450 PORTS PORT_A PORT_B PORT_C PORT_D PORT_E  ]
-[c E2456 0 1 2 3 4 5 6 7 .. ]
-[n E2456 PINS PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
+[n E2450 . PORT_A PORT_B PORT_C PORT_D PORT_E  ]
+[c E2457 0 1 2 3 4 5 6 7 .. ]
+[n E2457 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
 "1380 C:/Users/omarn/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Users/omarn/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 1380: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
@@ -528,7 +528,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "27
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 27:  if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
-[e $ ! && <= -> _u8PortIdCopy `i -> . `E2450 4 `i <= -> _u8PinIdCopy `i -> . `E2456 7 `i 271  ]
+[e $ ! && <= -> _u8PortIdCopy `i -> . `E2450 4 `i <= -> _u8PinIdCopy `i -> . `E2457 7 `i 271  ]
 "28
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 28:  {
 {
@@ -684,8 +684,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 67: {
 [f ]
 "69
-[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 69:  if ((u8PortIdCopy <= PORT_D) && (u8PinIdCopy <= PIN7))
-[e $ ! && <= -> _u8PortIdCopy `i -> . `E2450 3 `i <= -> _u8PinIdCopy `i -> . `E2456 7 `i 292  ]
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 69:  if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
+[e $ ! && <= -> _u8PortIdCopy `i -> . `E2450 4 `i <= -> _u8PinIdCopy `i -> . `E2457 7 `i 292  ]
 "70
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 70:  {
 {
@@ -776,9 +776,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =& _PORTD -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
 [e $U 303  ]
 "93
-[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 93:                 case PORT_E: PORTE|= ((uint32)1<<u8PinIdCopy); break;
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 93:                 case PORT_E: PORTE&= ~((uint32)1<<u8PinIdCopy); break;
 [e :U 309 ]
-[e =| _PORTE -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e =& _PORTE -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
 [e $U 303  ]
 "95
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 95:    }
@@ -843,8 +843,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 111:  uint8 u8ResultLocal;
 [v _u8ResultLocal `uc ~T0 @X0 1 a ]
 "114
-[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 114:  if ((u8PortIdCopy <= PORT_D) && (u8PinIdCopy <= PIN7))
-[e $ ! && <= -> _u8PortIdCopy `i -> . `E2450 3 `i <= -> _u8PinIdCopy `i -> . `E2456 7 `i 313  ]
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 114:  if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
+[e $ ! && <= -> _u8PortIdCopy `i -> . `E2450 4 `i <= -> _u8PinIdCopy `i -> . `E2457 7 `i 313  ]
 "115
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 115:  {
 {
@@ -1065,8 +1065,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 166:         for (uint8 u8PinIdCopy=PIN0;u8PinIdCopy<=PIN7;u8PinIdCopy++){
 {
 [v _u8PinIdCopy `uc ~T0 @X0 1 a ]
-[e = _u8PinIdCopy -> . `E2456 0 `uc ]
-[e $ <= -> _u8PinIdCopy `i -> . `E2456 7 `i 344  ]
+[e = _u8PinIdCopy -> . `E2457 0 `uc ]
+[e $ <= -> _u8PinIdCopy `i -> . `E2457 7 `i 344  ]
 [e $U 345  ]
 [e :U 344 ]
 {
@@ -1213,7 +1213,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 182:         }
 }
 [e ++ _u8PinIdCopy -> -> 1 `i `uc ]
-[e $ <= -> _u8PinIdCopy `i -> . `E2456 7 `i 344  ]
+[e $ <= -> _u8PinIdCopy `i -> . `E2457 7 `i 344  ]
 [e :U 345 ]
 }
 "183

@@ -2,11 +2,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
 "96 03_MCAL\DIO_int.h
 [v _DIO_VidSetHalfPortDirection `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"22 01_APP/newmain.c
+"26 01_APP/newmain.c
 [c E2455 0 1 2 3 4 .. ]
-[n E2455 PORTS PORT_A PORT_B PORT_C PORT_D PORT_E  ]
-"99 03_MCAL\DIO_int.h
-[v _DIO_VidSetHalfPortSet `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+[n E2455 . PORT_A PORT_B PORT_C PORT_D PORT_E  ]
+"14 03_MCAL\ADC_int.h
+[v _ADC_VoidInit `(v ~T0 @X0 0 ef ]
+"17
+[v _ADC_u16GetChannelReading `(us ~T0 @X0 0 ef1`uc ]
+"32 01_APP/newmain.c
+[c E2498 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
+[n E2498 . CHANNEL0 CHANNEL1 CHANNEL2 CHANNEL3 CHANNEL4 CHANNEL5 CHANNEL6 CHANNEL7 CHANNEL8 CHANNEL9 CHANNEL10 CHANNEL11 CHANNEL12  ]
+"80 03_MCAL\DIO_int.h
+[v _DIO_VidSetPinValue `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"34 01_APP/newmain.c
+[c E2462 0 1 2 3 4 5 6 7 .. ]
+[n E2462 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
 "54 C:/Users/omarn/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Users/omarn/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -550,22 +560,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"21 01_APP/newmain.c
+"25 01_APP/newmain.c
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"22
-[e ( _DIO_VidSetHalfPortDirection (3 , , -> . `E2455 1 `uc -> -> 2 `i `uc -> -> 0 `i `uc ]
-"23
-[e ( _DIO_VidSetHalfPortSet (3 , , -> . `E2455 1 `uc -> -> 2 `i `uc -> -> 1 `i `uc ]
-"24
+"26
+[e ( _DIO_VidSetHalfPortDirection (3 , , -> . `E2455 0 `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
+"27
+[e ( _DIO_VidSetHalfPortDirection (3 , , -> . `E2455 2 `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
+"28
+[v _adc_value `ui ~T0 @X0 1 a ]
+[v _temp `ui ~T0 @X0 1 a ]
+"29
+[e ( _ADC_VoidInit ..  ]
+"30
 [e :U 272 ]
+{
+"32
+[e = _adc_value -> ( _ADC_u16GetChannelReading (1 -> . `E2498 0 `uc `ui ]
+"33
+[e = _temp -> * / -> * _adc_value -> -> 5 `i `ui `d .1023.0 -> -> 100 `i `d `ui ]
+"34
+[e ( _DIO_VidSetPinValue (3 , , -> . `E2455 2 `uc -> . `E2462 1 `uc -> -> 1 `i `uc ]
+"35
+[e ( _DIO_VidSetPinValue (3 , , -> . `E2455 2 `uc -> . `E2462 2 `uc -> -> 1 `i `uc ]
+"36
+[e ( _DIO_VidSetPinValue (3 , , -> . `E2455 2 `uc -> . `E2462 3 `uc -> -> 1 `i `uc ]
+"37
+[e $ ! > _temp -> -> 29 `i `ui 274  ]
+{
+[e ( _DIO_VidSetPinValue (3 , , -> . `E2455 2 `uc -> . `E2462 0 `uc -> -> 1 `i `uc ]
+}
+[e $U 275  ]
+[e :U 274 ]
+{
+[e ( _DIO_VidSetPinValue (3 , , -> . `E2455 2 `uc -> . `E2462 0 `uc -> -> 0 `i `uc ]
+}
+[e :U 275 ]
+"38
+}
 [e :U 271 ]
 [e $U 272  ]
 [e :U 273 ]
-"25
+"39
 [e $UE 270  ]
-"26
+"40
 [e :UE 270 ]
 }

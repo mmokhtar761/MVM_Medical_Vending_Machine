@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=01_APP/newmain.c E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+SOURCEFILES_QUOTED_IF_SPACED=01_APP/newmain.c E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/01_APP/newmain.p1.d ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1 ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/01_APP/newmain.p1.d ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1
+OBJECTFILES=${OBJECTDIR}/01_APP/newmain.p1 ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1 ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1
 
 # Source Files
-SOURCEFILES=01_APP/newmain.c E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c
+SOURCEFILES=01_APP/newmain.c E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c
 
 
 
@@ -110,6 +110,14 @@ ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1: E:/MVM_Medical_Vending_Machine/MPLAB_F
 	@-${MV} ${OBJECTDIR}/_ext/1243022950/DIO_prog.d ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1: E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/1243022950" 
+	@${RM} ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"03_MCAL" -I"01_APP" -I"02_HAL" -I"E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c 
+	@-${MV} ${OBJECTDIR}/_ext/1243022950/ADC_Prog.d ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/01_APP/newmain.p1: 01_APP/newmain.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/01_APP" 
@@ -126,6 +134,14 @@ ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1: E:/MVM_Medical_Vending_Machine/MPLAB_F
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"03_MCAL" -I"01_APP" -I"02_HAL" -I"E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c 
 	@-${MV} ${OBJECTDIR}/_ext/1243022950/DIO_prog.d ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1243022950/DIO_prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1: E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/1243022950" 
+	@${RM} ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"00_Lib" -I"03_MCAL" -I"01_APP" -I"02_HAL" -I"E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1 E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/ADC_Prog.c 
+	@-${MV} ${OBJECTDIR}/_ext/1243022950/ADC_Prog.d ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1243022950/ADC_Prog.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

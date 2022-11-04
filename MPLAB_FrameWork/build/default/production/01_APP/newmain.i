@@ -4519,15 +4519,15 @@ uint8 PORT_E_DEF[8]= {0,
 
 # 1 "03_MCAL\\DIO_int.h" 1
 # 35 "03_MCAL\\DIO_int.h"
-enum PORTS {
+typedef enum {
   PORT_A,
   PORT_B,
   PORT_C,
   PORT_D,
   PORT_E
-};
+}PORTS;
 
-enum PINS {
+typedef enum {
   PIN0,
   PIN1,
   PIN2,
@@ -4536,7 +4536,7 @@ enum PINS {
   PIN5,
   PIN6,
   PIN7
-};
+}PINS;
 # 77 "03_MCAL\\DIO_int.h"
 void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinDirCopy);
 
@@ -4563,12 +4563,66 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 # 17 "01_APP/newmain.c" 2
 
+# 1 "03_MCAL\\ADC_confg.h" 1
+# 11 "03_MCAL\\ADC_confg.h"
+# 1 "03_MCAL/ADC_priv.h" 1
+# 12 "03_MCAL/ADC_priv.h"
+typedef enum {
+    CHANNEL0 ,
+    CHANNEL1 ,
+    CHANNEL2 ,
+    CHANNEL3 ,
+    CHANNEL4 ,
+    CHANNEL5 ,
+    CHANNEL6 ,
+    CHANNEL7 ,
+    CHANNEL8 ,
+    CHANNEL9 ,
+    CHANNEL10,
+    CHANNEL11,
+    CHANNEL12,
+}CHANNELS;
+
+
+typedef enum {
+    Prescaler_2 =0,
+    Prescaler_4 =4,
+    Prescaler_8 =1,
+    Prescaler_16 =5,
+    Prescaler_32 =2,
+    Prescaler_64 =6,
+    Prescaler_FRC=7,
+
+}PRESCALUR;
+# 11 "03_MCAL\\ADC_confg.h" 2
+# 18 "01_APP/newmain.c" 2
+
+# 1 "03_MCAL\\ADC_int.h" 1
+# 14 "03_MCAL\\ADC_int.h"
+void ADC_VoidInit(void);
+
+
+uint16 ADC_u16GetChannelReading(uint8 Channel);
+# 19 "01_APP/newmain.c" 2
+
+
+
 
 
 
 void main(void) {
- DIO_VidSetHalfPortDirection(PORT_B, 2 ,0);
- DIO_VidSetHalfPortSet(PORT_B,2,1);
-    while (1);
+ DIO_VidSetHalfPortDirection(PORT_A, 1 ,1);
+ DIO_VidSetHalfPortDirection(PORT_C, 1 ,0);
+unsigned int adc_value,temp ;
+ ADC_VoidInit();
+    while (1){
+
+        adc_value= ADC_u16GetChannelReading(CHANNEL0);
+        temp=((adc_value*5)/1023.0)*100;
+        DIO_VidSetPinValue(PORT_C,PIN1,1);
+        DIO_VidSetPinValue(PORT_C,PIN2,1);
+        DIO_VidSetPinValue(PORT_C,PIN3,1);
+        if(temp>29){DIO_VidSetPinValue(PORT_C,PIN0,1);}else{DIO_VidSetPinValue(PORT_C,PIN0,0);}
+    }
     return;
 }
