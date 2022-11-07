@@ -4387,7 +4387,8 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 2 3
-# 11 "03_MCAL/DIO_prog.c" 2
+# 10 "03_MCAL/DIO_prog.c" 2
+
 
 
 # 1 "00_Lib\\Platform_Types.h" 1
@@ -4403,19 +4404,21 @@ typedef unsigned long uint32;
 
 typedef float float32;
 typedef double float64;
-# 14 "03_MCAL/DIO_prog.c" 2
+# 13 "03_MCAL/DIO_prog.c" 2
+
 # 1 "00_Lib\\MANIPULATOR.h" 1
-# 15 "03_MCAL/DIO_prog.c" 2
+# 14 "03_MCAL/DIO_prog.c" 2
+
 
 # 1 "03_MCAL/DIO_int.h" 1
 # 35 "03_MCAL/DIO_int.h"
-typedef enum{
+typedef enum {
   PORT_A,
   PORT_B,
   PORT_C,
   PORT_D,
   PORT_E
-}_PORTS;
+}PORTS;
 
 typedef enum {
   PIN0,
@@ -4426,8 +4429,8 @@ typedef enum {
   PIN5,
   PIN6,
   PIN7
-}_Pins;
-# 78 "03_MCAL/DIO_int.h"
+}PINS;
+# 77 "03_MCAL/DIO_int.h"
 void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinDirCopy);
 
 
@@ -4452,9 +4455,19 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 
+
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+
+
 void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
-void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir);
-# 17 "03_MCAL/DIO_prog.c" 2
+
+
+uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin );
+
+
+uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy);
+# 16 "03_MCAL/DIO_prog.c" 2
+
 # 1 "03_MCAL/DIO_cfg.h" 1
 # 20 "03_MCAL/DIO_cfg.h"
 uint8 PORT_A_DEF[8]= {1,
@@ -4496,7 +4509,8 @@ uint8 PORT_D_DEF[8]= {0,
 uint8 PORT_E_DEF[3]= {0,
                       0,
                       0};
-# 18 "03_MCAL/DIO_prog.c" 2
+# 17 "03_MCAL/DIO_prog.c" 2
+
 
 
 
@@ -4592,6 +4606,7 @@ uint8 DIO_u8GetPinValue(uint8 u8PortIdCopy, uint8 u8PinIdCopy)
  uint8 u8ResultLocal;
 
 
+ if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
  if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
  {
 
@@ -4706,6 +4721,7 @@ void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal){
         }
 }
 
+
 void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
     if(u8StPin <= PIN4){
     for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3 ;u8PinIdCopy++){
@@ -4727,6 +4743,64 @@ void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
 
     }
 }
+
+
+
+uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin )
+{
+
+ uint8 u8ResultLocal=0;
+
+
+ if ((u8PortIdCopy <= PORT_E))
+ {
+
+  switch (u8PortIdCopy)
+  {
+   case PORT_A: u8ResultLocal= ((PORTA&(0XF<<u8StPin))>>u8StPin); break;
+   case PORT_B: u8ResultLocal= ((PORTB&(0XF<<u8StPin))>>u8StPin); break;
+   case PORT_C: u8ResultLocal= ((PORTC&(0XF<<u8StPin))>>u8StPin); break;
+   case PORT_D: u8ResultLocal= ((PORTD&(0XF<<u8StPin))>>u8StPin); break;
+            case PORT_E: u8ResultLocal= ((PORTE&(0XF<<u8StPin))>>u8StPin); break;
+  }
+ }
+ else
+ {
+
+  u8ResultLocal = 0xFF;
+ }
+ return u8ResultLocal;
+}
+
+
+
+
+uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy)
+{
+
+ uint8 u8ResultLocal=0;
+
+
+ if ((u8PortIdCopy <= PORT_E))
+ {
+
+  switch (u8PortIdCopy)
+  {
+   case PORT_A: u8ResultLocal= ((PORTA&(0XFF<<PIN0))>>PIN0); break;
+   case PORT_B: u8ResultLocal= ((PORTB&(0XFF<<PIN0))>>PIN0); break;
+   case PORT_C: u8ResultLocal= ((PORTC&(0XFF<<PIN0))>>PIN0); break;
+   case PORT_D: u8ResultLocal= ((PORTD&(0XFF<<PIN0))>>PIN0); break;
+            case PORT_E: u8ResultLocal= ((PORTE&(0XFF<<PIN0))>>PIN0); break;
+  }
+ }
+ else
+ {
+
+  u8ResultLocal = 0xFF;
+ }
+ return u8ResultLocal;
+}
+
 
 
 void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal){

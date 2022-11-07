@@ -1,15 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "25 01_APP/newmain.c
-[c E2535 0 1 2 3 .. ]
-[n E2535 . IDLE ACC Sat DeAcc  ]
+[c E2540 0 1 2 3 .. ]
+[n E2540 . IDLE ACC Sat DeAcc  ]
 "34 02_HAL\STPR_int.h
-[s S270 `us 1 `us 1 `ul 1 `us 1 `uc 1 `E2535 1 ]
+[s S270 `us 1 `us 1 `ul 1 `us 1 `uc 1 `E2540 1 ]
 [n S270 . stpPerMm stpVel stpWidth stprAccPerInterval UniqueId stprStat ]
 [p mainexit ]
-"4444 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 4444: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"94 03_MCAL\DIO_int.h
+"93 03_MCAL\DIO_int.h
 [v _DIO_Inti `(v ~T0 @X0 0 ef ]
 "38 02_HAL\LCD_int.h
 [v _LCD_voidInit `(v ~T0 @X0 0 ef ]
@@ -542,8 +539,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _main ]
 [f ]
-"28
-[e = _ADCON1 -> -> 14 `i `uc ]
 "30
 [e ( _DIO_Inti ..  ]
 "31

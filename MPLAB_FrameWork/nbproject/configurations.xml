@@ -27,6 +27,9 @@
         <itemPath>03_MCAL/UART_cfg.h</itemPath>
         <itemPath>03_MCAL/UART_int.h</itemPath>
         <itemPath>03_MCAL/UART_prvt.h</itemPath>
+        <itemPath>03_MCAL/ADC_confg.h</itemPath>
+        <itemPath>03_MCAL/ADC_int.h</itemPath>
+        <itemPath>03_MCAL/ADC_priv.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -46,6 +49,7 @@
       <logicalFolder name="f3" displayName="MCAL" projectFiles="true">
         <itemPath>03_MCAL/DIO_prog.c</itemPath>
         <itemPath>03_MCAL/UART_prog.c</itemPath>
+        <itemPath>03_MCAL/ADC_Prog.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

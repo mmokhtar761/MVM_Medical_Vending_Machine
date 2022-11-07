@@ -7,73 +7,61 @@
 
 #define _XTAL_FREQ 16000000
 /*Lib modules inc*/
-#include "Std_Types.h"
 #include "Config_uC.h"
+#include "Std_Types.h"
 #include "MANIPULATOR.h"
 
 
 /*MCAL modules inc*/
 #include "DIO_int.h"
+#include "ADC_int.h"
 #include "UART_int.h"
-#include "LCD_int.h"
-void initT0Spaqitti(void);
+
 
 /*HAL modules inc*/
 #include "STPR_int.h"
+#include "LCD_int.h"
 
-/*Array of stepper handlers*/
-STPR_type MyStprs [11];
+/*APP modules*/
+#include "mainH.h"
+
+
+
 sint16 mymsg;
 void main(void) {
-        ADCON1= 0b1110;
-        /*Init MCAL modules*/
-        DIO_Inti(); //Init pin dir as configured
-        LCD_voidInit ();
-        __delay_ms(50);
-        //UART_voidInit ();
-        //initT0Spaqitti();//100ms simple timer
-        /*Init HAL modules*/
-        /*INIT all the steppers needed*/
-        for (uint8 i=0; i<11;i++)
-        {
-                STPR_voidInitStpr (MyStprs+i,i,(uint16)2,3000,900);
-        }
-        //BIT_H(T0CON,7);  //timer on                          VAR|=  ((uint32)1<<BIT)
-        //PORTD =0;
+
+        /*Init the system HW modules*/
+        void INIT_SYS (void)
+
         while (1)
-        {
-            //UART_TxMsgSyn  ('x',100);
-            //mymsg = UART_RxMsgSyn  (10000);
-            LCD_SetCursor (3);
-            __delay_ms(20);
-            LCD_wStr   ((uint8 *)"I am here");
-            //while(1);
-            //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
-            
-           //__delay_ms(500);
-           //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
-          // if (mymsg != -1 && mymsg!=-2) UART_TxArrMsg ((uint8 *)"I want to sleep", 16);
-           //else UART_TxArrMsg ("ERROR", 6);
-            //UART_TxMsgSyn  ('\n',100);
-            //UART_TxMsgSyn  ('\r',100);
-           __delay_ms(2000);
+                {
+                //UART_TxMsgSyn  ('x',100);
+                //mymsg = UART_RxMsgSyn  (10000);
+                LCD_SetCursor (3);
+                __delay_ms(20);
+                LCD_wStr   ((uint8 *)"I am here");
+                //while(1);
+                //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
+
+                //__delay_ms(500);
+                //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
+                // if (mymsg != -1 && mymsg!=-2) UART_TxArrMsg ((uint8 *)"I want to sleep", 16);
+                //else UART_TxArrMsg ("ERROR", 6);
+                //UART_TxMsgSyn  ('\n',100);
+                //UART_TxMsgSyn  ('\r',100);
+                __delay_ms(2000);
 
 
-        }
-        
-    return;
+                }
+
+        return;
 }
 
 
-void initT0Spaqitti(void)
-{
-        /*Timer  50ms */
-        TMR0H = 0x3C;
-        TMR0L = 0xAF;
-        T0CON = 0b00000011;
-        INTCONbits.GIE=1;
-        INTCONbits.T0IE =1;
-}
+
+
+
+
 void __interrupt(high_priority) high_isr(void)      // interrupt function ��� //Low priority interrupt������������ // High priority interrupt
 {
         if(INTCONbits.T0IF && INTCONbits.T0IE) 

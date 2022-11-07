@@ -4461,13 +4461,13 @@ uint8 PORT_E_DEF[3]= {0,
 
 # 1 "03_MCAL\\DIO_int.h" 1
 # 35 "03_MCAL\\DIO_int.h"
-typedef enum{
+typedef enum {
   PORT_A,
   PORT_B,
   PORT_C,
   PORT_D,
   PORT_E
-}_PORTS;
+}PORTS;
 
 typedef enum {
   PIN0,
@@ -4478,8 +4478,8 @@ typedef enum {
   PIN5,
   PIN6,
   PIN7
-}_Pins;
-# 78 "03_MCAL\\DIO_int.h"
+}PINS;
+# 77 "03_MCAL\\DIO_int.h"
 void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinDirCopy);
 
 
@@ -4504,8 +4504,17 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 
+
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+
+
 void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
-void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir);
+
+
+uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin );
+
+
+uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy);
 # 16 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
 # 1 "02_HAL/STPR_cfg.h" 1

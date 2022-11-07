@@ -7,6 +7,8 @@
 #include <xc.h>
 
 #include "Std_Types.h"
+#include "MANIPULATOR.h"
+
 #include "DIO_int.h"
 #include "ADC_int.h"
 #include "ADC_confg.h"
@@ -54,7 +56,8 @@ uint16 ADC_u16GetChannelReading(uint8 Channel){
 	BIT_H(ADCON0,1);
 
     //wait until the flag is low
-	while(GET_BIT(ADCON0,1)==1);
+	while(GET_BIT(ADCON0,1)==1)
+        ;
     
      __delay_ms(50);
 
@@ -62,8 +65,8 @@ uint16 ADC_u16GetChannelReading(uint8 Channel){
 	//BIT_L(ADCON0,1);
   
 	//return the value in the registers
-	if  (JUST){ u16ReadingReturn= (ADRESH<<8) +ADRESL   ;} /* return right justified 10-bit result */
-    else      { u16ReadingReturn=((ADRESH<< 8)|ADRESL)>>6  ;} /* return left justified 10-bit result */
+	if  (JUST){ u16ReadingReturn= ((uint16)ADRESH<<8) +(uint16)ADRESL   ;} /* return right justified 10-bit result */
+    else      { u16ReadingReturn= (((uint16)ADRESH<< 8)|(uint16)ADRESL)>>6  ;} /* return left justified 10-bit result */
     
     return u16ReadingReturn;
 }

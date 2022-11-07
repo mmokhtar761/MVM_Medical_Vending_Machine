@@ -67,7 +67,6 @@ void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCo
 {
 	/* Make sure that the Port ID and Pin ID are in the valid range */
 	if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
-	if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
 	{
 		if (u8PinValCopy == HIGH)
 		{
