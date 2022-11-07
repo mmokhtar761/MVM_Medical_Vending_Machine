@@ -98,4 +98,16 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 /*initialize the value of Half a port (use FIRST_HALF or SECOND_HALF)*/ 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 
+/*initialize the direction of Half a port (use start pin)*/
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+
+/*initialize the value of Half a port (use start pin)*/
+void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+
+/* if 4 pins are input - get value */
+uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin );
+
+/* if PORT is input - get value */
+uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy);
+
 #endif

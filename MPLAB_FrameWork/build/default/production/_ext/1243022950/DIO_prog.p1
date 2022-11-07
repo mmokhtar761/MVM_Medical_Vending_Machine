@@ -1563,3 +1563,538 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 226: }
 [e :UE 408 ]
 }
+"229
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 229: void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
+[v _DIO_VidDirPortNibble `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _DIO_VidDirPortNibble ]
+[v _u8PortId `uc ~T0 @X0 1 r1 ]
+[v _u8StPin `uc ~T0 @X0 1 r2 ]
+[v _u8PortDir `uc ~T0 @X0 1 r3 ]
+[f ]
+"230
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 230:     if(u8StPin <= PIN4){
+[e $ ! <= -> _u8StPin `i -> . `E2457 4 `i 442  ]
+{
+"231
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 231:     for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3 ;u8PinIdCopy++){
+{
+[v _u8PinIdCopy `uc ~T0 @X0 1 a ]
+[e = _u8PinIdCopy _u8StPin ]
+[e $U 446  ]
+[e :U 443 ]
+{
+"232
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 232:    switch (u8PortId)
+[e $U 448  ]
+"233
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 233:    {
+{
+"234
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 234:     case PORT_A: if (u8PortDir == 0){TRISA&= ~((uint32)1<<u8PinIdCopy); break;}
+[e :U 449 ]
+[e $ ! == -> _u8PortDir `i -> 0 `i 450  ]
+{
+[e =& _TRISA -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 451  ]
+"235
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 235:                              else if (u8PortDir == 1) {TRISA|= ((uint32)1<<u8PinIdCopy); break;}else{}
+[e :U 450 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 452  ]
+{
+[e =| _TRISA -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 453  ]
+[e :U 452 ]
+{
+}
+[e :U 453 ]
+[e :U 451 ]
+"236
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 236:     case PORT_B: if (u8PortDir == 0){TRISB&= ~((uint32)1<<u8PinIdCopy); break;}
+[e :U 454 ]
+[e $ ! == -> _u8PortDir `i -> 0 `i 455  ]
+{
+[e =& _TRISB -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 456  ]
+"237
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 237:                              else if (u8PortDir == 1) {TRISB|= ((uint32)1<<u8PinIdCopy); break;}else{}
+[e :U 455 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 457  ]
+{
+[e =| _TRISB -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 458  ]
+[e :U 457 ]
+{
+}
+[e :U 458 ]
+[e :U 456 ]
+"238
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 238:     case PORT_C: if (u8PortDir == 0){TRISC&= ~((uint32)1<<u8PinIdCopy); break;}
+[e :U 459 ]
+[e $ ! == -> _u8PortDir `i -> 0 `i 460  ]
+{
+[e =& _TRISC -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 461  ]
+"239
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 239:                              else if (u8PortDir == 1) {TRISC|= ((uint32)1<<u8PinIdCopy); break;}else{}
+[e :U 460 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 462  ]
+{
+[e =| _TRISC -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 463  ]
+[e :U 462 ]
+{
+}
+[e :U 463 ]
+[e :U 461 ]
+"240
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 240:     case PORT_D: if (u8PortDir == 0){TRISD&= ~((uint32)1<<u8PinIdCopy); break;}
+[e :U 464 ]
+[e $ ! == -> _u8PortDir `i -> 0 `i 465  ]
+{
+[e =& _TRISD -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 466  ]
+"241
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 241:                              else if (u8PortDir == 1) {TRISD|= ((uint32)1<<u8PinIdCopy); break;}else{}
+[e :U 465 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 467  ]
+{
+[e =| _TRISD -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 468  ]
+[e :U 467 ]
+{
+}
+[e :U 468 ]
+[e :U 466 ]
+"242
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 242:                 case PORT_E: if(u8PinIdCopy<=2){
+[e :U 469 ]
+[e $ ! <= -> _u8PinIdCopy `i -> 2 `i 470  ]
+{
+"243
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 243:                              if (u8PortDir == 0){TRISE&= ~((uint32)1<<u8PinIdCopy); break;}
+[e $ ! == -> _u8PortDir `i -> 0 `i 471  ]
+{
+[e =& _TRISE -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 472  ]
+"244
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 244:                              else if (u8PortDir == 1) {TRISE|= ((uint32)1<<u8PinIdCopy); break;}else{}}
+[e :U 471 ]
+[e $ ! == -> _u8PortDir `i -> 1 `i 473  ]
+{
+[e =| _TRISE -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 447  ]
+}
+[e $U 474  ]
+[e :U 473 ]
+{
+}
+[e :U 474 ]
+[e :U 472 ]
+}
+[e :U 470 ]
+"245
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 245:    }
+}
+[e $U 447  ]
+[e :U 448 ]
+[e [\ -> _u8PortId `i , $ . `E2450 0 449
+ , $ . `E2450 1 454
+ , $ . `E2450 2 459
+ , $ . `E2450 3 464
+ , $ . `E2450 4 469
+ 447 ]
+[e :U 447 ]
+"246
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 246:         }
+}
+[e ++ _u8PinIdCopy -> -> 1 `i `uc ]
+[e :U 446 ]
+[e $ <= -> _u8PinIdCopy `i + -> _u8StPin `i -> 3 `i 443  ]
+[e :U 444 ]
+}
+"248
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 248:     }
+}
+[e :U 442 ]
+"249
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 249: }
+[e :UE 441 ]
+}
+"252
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 252: void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal){
+[v _DIO_VidSetPortNibble `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _DIO_VidSetPortNibble ]
+[v _u8PortId `uc ~T0 @X0 1 r1 ]
+[v _u8StPin `uc ~T0 @X0 1 r2 ]
+[v _u8PortVal `uc ~T0 @X0 1 r3 ]
+[f ]
+"253
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 253:     if(u8StPin <= PIN4){
+[e $ ! <= -> _u8StPin `i -> . `E2457 4 `i 476  ]
+{
+"254
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 254:      for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3 ;u8PinIdCopy++){
+{
+[v _u8PinIdCopy `uc ~T0 @X0 1 a ]
+[e = _u8PinIdCopy _u8StPin ]
+[e $U 480  ]
+[e :U 477 ]
+{
+"255
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 255:    switch (u8PortId)
+[e $U 482  ]
+"256
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 256:    {
+{
+"257
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 257:     case PORT_A: if (u8PortVal == 0) {PORTA&= ~((uint32)1<<u8PinIdCopy); break;}
+[e :U 483 ]
+[e $ ! == -> _u8PortVal `i -> 0 `i 484  ]
+{
+[e =& _PORTA -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 485  ]
+"258
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 258:                              else if (u8PortVal == 1){PORTA|= ((uint32)1<<u8PinIdCopy); break;}else{}
+[e :U 484 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 486  ]
+{
+[e =| _PORTA -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 487  ]
+[e :U 486 ]
+{
+}
+[e :U 487 ]
+[e :U 485 ]
+"259
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 259:     case PORT_B: if (u8PortVal == 0) {PORTB&= ~((uint32)1<<u8PinIdCopy); break;}
+[e :U 488 ]
+[e $ ! == -> _u8PortVal `i -> 0 `i 489  ]
+{
+[e =& _PORTB -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 490  ]
+"260
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 260:                              else if (u8PortVal == 1){PORTB|= ((uint32)1<<u8PinIdCopy); break;}else{}
+[e :U 489 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 491  ]
+{
+[e =| _PORTB -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 492  ]
+[e :U 491 ]
+{
+}
+[e :U 492 ]
+[e :U 490 ]
+"261
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 261:     case PORT_C: if (u8PortVal == 0) {PORTC&= ~((uint32)1<<u8PinIdCopy); break;}
+[e :U 493 ]
+[e $ ! == -> _u8PortVal `i -> 0 `i 494  ]
+{
+[e =& _PORTC -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 495  ]
+"262
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 262:                              else if (u8PortVal == 1){PORTC|= ((uint32)1<<u8PinIdCopy); break;}else{}
+[e :U 494 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 496  ]
+{
+[e =| _PORTC -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 497  ]
+[e :U 496 ]
+{
+}
+[e :U 497 ]
+[e :U 495 ]
+"263
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 263:     case PORT_D: if (u8PortVal == 0) {PORTD&= ~((uint32)1<<u8PinIdCopy); break;}
+[e :U 498 ]
+[e $ ! == -> _u8PortVal `i -> 0 `i 499  ]
+{
+[e =& _PORTD -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 500  ]
+"264
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 264:                              else if (u8PortVal == 1){PORTD|= ((uint32)1<<u8PinIdCopy); break;}else{}
+[e :U 499 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 501  ]
+{
+[e =| _PORTD -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 502  ]
+[e :U 501 ]
+{
+}
+[e :U 502 ]
+[e :U 500 ]
+"265
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 265:                 case PORT_E: if(u8PinIdCopy<=2){
+[e :U 503 ]
+[e $ ! <= -> _u8PinIdCopy `i -> 2 `i 504  ]
+{
+"266
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 266:                              if (u8PortVal == 0) {PORTE&= ~((uint32)1<<u8PinIdCopy); break;}
+[e $ ! == -> _u8PortVal `i -> 0 `i 505  ]
+{
+[e =& _PORTE -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 506  ]
+"267
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 267:                              else if (u8PortVal == 1){PORTE|= ((uint32)1<<u8PinIdCopy); break;}else{}}
+[e :U 505 ]
+[e $ ! == -> _u8PortVal `i -> 1 `i 507  ]
+{
+[e =| _PORTE -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
+[e $U 481  ]
+}
+[e $U 508  ]
+[e :U 507 ]
+{
+}
+[e :U 508 ]
+[e :U 506 ]
+}
+[e :U 504 ]
+"268
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 268:    }
+}
+[e $U 481  ]
+[e :U 482 ]
+[e [\ -> _u8PortId `i , $ . `E2450 0 483
+ , $ . `E2450 1 488
+ , $ . `E2450 2 493
+ , $ . `E2450 3 498
+ , $ . `E2450 4 503
+ 481 ]
+[e :U 481 ]
+"269
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 269:         }
+}
+[e ++ _u8PinIdCopy -> -> 1 `i `uc ]
+[e :U 480 ]
+[e $ <= -> _u8PinIdCopy `i + -> _u8StPin `i -> 3 `i 477  ]
+[e :U 478 ]
+}
+"270
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 270:     }
+}
+[e :U 476 ]
+"271
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 271: }
+[e :UE 475 ]
+}
+"274
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 274: uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin )
+[v _DIO_u8GetPortNibble `(uc ~T0 @X0 1 ef2`uc`uc ]
+"275
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 275: {
+{
+[e :U _DIO_u8GetPortNibble ]
+"274
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 274: uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin )
+[v _u8PortIdCopy `uc ~T0 @X0 1 r1 ]
+[v _u8StPin `uc ~T0 @X0 1 r2 ]
+"275
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 275: {
+[f ]
+"277
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 277:  uint8 u8ResultLocal=0;
+[v _u8ResultLocal `uc ~T0 @X0 1 a ]
+[e = _u8ResultLocal -> -> 0 `i `uc ]
+"280
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 280:  if ((u8PortIdCopy <= PORT_E))
+[e $ ! <= -> _u8PortIdCopy `i -> . `E2450 4 `i 510  ]
+"281
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 281:  {
+{
+"283
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 283:   switch (u8PortIdCopy)
+[e $U 512  ]
+"284
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 284:   {
+{
+"285
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 285:    case PORT_A: u8ResultLocal= ((PORTA&(0XF<<u8StPin))>>u8StPin); break;
+[e :U 513 ]
+[e = _u8ResultLocal -> >> & -> _PORTA `i << -> 15 `i -> _u8StPin `i -> _u8StPin `i `uc ]
+[e $U 511  ]
+"286
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 286:    case PORT_B: u8ResultLocal= ((PORTB&(0XF<<u8StPin))>>u8StPin); break;
+[e :U 514 ]
+[e = _u8ResultLocal -> >> & -> _PORTB `i << -> 15 `i -> _u8StPin `i -> _u8StPin `i `uc ]
+[e $U 511  ]
+"287
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 287:    case PORT_C: u8ResultLocal= ((PORTC&(0XF<<u8StPin))>>u8StPin); break;
+[e :U 515 ]
+[e = _u8ResultLocal -> >> & -> _PORTC `i << -> 15 `i -> _u8StPin `i -> _u8StPin `i `uc ]
+[e $U 511  ]
+"288
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 288:    case PORT_D: u8ResultLocal= ((PORTD&(0XF<<u8StPin))>>u8StPin); break;
+[e :U 516 ]
+[e = _u8ResultLocal -> >> & -> _PORTD `i << -> 15 `i -> _u8StPin `i -> _u8StPin `i `uc ]
+[e $U 511  ]
+"289
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 289:             case PORT_E: u8ResultLocal= ((PORTE&(0XF<<u8StPin))>>u8StPin); break;
+[e :U 517 ]
+[e = _u8ResultLocal -> >> & -> _PORTE `i << -> 15 `i -> _u8StPin `i -> _u8StPin `i `uc ]
+[e $U 511  ]
+"290
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 290:   }
+}
+[e $U 511  ]
+[e :U 512 ]
+[e [\ -> _u8PortIdCopy `i , $ . `E2450 0 513
+ , $ . `E2450 1 514
+ , $ . `E2450 2 515
+ , $ . `E2450 3 516
+ , $ . `E2450 4 517
+ 511 ]
+[e :U 511 ]
+"291
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 291:  }
+}
+[e $U 518  ]
+"292
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 292:  else
+[e :U 510 ]
+"293
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 293:  {
+{
+"295
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 295:   u8ResultLocal = 0xFF;
+[e = _u8ResultLocal -> -> 255 `i `uc ]
+"296
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 296:  }
+}
+[e :U 518 ]
+"297
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 297:  return u8ResultLocal;
+[e ) _u8ResultLocal ]
+[e $UE 509  ]
+"298
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 298: }
+[e :UE 509 ]
+}
+"303
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 303: uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy)
+[v _DIO_u8GetPortValue `(uc ~T0 @X0 1 ef1`uc ]
+"304
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 304: {
+{
+[e :U _DIO_u8GetPortValue ]
+"303
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 303: uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy)
+[v _u8PortIdCopy `uc ~T0 @X0 1 r1 ]
+"304
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 304: {
+[f ]
+"306
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 306:  uint8 u8ResultLocal=0;
+[v _u8ResultLocal `uc ~T0 @X0 1 a ]
+[e = _u8ResultLocal -> -> 0 `i `uc ]
+"309
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 309:  if ((u8PortIdCopy <= PORT_E))
+[e $ ! <= -> _u8PortIdCopy `i -> . `E2450 4 `i 520  ]
+"310
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 310:  {
+{
+"312
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 312:   switch (u8PortIdCopy)
+[e $U 522  ]
+"313
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 313:   {
+{
+"314
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 314:    case PORT_A: u8ResultLocal= ((PORTA&(0XFF<<PIN0))>>PIN0); break;
+[e :U 523 ]
+[e = _u8ResultLocal -> >> & -> _PORTA `i << -> 255 `i -> . `E2457 0 `i -> . `E2457 0 `i `uc ]
+[e $U 521  ]
+"315
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 315:    case PORT_B: u8ResultLocal= ((PORTB&(0XFF<<PIN0))>>PIN0); break;
+[e :U 524 ]
+[e = _u8ResultLocal -> >> & -> _PORTB `i << -> 255 `i -> . `E2457 0 `i -> . `E2457 0 `i `uc ]
+[e $U 521  ]
+"316
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 316:    case PORT_C: u8ResultLocal= ((PORTC&(0XFF<<PIN0))>>PIN0); break;
+[e :U 525 ]
+[e = _u8ResultLocal -> >> & -> _PORTC `i << -> 255 `i -> . `E2457 0 `i -> . `E2457 0 `i `uc ]
+[e $U 521  ]
+"317
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 317:    case PORT_D: u8ResultLocal= ((PORTD&(0XFF<<PIN0))>>PIN0); break;
+[e :U 526 ]
+[e = _u8ResultLocal -> >> & -> _PORTD `i << -> 255 `i -> . `E2457 0 `i -> . `E2457 0 `i `uc ]
+[e $U 521  ]
+"318
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 318:             case PORT_E: u8ResultLocal= ((PORTE&(0XFF<<PIN0))>>PIN0); break;
+[e :U 527 ]
+[e = _u8ResultLocal -> >> & -> _PORTE `i << -> 255 `i -> . `E2457 0 `i -> . `E2457 0 `i `uc ]
+[e $U 521  ]
+"319
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 319:   }
+}
+[e $U 521  ]
+[e :U 522 ]
+[e [\ -> _u8PortIdCopy `i , $ . `E2450 0 523
+ , $ . `E2450 1 524
+ , $ . `E2450 2 525
+ , $ . `E2450 3 526
+ , $ . `E2450 4 527
+ 521 ]
+[e :U 521 ]
+"320
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 320:  }
+}
+[e $U 528  ]
+"321
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 321:  else
+[e :U 520 ]
+"322
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 322:  {
+{
+"324
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 324:   u8ResultLocal = 0xFF;
+[e = _u8ResultLocal -> -> 255 `i `uc ]
+"325
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 325:  }
+}
+[e :U 528 ]
+"326
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 326:  return u8ResultLocal;
+[e ) _u8ResultLocal ]
+[e $UE 519  ]
+"327
+[; ;E:/MVM_Medical_Vending_Machine/MPLAB_FrameWork/03_MCAL/DIO_prog.c: 327: }
+[e :UE 519 ]
+}

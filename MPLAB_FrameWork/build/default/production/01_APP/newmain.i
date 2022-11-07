@@ -4561,6 +4561,18 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 
 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
+
+
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+
+
+void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+
+
+uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin );
+
+
+uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy);
 # 17 "01_APP/newmain.c" 2
 
 # 1 "03_MCAL\\ADC_confg.h" 1
@@ -4611,18 +4623,18 @@ uint16 ADC_u16GetChannelReading(uint8 Channel);
 
 
 void main(void) {
+ DIO_VidDirPortNibble(PORT_C, PIN2 ,0);
  DIO_VidSetHalfPortDirection(PORT_A, 1 ,1);
- DIO_VidSetHalfPortDirection(PORT_C, 1 ,0);
 unsigned int adc_value,temp ;
  ADC_VoidInit();
     while (1){
 
         adc_value= ADC_u16GetChannelReading(CHANNEL0);
         temp=((adc_value*5)/1023.0)*100;
-        DIO_VidSetPinValue(PORT_C,PIN1,1);
         DIO_VidSetPinValue(PORT_C,PIN2,1);
         DIO_VidSetPinValue(PORT_C,PIN3,1);
-        if(temp>29){DIO_VidSetPinValue(PORT_C,PIN0,1);}else{DIO_VidSetPinValue(PORT_C,PIN0,0);}
+        DIO_VidSetPinValue(PORT_C,PIN4,1);
+        if(temp>29){DIO_VidSetPinValue(PORT_C,PIN5,1);}else{DIO_VidSetPinValue(PORT_C,PIN5,0);}
     }
     return;
 }

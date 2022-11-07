@@ -23,18 +23,18 @@
 
 
 void main(void) {
+ DIO_VidDirPortNibble(PORT_C, PIN2 ,OUTPUT);
  DIO_VidSetHalfPortDirection(PORT_A, FIRST_HALF ,INPUT);
- DIO_VidSetHalfPortDirection(PORT_C, FIRST_HALF ,OUTPUT);
 unsigned int adc_value,temp ;
  ADC_VoidInit();
     while (1){
         
         adc_value= ADC_u16GetChannelReading(CHANNEL0);
         temp=((adc_value*5)/1023.0)*100;
-        DIO_VidSetPinValue(PORT_C,PIN1,HIGH);
         DIO_VidSetPinValue(PORT_C,PIN2,HIGH);
         DIO_VidSetPinValue(PORT_C,PIN3,HIGH);
-        if(temp>29){DIO_VidSetPinValue(PORT_C,PIN0,HIGH);}else{DIO_VidSetPinValue(PORT_C,PIN0,LOW);}
+        DIO_VidSetPinValue(PORT_C,PIN4,HIGH);
+        if(temp>29){DIO_VidSetPinValue(PORT_C,PIN5,HIGH);}else{DIO_VidSetPinValue(PORT_C,PIN5,LOW);}
     }
     return;
 }

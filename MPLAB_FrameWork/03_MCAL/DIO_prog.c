@@ -224,3 +224,104 @@ void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal){
 			} 
         }   
 } 
+
+
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
+    if(u8StPin <= PIN4){
+    for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3  ;u8PinIdCopy++){
+			switch (u8PortId)
+			{
+				case PORT_A: if      (u8PortDir == OUTPUT){BIT_L(TRISA,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISA,u8PinIdCopy); break;}else{}
+				case PORT_B: if      (u8PortDir == OUTPUT){BIT_L(TRISB,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISB,u8PinIdCopy); break;}else{}
+				case PORT_C: if      (u8PortDir == OUTPUT){BIT_L(TRISC,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISC,u8PinIdCopy); break;}else{}
+				case PORT_D: if      (u8PortDir == OUTPUT){BIT_L(TRISD,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISD,u8PinIdCopy); break;}else{}
+                case PORT_E: if(u8PinIdCopy<=PORT_E_LAST_PIN){
+                             if      (u8PortDir == OUTPUT){BIT_L(TRISE,u8PinIdCopy); break;}
+                             else if (u8PortDir == INPUT) {BIT_H(TRISE,u8PinIdCopy); break;}else{}}
+			} 
+        }   
+    
+    }
+}
+
+
+void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal){
+    if(u8StPin <= PIN4){
+     for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3  ;u8PinIdCopy++){
+			switch (u8PortId)
+			{
+				case PORT_A: if      (u8PortVal == LOW) {BIT_L(PORTA,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTA,u8PinIdCopy); break;}else{}
+				case PORT_B: if      (u8PortVal == LOW) {BIT_L(PORTB,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTB,u8PinIdCopy); break;}else{}
+				case PORT_C: if      (u8PortVal == LOW) {BIT_L(PORTC,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTC,u8PinIdCopy); break;}else{}
+				case PORT_D: if      (u8PortVal == LOW) {BIT_L(PORTD,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTD,u8PinIdCopy); break;}else{}
+                case PORT_E: if(u8PinIdCopy<=PORT_E_LAST_PIN){
+                             if      (u8PortVal == LOW) {BIT_L(PORTE,u8PinIdCopy); break;}
+                             else if (u8PortVal == HIGH){BIT_H(PORTE,u8PinIdCopy); break;}else{}}
+			} 
+        }    
+    }
+}
+
+
+uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin )
+{
+	/* Define Local Variable to get the BITS Value */
+	uint8 u8ResultLocal=0;
+
+	/* Make sure that the Port ID is in the valid range */
+	if ((u8PortIdCopy <= PORT_E))
+	{
+		/* Check on the Required PORT Number */
+		switch (u8PortIdCopy)
+		{
+			case PORT_A: u8ResultLocal= GET_NIBBLE(PORTA,u8StPin); break;
+			case PORT_B: u8ResultLocal= GET_NIBBLE(PORTB,u8StPin); break;
+			case PORT_C: u8ResultLocal= GET_NIBBLE(PORTC,u8StPin); break;
+			case PORT_D: u8ResultLocal= GET_NIBBLE(PORTD,u8StPin); break;
+            case PORT_E: u8ResultLocal= GET_NIBBLE(PORTE,u8StPin); break;
+		}
+	}
+	else
+	{
+		/* return 0xff in case of error in the Pin ID or PORT ID */
+		u8ResultLocal = 0xFF; /* 255 */
+	}
+	return u8ResultLocal;
+}
+
+
+
+
+uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy)
+{
+	/* Define Local Variable to get the BYTE Value */
+	uint8 u8ResultLocal=0;
+
+	/* Make sure that the Port ID is in the valid range */
+	if ((u8PortIdCopy <= PORT_E))
+	{
+		/* Check on the Required PORT Number */
+		switch (u8PortIdCopy)
+		{
+			case PORT_A: u8ResultLocal= GET_BYTE(PORTA,PIN0); break;
+			case PORT_B: u8ResultLocal= GET_BYTE(PORTB,PIN0); break;
+			case PORT_C: u8ResultLocal= GET_BYTE(PORTC,PIN0); break;
+			case PORT_D: u8ResultLocal= GET_BYTE(PORTD,PIN0); break;
+            case PORT_E: u8ResultLocal= GET_BYTE(PORTE,PIN0); break;
+		}
+	}
+	else
+	{
+		/* return 0xff in case of error in the Pin ID or PORT ID */
+		u8ResultLocal = 0xFF; /* 255 */
+	}
+	return u8ResultLocal;
+}
