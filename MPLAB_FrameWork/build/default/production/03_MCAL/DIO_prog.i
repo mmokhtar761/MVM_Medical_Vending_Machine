@@ -4730,22 +4730,15 @@ void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
 
 
 void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal){
-    if(u8StPin <= PIN4){
-     for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3 ;u8PinIdCopy++){
-   switch (u8PortId)
-   {
-    case PORT_A: if (u8PortVal == 0) {PORTA&= ~((uint32)1<<u8PinIdCopy); break;}
-                             else if (u8PortVal == 1){PORTA|= ((uint32)1<<u8PinIdCopy); break;}else{}
-    case PORT_B: if (u8PortVal == 0) {PORTB&= ~((uint32)1<<u8PinIdCopy); break;}
-                             else if (u8PortVal == 1){PORTB|= ((uint32)1<<u8PinIdCopy); break;}else{}
-    case PORT_C: if (u8PortVal == 0) {PORTC&= ~((uint32)1<<u8PinIdCopy); break;}
-                             else if (u8PortVal == 1){PORTC|= ((uint32)1<<u8PinIdCopy); break;}else{}
-    case PORT_D: if (u8PortVal == 0) {PORTD&= ~((uint32)1<<u8PinIdCopy); break;}
-                             else if (u8PortVal == 1){PORTD|= ((uint32)1<<u8PinIdCopy); break;}else{}
-                case PORT_E: if(u8PinIdCopy<=2){
-                             if (u8PortVal == 0) {PORTE&= ~((uint32)1<<u8PinIdCopy); break;}
-                             else if (u8PortVal == 1){PORTE|= ((uint32)1<<u8PinIdCopy); break;}else{}}
-   }
-        }
+    volatile uint8 * myPORT ;
+    if(u8StPin > PIN4)return;
+    switch (u8PortId)
+    {
+        case PORT_A: myPORT = & PORTA; break;
+        case PORT_B: myPORT = & PORTB; break;
+        case PORT_C: myPORT = & PORTC; break;
+        case PORT_D: myPORT = & PORTD; break;
+        case PORT_E: myPORT = & PORTE; break;
     }
+    (*myPORT)=(((*myPORT) & ~((uint32)0xF<<u8StPin))|(u8PortVal<<u8StPin));
 }

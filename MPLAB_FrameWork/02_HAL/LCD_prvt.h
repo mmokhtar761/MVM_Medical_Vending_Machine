@@ -19,6 +19,9 @@
 /*************************************************************************/
 #define ENTRY_MODE_SET_CMD (0b100+LEFT2RIGHT)
 #define FUNCTION_SET       ((1<<5)+(LINE_WIDTH<<4)+(LINE_NUM<<3)+(CURSOR_MV_DIR))
+
+#define E_Pwidth          (1) //(ms) (1)
+
 /*
   The enable pin is used by the LCD to latch information presented to its data pins.
   When data is supplied to the data pins, a high-to-low pulse must be applied to this pin in order for 
@@ -30,7 +33,7 @@ void LAT_data (uint8 data){
   #if LINE_WIDTH == _4BIT_MODE
   /*Latch the high half of the cmd*/
   Man_LINE(data >>4);
-  __delay_ms(1);
+  __delay_ms(E_Pwidth);
   SET_PIN_HIGH(E_PORT,E_PIN);
   __delay_ms(E_Pwidth);
   SET_PIN_LOW(E_PORT,E_PIN);              //To latch data

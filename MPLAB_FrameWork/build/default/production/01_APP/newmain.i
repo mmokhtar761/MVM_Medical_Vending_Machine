@@ -4574,7 +4574,7 @@ uint32 UART_getBaudRate(void);
 # 17 "01_APP/newmain.c" 2
 
 # 1 "02_HAL\\LCD_int.h" 1
-# 39 "02_HAL\\LCD_int.h"
+# 38 "02_HAL\\LCD_int.h"
 void LCD_voidInit (void);
 
 uint8 IS_BUSY (void);
@@ -4667,6 +4667,7 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval);
 STPR_type MyStprs [11];
 sint16 mymsg;
 void main(void) {
+        ADCON1= 0b1110;
 
         DIO_Inti();
         LCD_voidInit ();
@@ -4680,14 +4681,15 @@ void main(void) {
                 STPR_voidInitStpr (MyStprs+i,i,(uint16)2,3000,900);
         }
 
-        ADCON1= 0b1110;
 
         while (1)
         {
 
 
+            LCD_SetCursor (3);
+            _delay((unsigned long)((20)*(16000000/4000.0)));
             LCD_wStr ((uint8 *)"I am here");
-# 56 "01_APP/newmain.c"
+# 59 "01_APP/newmain.c"
            _delay((unsigned long)((2000)*(16000000/4000.0)));
 
 

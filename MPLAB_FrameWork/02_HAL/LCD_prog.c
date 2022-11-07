@@ -36,7 +36,7 @@ void  LCD_voidInit   (void)
   E_D  =0;     
   */
   SET_LINE_DIR_O();
-  __delay_ms(20);		/* wait LCD Power to sattle */
+  __delay_ms(100);		/* wait LCD Power to sattle */
   CLR_RW;
   CLR_RS;
   LAT_data (FUNCTION_SET);  //Function set command

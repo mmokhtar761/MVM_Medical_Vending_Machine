@@ -25,6 +25,7 @@ void initT0Spaqitti(void);
 STPR_type MyStprs [11];
 sint16 mymsg;
 void main(void) {
+        ADCON1= 0b1110;
         /*Init MCAL modules*/
         DIO_Inti(); //Init pin dir as configured
         LCD_voidInit ();
@@ -38,13 +39,15 @@ void main(void) {
                 STPR_voidInitStpr (MyStprs+i,i,(uint16)2,3000,900);
         }
         //BIT_H(T0CON,7);  //timer on                          VAR|=  ((uint32)1<<BIT)
-        ADCON1= 0b1110;
         //PORTD =0;
         while (1)
         {
             //UART_TxMsgSyn  ('x',100);
             //mymsg = UART_RxMsgSyn  (10000);
+            LCD_SetCursor (3);
+            __delay_ms(20);
             LCD_wStr   ((uint8 *)"I am here");
+            //while(1);
             //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
             
            //__delay_ms(500);

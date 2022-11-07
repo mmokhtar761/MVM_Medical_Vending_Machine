@@ -1549,150 +1549,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _u8PortVal `uc ~T0 @X0 1 r3 ]
 [f ]
 "251
-[e $ ! <= -> _u8StPin `i -> . `E2457 4 `i 476  ]
-{
+[v _myPORT `*Vuc ~T0 @X0 1 a ]
 "252
-{
-[v _u8PinIdCopy `uc ~T0 @X0 1 a ]
-[e = _u8PinIdCopy _u8StPin ]
-[e $U 480  ]
-[e :U 477 ]
-{
+[e $ ! > -> _u8StPin `i -> . `E2457 4 `i 476  ]
+[e $UE 475  ]
+[e :U 476 ]
 "253
-[e $U 482  ]
+[e $U 478  ]
 "254
 {
 "255
-[e :U 483 ]
-[e $ ! == -> _u8PortVal `i -> 0 `i 484  ]
-{
-[e =& _PORTA -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 485  ]
+[e :U 479 ]
+[e = _myPORT &U _PORTA ]
+[e $U 477  ]
 "256
-[e :U 484 ]
-[e $ ! == -> _u8PortVal `i -> 1 `i 486  ]
-{
-[e =| _PORTA -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 487  ]
-[e :U 486 ]
-{
-}
-[e :U 487 ]
-[e :U 485 ]
-"257
-[e :U 488 ]
-[e $ ! == -> _u8PortVal `i -> 0 `i 489  ]
-{
-[e =& _PORTB -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 490  ]
-"258
-[e :U 489 ]
-[e $ ! == -> _u8PortVal `i -> 1 `i 491  ]
-{
-[e =| _PORTB -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 492  ]
-[e :U 491 ]
-{
-}
-[e :U 492 ]
-[e :U 490 ]
-"259
-[e :U 493 ]
-[e $ ! == -> _u8PortVal `i -> 0 `i 494  ]
-{
-[e =& _PORTC -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 495  ]
-"260
-[e :U 494 ]
-[e $ ! == -> _u8PortVal `i -> 1 `i 496  ]
-{
-[e =| _PORTC -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 497  ]
-[e :U 496 ]
-{
-}
-[e :U 497 ]
-[e :U 495 ]
-"261
-[e :U 498 ]
-[e $ ! == -> _u8PortVal `i -> 0 `i 499  ]
-{
-[e =& _PORTD -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 500  ]
-"262
-[e :U 499 ]
-[e $ ! == -> _u8PortVal `i -> 1 `i 501  ]
-{
-[e =| _PORTD -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 502  ]
-[e :U 501 ]
-{
-}
-[e :U 502 ]
-[e :U 500 ]
-"263
-[e :U 503 ]
-[e $ ! <= -> _u8PinIdCopy `i -> 2 `i 504  ]
-{
-"264
-[e $ ! == -> _u8PortVal `i -> 0 `i 505  ]
-{
-[e =& _PORTE -> ~ << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 506  ]
-"265
-[e :U 505 ]
-[e $ ! == -> _u8PortVal `i -> 1 `i 507  ]
-{
-[e =| _PORTE -> << -> -> 1 `i `ul -> _u8PinIdCopy `i `Vuc ]
-[e $U 481  ]
-}
-[e $U 508  ]
-[e :U 507 ]
-{
-}
-[e :U 508 ]
-[e :U 506 ]
-}
-[e :U 504 ]
-"266
-}
-[e $U 481  ]
-[e :U 482 ]
-[e [\ -> _u8PortId `i , $ . `E2450 0 483
- , $ . `E2450 1 488
- , $ . `E2450 2 493
- , $ . `E2450 3 498
- , $ . `E2450 4 503
- 481 ]
-[e :U 481 ]
-"267
-}
-[e ++ _u8PinIdCopy -> -> 1 `i `uc ]
 [e :U 480 ]
-[e $ <= -> _u8PinIdCopy `i + -> _u8StPin `i -> 3 `i 477  ]
+[e = _myPORT &U _PORTB ]
+[e $U 477  ]
+"257
+[e :U 481 ]
+[e = _myPORT &U _PORTC ]
+[e $U 477  ]
+"258
+[e :U 482 ]
+[e = _myPORT &U _PORTD ]
+[e $U 477  ]
+"259
+[e :U 483 ]
+[e = _myPORT &U _PORTE ]
+[e $U 477  ]
+"260
+}
+[e $U 477  ]
 [e :U 478 ]
-}
-"268
-}
-[e :U 476 ]
-"269
+[e [\ -> _u8PortId `i , $ . `E2450 0 479
+ , $ . `E2450 1 480
+ , $ . `E2450 2 481
+ , $ . `E2450 3 482
+ , $ . `E2450 4 483
+ 477 ]
+[e :U 477 ]
+"261
+[e = *U _myPORT -> | & -> *U _myPORT `ul ~ << -> -> 15 `i `ul -> _u8StPin `i -> -> << -> _u8PortVal `i -> _u8StPin `i `l `ul `uc ]
+"262
 [e :UE 475 ]
 }

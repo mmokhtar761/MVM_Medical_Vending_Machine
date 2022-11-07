@@ -33,7 +33,6 @@
 
 
 
-#define E_Pwidth          (1) //(ms)
 
 
 void  LCD_voidInit   (void);

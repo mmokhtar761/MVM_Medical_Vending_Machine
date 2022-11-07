@@ -248,22 +248,15 @@ void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
 
 
 void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal){
-    if(u8StPin <= PIN4){
-     for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3  ;u8PinIdCopy++){
-			switch (u8PortId)
-			{
-				case PORT_A: if      (u8PortVal == LOW) {BIT_L(PORTA,u8PinIdCopy); break;}
-                             else if (u8PortVal == HIGH){BIT_H(PORTA,u8PinIdCopy); break;}else{}
-				case PORT_B: if      (u8PortVal == LOW) {BIT_L(PORTB,u8PinIdCopy); break;}
-                             else if (u8PortVal == HIGH){BIT_H(PORTB,u8PinIdCopy); break;}else{}
-				case PORT_C: if      (u8PortVal == LOW) {BIT_L(PORTC,u8PinIdCopy); break;}
-                             else if (u8PortVal == HIGH){BIT_H(PORTC,u8PinIdCopy); break;}else{}
-				case PORT_D: if      (u8PortVal == LOW) {BIT_L(PORTD,u8PinIdCopy); break;}
-                             else if (u8PortVal == HIGH){BIT_H(PORTD,u8PinIdCopy); break;}else{}
-                case PORT_E: if(u8PinIdCopy<=PORT_E_LAST_PIN){
-                             if      (u8PortVal == LOW) {BIT_L(PORTE,u8PinIdCopy); break;}
-                             else if (u8PortVal == HIGH){BIT_H(PORTE,u8PinIdCopy); break;}else{}}
-			} 
-        }    
-    }
+    volatile uint8 * myPORT ; 
+    if(u8StPin > PIN4)return;
+    switch (u8PortId)
+    {
+        case PORT_A:  myPORT = & PORTA; break;
+        case PORT_B:  myPORT = & PORTB; break;
+        case PORT_C:  myPORT = & PORTC; break;
+        case PORT_D:  myPORT = & PORTD; break;
+        case PORT_E:  myPORT = & PORTE; break;
+    }  
+    MAN_NIBBLE((*myPORT),u8StPin,u8PortVal);
 }
