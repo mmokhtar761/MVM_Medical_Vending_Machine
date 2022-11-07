@@ -67,6 +67,7 @@ void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCo
 {
 	/* Make sure that the Port ID and Pin ID are in the valid range */
 	if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
+	if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
 	{
 		if (u8PinValCopy == HIGH)
 		{
@@ -110,6 +111,7 @@ uint8 DIO_u8GetPinValue(uint8 u8PortIdCopy, uint8 u8PinIdCopy)
 	uint8 u8ResultLocal;
 
 	/* Make sure that the Port ID and Pin ID are in the valid range */
+	if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
 	if ((u8PortIdCopy <= PORT_E) && (u8PinIdCopy <= PIN7))
 	{
 		/* Check on the Required PORT Number */
@@ -224,6 +226,7 @@ void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal){
         }   
 } 
 
+
 void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
     if(u8StPin <= PIN4){
     for (uint8 u8PinIdCopy= u8StPin ; u8PinIdCopy<= u8StPin+3  ;u8PinIdCopy++){
@@ -245,6 +248,64 @@ void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir){
     
     }
 }
+
+
+
+uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin )
+{
+	/* Define Local Variable to get the BITS Value */
+	uint8 u8ResultLocal=0;
+
+	/* Make sure that the Port ID is in the valid range */
+	if ((u8PortIdCopy <= PORT_E))
+	{
+		/* Check on the Required PORT Number */
+		switch (u8PortIdCopy)
+		{
+			case PORT_A: u8ResultLocal= GET_NIBBLE(PORTA,u8StPin); break;
+			case PORT_B: u8ResultLocal= GET_NIBBLE(PORTB,u8StPin); break;
+			case PORT_C: u8ResultLocal= GET_NIBBLE(PORTC,u8StPin); break;
+			case PORT_D: u8ResultLocal= GET_NIBBLE(PORTD,u8StPin); break;
+            case PORT_E: u8ResultLocal= GET_NIBBLE(PORTE,u8StPin); break;
+		}
+	}
+	else
+	{
+		/* return 0xff in case of error in the Pin ID or PORT ID */
+		u8ResultLocal = 0xFF; /* 255 */
+	}
+	return u8ResultLocal;
+}
+
+
+
+
+uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy)
+{
+	/* Define Local Variable to get the BYTE Value */
+	uint8 u8ResultLocal=0;
+
+	/* Make sure that the Port ID is in the valid range */
+	if ((u8PortIdCopy <= PORT_E))
+	{
+		/* Check on the Required PORT Number */
+		switch (u8PortIdCopy)
+		{
+			case PORT_A: u8ResultLocal= GET_BYTE(PORTA,PIN0); break;
+			case PORT_B: u8ResultLocal= GET_BYTE(PORTB,PIN0); break;
+			case PORT_C: u8ResultLocal= GET_BYTE(PORTC,PIN0); break;
+			case PORT_D: u8ResultLocal= GET_BYTE(PORTD,PIN0); break;
+            case PORT_E: u8ResultLocal= GET_BYTE(PORTE,PIN0); break;
+		}
+	}
+	else
+	{
+		/* return 0xff in case of error in the Pin ID or PORT ID */
+		u8ResultLocal = 0xFF; /* 255 */
+	}
+	return u8ResultLocal;
+}
+
 
 
 void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal){

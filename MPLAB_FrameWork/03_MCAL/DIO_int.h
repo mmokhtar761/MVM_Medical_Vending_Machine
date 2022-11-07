@@ -31,16 +31,16 @@
 #ifndef _DIO_INT_H
 #define _DIO_INT_H
 
-/* Port Defines */
-typedef enum{
+/* Port Definition */
+typedef enum  {
   PORT_A,
   PORT_B,
   PORT_C,
   PORT_D,
   PORT_E
-}_PORTS; 
-/* PIN Defines */
-typedef enum {
+}PORTS; 
+/* PIN Definition */
+typedef enum  {
   PIN0,
   PIN1,
   PIN2,
@@ -49,8 +49,7 @@ typedef enum {
   PIN5,
   PIN6,
   PIN7
-}_Pins; 
-
+}PINS; 
 
 /*Max number of pins for port E*/
 #define PORT_E_LAST_PIN 2
@@ -99,7 +98,16 @@ void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortD
 /*initialize the value of Half a port (use FIRST_HALF or SECOND_HALF)*/ 
 void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 
+/*initialize the direction of Half a port (use start pin)*/
+void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+
+/*initialize the value of Half a port (use start pin)*/
 void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
-void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortDir);
+
+/* if 4 pins are input - get value */
+uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin );
+
+/* if PORT is input - get value */
+uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy);
 
 #endif
