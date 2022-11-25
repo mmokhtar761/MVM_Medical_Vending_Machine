@@ -1,18 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "36 02_HAL/STPR_cfg.h
-[c E2456 0 1 2 3 4 .. ]
-[n E2456 . PORT_A PORT_B PORT_C PORT_D PORT_E  ]
+[c E2451 0 1 2 3 4 .. ]
+[n E2451 . PORT_A PORT_B PORT_C PORT_D PORT_E  ]
 "54
-[c E2463 0 1 2 3 4 5 6 7 .. ]
-[n E2463 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
+[c E2458 0 1 2 3 4 5 6 7 .. ]
+[n E2458 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
 "28 02_HAL/STPR_prvt.h
-[c E2516 0 1 2 3 .. ]
-[n E2516 . IDLE ACC Sat DeAcc  ]
+[c E2511 0 1 2 3 .. ]
+[n E2511 . IDLE ACC Sat DeAcc  ]
 "34 02_HAL/STPR_int.h
-[s S270 `us 1 `us 1 `ul 1 `us 1 `uc 1 `E2516 1 ]
+[s S270 `us 1 `us 1 `ul 1 `us 1 `uc 1 `E2511 1 ]
 [n S270 . stpPerMm stpVel stpWidth stprAccPerInterval UniqueId stprStat ]
-"80 03_MCAL\DIO_int.h
-[v _DIO_VidSetPinValue `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"77 03_MCAL\DIO_int.h
+[v _DIO_VidSetPinValue `(v ~T0 @X0 0 ef3`E2451`E2458`uc ]
 [v F2433 `(v ~T0 @X0 1 tf1`ul ]
 "203 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\pic18.h
 [v __delay `JF2433 ~T0 @X0 0 e ]
@@ -21,8 +21,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _STPR_voidSetStprVel `(v ~T0 @X0 0 ef2`*S270`us ]
 "48 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 48: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
-[c E2522 0 1 .. ]
-[n E2522 . DIR_Low DIR_High  ]
+[c E2517 0 1 .. ]
+[n E2517 . DIR_Low DIR_High  ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -434,169 +434,104 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"20 03_MCAL\DIO_cfg.h
-[v _PORT_A_DEF `uc ~T0 @X0 -> 8 `i e ]
-[i _PORT_A_DEF
-:U ..
--> -> 1 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-"29
-[v _PORT_B_DEF `uc ~T0 @X0 -> 8 `i e ]
-[i _PORT_B_DEF
-:U ..
--> -> 1 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-"38
-[v _PORT_C_DEF `uc ~T0 @X0 -> 8 `i e ]
-[i _PORT_C_DEF
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 1 `i `uc
-..
-]
-"47
-[v _PORT_D_DEF `uc ~T0 @X0 -> 8 `i e ]
-[i _PORT_D_DEF
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-"56
-[v _PORT_E_DEF `uc ~T0 @X0 -> 3 `i e ]
-[i _PORT_E_DEF
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[v F2513 `Cuc ~T0 @X0 -> 2 `i t ]
+[v F2508 `Cuc ~T0 @X0 -> 2 `i t ]
 "36 02_HAL/STPR_cfg.h
-[v _STPR_arrStpDirPorts `F2513 ~T0 @X0 -> 11 `i e ]
+[v _STPR_arrStpDirPorts `F2508 ~T0 @X0 -> 11 `i e ]
 [i _STPR_arrStpDirPorts
 :U ..
 :U ..
--> . `E2456 0 `uc
--> . `E2456 0 `uc
+-> . `E2451 0 `uc
+-> . `E2451 0 `uc
 ..
 :U ..
--> . `E2456 4 `uc
--> . `E2456 4 `uc
+-> . `E2451 4 `uc
+-> . `E2451 4 `uc
 ..
 :U ..
--> . `E2456 3 `uc
+-> . `E2451 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2456 3 `uc
+-> . `E2451 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2456 3 `uc
+-> . `E2451 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2456 3 `uc
+-> . `E2451 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2456 3 `uc
+-> . `E2451 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2456 3 `uc
+-> . `E2451 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2456 3 `uc
+-> . `E2451 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2456 3 `uc
+-> . `E2451 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2456 4 `uc
+-> . `E2451 4 `uc
 -> -> 255 `i `uc
 ..
 ..
 ]
-[v F2515 `Cuc ~T0 @X0 -> 2 `i t ]
+[v F2510 `Cuc ~T0 @X0 -> 2 `i t ]
 "54
-[v _STPR_arrDirPortPin `F2515 ~T0 @X0 -> 11 `i e ]
+[v _STPR_arrDirPortPin `F2510 ~T0 @X0 -> 11 `i e ]
 [i _STPR_arrDirPortPin
 :U ..
 :U ..
--> . `E2463 4 `uc
--> . `E2463 5 `uc
+-> . `E2458 4 `uc
+-> . `E2458 5 `uc
 ..
 :U ..
--> . `E2463 1 `uc
--> . `E2463 0 `uc
+-> . `E2458 1 `uc
+-> . `E2458 0 `uc
 ..
 :U ..
--> . `E2463 7 `uc
+-> . `E2458 7 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2463 6 `uc
+-> . `E2458 6 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2463 5 `uc
+-> . `E2458 5 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2463 4 `uc
+-> . `E2458 4 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2463 3 `uc
+-> . `E2458 3 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2463 2 `uc
+-> . `E2458 2 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2463 1 `uc
+-> . `E2458 1 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2463 0 `uc
+-> . `E2458 0 `uc
 -> -> 255 `i `uc
 ..
 :U ..
--> . `E2463 7 `uc
+-> . `E2458 7 `uc
 -> -> 255 `i `uc
 ..
 ..
@@ -614,7 +549,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [f ]
 "30
-[e ( _DIO_VidSetPinValue (3 , , *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[e ( _DIO_VidSetPinValue (3 , , -> *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux `E2451 -> *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux `E2458 -> -> 0 `i `uc ]
 "31
 {
 [v _mc `i ~T0 @X0 1 a ]
@@ -630,7 +565,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 273 ]
 }
 "32
-[e ( _DIO_VidSetPinValue (3 , , *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[e ( _DIO_VidSetPinValue (3 , , -> *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux `E2451 -> *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux `E2458 -> -> 1 `i `uc ]
 "33
 {
 [v _mc `i ~T0 @X0 1 a ]
@@ -687,7 +622,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul ]
 "41
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 41:     ptrSTPR->stprStat = IDLE;
-[e = . *U _ptrSTPR 5 . `E2516 0 ]
+[e = . *U _ptrSTPR 5 . `E2511 0 ]
 "42
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 42:     return;
 [e $UE 280  ]
@@ -697,7 +632,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "48
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 48: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
-[v _STPR_voidMoveStprStps `(v ~T0 @X0 1 ef3`*S270`us`E2522 ]
+[v _STPR_voidMoveStprStps `(v ~T0 @X0 1 ef3`*S270`us`E2517 ]
 "49
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 49: {
 {
@@ -706,7 +641,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 48: void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_steps `us ~T0 @X0 1 r2 ]
-[v _Copy_MveDir `E2522 ~T0 @X0 1 r3 ]
+[v _Copy_MveDir `E2517 ~T0 @X0 1 r3 ]
 "49
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 49: {
 [f ]
@@ -720,18 +655,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _width `ul ~T0 @X0 1 a ]
 "52
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 52:     if (ptrSTPR->stprStat != IDLE) return;
-[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2516 0 `ui 283  ]
+[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2511 0 `ui 283  ]
 [e $UE 282  ]
 [e :U 283 ]
 "55
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 55:     if (Copy_MveDir == DIR_High)
-[e $ ! == -> _Copy_MveDir `ui -> . `E2522 1 `ui 284  ]
+[e $ ! == -> _Copy_MveDir `ui -> . `E2517 1 `ui 284  ]
 "56
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 56:     {
 {
 "57
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 57:         DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR->UniqueId][1], STPR_arrDirPortPin[ptrSTPR->UniqueId][1],1);;
-[e ( _DIO_VidSetPinValue (3 , , *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+[e ( _DIO_VidSetPinValue (3 , , -> *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux `E2451 -> *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux `E2458 -> -> 1 `i `uc ]
 "58
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 58:     }
 }
@@ -739,13 +674,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "59
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 59:     else if (Copy_MveDir == DIR_Low)
 [e :U 284 ]
-[e $ ! == -> _Copy_MveDir `ui -> . `E2522 0 `ui 286  ]
+[e $ ! == -> _Copy_MveDir `ui -> . `E2517 0 `ui 286  ]
 "60
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 60:     {
 {
 "61
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 61:         DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR->UniqueId][1], STPR_arrDirPortPin[ptrSTPR->UniqueId][1],0);;
-[e ( _DIO_VidSetPinValue (3 , , *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+[e ( _DIO_VidSetPinValue (3 , , -> *U + &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrStpDirPorts * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrStpDirPorts `ui -> -> 2 `i `ui `ux `ui `ux `E2451 -> *U + &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _STPR_arrDirPortPin * -> . *U _ptrSTPR 4 `ux -> * -> # *U &U *U &U _STPR_arrDirPortPin `ui -> -> 2 `i `ui `ux `ui `ux `E2458 -> -> 0 `i `uc ]
 "62
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 62:     }
 }
@@ -753,7 +688,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 285 ]
 "65
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 65:     ptrSTPR->stprStat = ACC;
-[e = . *U _ptrSTPR 5 . `E2516 1 ]
+[e = . *U _ptrSTPR 5 . `E2511 1 ]
 "66
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 66:     for (i=0;arrSTPR_LiveVel[ptrSTPR->UniqueId] < ptrSTPR->stpVel;i++)
 {
@@ -777,7 +712,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "74
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 74:             ptrSTPR->stprStat = DeAcc;
-[e = . *U _ptrSTPR 5 . `E2516 3 ]
+[e = . *U _ptrSTPR 5 . `E2511 3 ]
 "75
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 75:             break;
 [e $U 288  ]
@@ -795,7 +730,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "80
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 80:     if (ptrSTPR->stprStat != DeAcc)
-[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2516 3 `ui 292  ]
+[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2511 3 `ui 292  ]
 "81
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 81:     {
 {
@@ -804,7 +739,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _satStps -> - -> _Copy_steps `ui -> _i `ui `us ]
 "85
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 85:         ptrSTPR->stprStat = Sat;
-[e = . *U _ptrSTPR 5 . `E2516 2 ]
+[e = . *U _ptrSTPR 5 . `E2511 2 ]
 "86
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 86:         width = ptrSTPR->stpWidth;
 [e = _width . *U _ptrSTPR 2 ]
@@ -833,7 +768,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 292 ]
 "93
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 93:     ptrSTPR->stprStat = DeAcc;
-[e = . *U _ptrSTPR 5 . `E2516 3 ]
+[e = . *U _ptrSTPR 5 . `E2511 3 ]
 "94
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 94:     for (;i< Copy_steps;i++)
 {
@@ -844,7 +779,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "97
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 97:         if (ptrSTPR->stprStat != DeAcc || arrSTPR_LiveVel[ptrSTPR->UniqueId]<= (uint16)((uint32)(1000000)/(12500 + 12500))) break;
-[e $ ! || != -> . *U _ptrSTPR 5 `ui -> . `E2516 3 `ui <= *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul 301  ]
+[e $ ! || != -> . *U _ptrSTPR 5 `ui -> . `E2511 3 `ui <= *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul 301  ]
 [e $U 298  ]
 [e :U 301 ]
 "98
@@ -866,14 +801,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul ]
 "103
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 103:     ptrSTPR->stprStat= IDLE;
-[e = . *U _ptrSTPR 5 . `E2516 0 ]
+[e = . *U _ptrSTPR 5 . `E2511 0 ]
 "104
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 104: }
 [e :UE 282 ]
 }
 "112
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 112: void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16 Copy_distMm, STPR_Dir_type Copy_MveDir)
-[v _STPR_voidMoveStprMm `(v ~T0 @X0 1 ef3`*S270`us`E2522 ]
+[v _STPR_voidMoveStprMm `(v ~T0 @X0 1 ef3`*S270`us`E2517 ]
 "113
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 113: {
 {
@@ -882,7 +817,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 112: void STPR_voidMoveStprMm (STPR_type* ptrSTPR, uint16 Copy_distMm, STPR_Dir_type Copy_MveDir)
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_distMm `us ~T0 @X0 1 r2 ]
-[v _Copy_MveDir `E2522 ~T0 @X0 1 r3 ]
+[v _Copy_MveDir `E2517 ~T0 @X0 1 r3 ]
 "113
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 113: {
 [f ]
@@ -895,7 +830,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "120
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 120: void STPR_voidRotateStprDegr (STPR_type* ptrSTPR, uint16 Copy_angleDeg,float32 Copy_stpAngle, STPR_Dir_type Copy_MveDir)
-[v _STPR_voidRotateStprDegr `(v ~T0 @X0 1 ef4`*S270`us`f`E2522 ]
+[v _STPR_voidRotateStprDegr `(v ~T0 @X0 1 ef4`*S270`us`f`E2517 ]
 "121
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 121: {
 {
@@ -905,7 +840,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ptrSTPR `*S270 ~T0 @X0 1 r1 ]
 [v _Copy_angleDeg `us ~T0 @X0 1 r2 ]
 [v _Copy_stpAngle `f ~T0 @X0 1 r3 ]
-[v _Copy_MveDir `E2522 ~T0 @X0 1 r4 ]
+[v _Copy_MveDir `E2517 ~T0 @X0 1 r4 ]
 "121
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 121: {
 [f ]
@@ -932,7 +867,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "130
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 130:    if (ptrSTPR->stprStat != IDLE) return;
-[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2516 0 `ui 305  ]
+[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2511 0 `ui 305  ]
 [e $UE 304  ]
 [e :U 305 ]
 "131
@@ -958,7 +893,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "139
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 139:     if (ptrSTPR->stprStat != IDLE) return;
-[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2516 0 `ui 307  ]
+[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2511 0 `ui 307  ]
 [e $UE 306  ]
 [e :U 307 ]
 "140
@@ -1031,7 +966,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "162
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 162:     if (ptrSTPR->stprStat != IDLE) return;
-[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2516 0 `ui 313  ]
+[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2511 0 `ui 313  ]
 [e $UE 312  ]
 [e :U 313 ]
 "163
@@ -1056,7 +991,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "171
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 171:     if (ptrSTPR->stprStat == IDLE || ptrSTPR->stprStat == Sat) return;
-[e $ ! || == -> . *U _ptrSTPR 5 `ui -> . `E2516 0 `ui == -> . *U _ptrSTPR 5 `ui -> . `E2516 2 `ui 315  ]
+[e $ ! || == -> . *U _ptrSTPR 5 `ui -> . `E2511 0 `ui == -> . *U _ptrSTPR 5 `ui -> . `E2511 2 `ui 315  ]
 [e $UE 314  ]
 [e :U 315 ]
 "172
@@ -1088,7 +1023,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U _arrSTPR_LiveVel * -> . *U _ptrSTPR 4 `ux -> -> # *U &U _arrSTPR_LiveVel `ui `ux -> -> / -> -> 1000000 `l `ul -> -> + -> 12500 `i -> 12500 `i `l `ul `us `ul ]
 "181
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 181:                 ptrSTPR->stprStat= IDLE;
-[e = . *U _ptrSTPR 5 . `E2516 0 ]
+[e = . *U _ptrSTPR 5 . `E2511 0 ]
 "182
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 182:             }
 }
@@ -1126,10 +1061,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 316  ]
 [e :U 317 ]
-[e [\ -> . *U _ptrSTPR 5 `ui , $ -> . `E2516 1 `ui 318
- , $ -> . `E2516 3 `ui 319
- , $ -> . `E2516 0 `ui 322
- , $ -> . `E2516 2 `ui 323
+[e [\ -> . *U _ptrSTPR 5 `ui , $ -> . `E2511 1 `ui 318
+ , $ -> . `E2511 3 `ui 319
+ , $ -> . `E2511 0 `ui 322
+ , $ -> . `E2511 2 `ui 323
  316 ]
 [e :U 316 ]
 "195

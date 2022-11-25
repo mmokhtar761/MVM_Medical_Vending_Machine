@@ -51,7 +51,7 @@ uint16 ADC_u16GetChannelReading(uint8 Channel){
 	ADCON0 &= (Channel*4)+3 ;
     
     // wait for the capacitor to charge
-     __delay_ms(50);
+     __delay_us(50);
 	//start Conversion
 	BIT_H(ADCON0,1);
 
@@ -59,7 +59,6 @@ uint16 ADC_u16GetChannelReading(uint8 Channel){
 	while(GET_BIT(ADCON0,1)==1)
         ;
     
-     __delay_ms(50);
 
 	//make sure it is low (optional)
 	//BIT_L(ADCON0,1);

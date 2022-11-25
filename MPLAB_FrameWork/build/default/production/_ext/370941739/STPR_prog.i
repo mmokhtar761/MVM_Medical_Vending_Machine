@@ -4416,48 +4416,6 @@ typedef uint8 Std_ReturnType;
 # 1 "00_Lib\\MANIPULATOR.h" 1
 # 14 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
-# 1 "03_MCAL\\DIO_cfg.h" 1
-# 20 "03_MCAL\\DIO_cfg.h"
-uint8 PORT_A_DEF[8]= {1,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0};
-
-uint8 PORT_B_DEF[8]= {1,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0};
-
-uint8 PORT_C_DEF[8]= {0,
-                      0,
-                      0,
-                      0,
-                      1,
-                      0,
-                      0,
-                      1};
-
-uint8 PORT_D_DEF[8]= {0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0,
-                      0};
-
-uint8 PORT_E_DEF[3]= {0,
-                      0,
-                      0};
-# 15 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
 # 1 "03_MCAL\\DIO_int.h" 1
 # 35 "03_MCAL\\DIO_int.h"
@@ -4479,42 +4437,42 @@ typedef enum {
   PIN6,
   PIN7
 }PINS;
-# 77 "03_MCAL\\DIO_int.h"
-void DIO_VidSetPinDirection (uint8 u8PortIdCopy, uint8 u8PinIdCopy, uint8 u8PinDirCopy);
+# 74 "03_MCAL\\DIO_int.h"
+void DIO_VidSetPinDirection (PORTS u8PortIdCopy, PINS u8PinIdCopy, uint8 u8PinDirCopy);
 
 
-void DIO_VidSetPinValue(uint8 u8PortIdCopy , uint8 u8PinIdCopy, uint8 u8PinValCopy);
+void DIO_VidSetPinValue(PORTS u8PortIdCopy , PINS u8PinIdCopy, uint8 u8PinValCopy);
 
 
-uint8 DIO_u8GetPinValue(uint8 u8PortIdCopy, uint8 u8PinIdCopy);
+uint8 DIO_u8GetPinValue(PORTS u8PortIdCopy, PINS u8PinIdCopy);
 
 
 
-void DIO_VidSetPortDirection (uint8 u8PortId, uint8 u8PortDir);
+void DIO_VidSetPortDirection (PORTS u8PortId, uint8 u8PortDir);
 
 
-void DIO_VidSetPortValue (uint8 u8PortId, uint8 u8PortVal);
+void DIO_VidSetPortValue (PORTS u8PortId, uint8 u8PortVal);
 
 
 void DIO_Inti(void);
 
 
-void DIO_VidSetHalfPortDirection(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortDir);
+void DIO_VidSetHalfPortDirection(PORTS u8PortId, uint8 u8PortHalf ,uint8 u8PortDir);
 
 
-void DIO_VidSetHalfPortSet(uint8 u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
+void DIO_VidSetHalfPortSet(PORTS u8PortId, uint8 u8PortHalf ,uint8 u8PortVal);
 
 
-void DIO_VidDirPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+void DIO_VidDirPortNibble(PORTS u8PortId, PINS u8StPin ,uint8 u8PortVal);
 
 
-void DIO_VidSetPortNibble(uint8 u8PortId, uint8 u8StPin ,uint8 u8PortVal);
+void DIO_VidSetPortNibble(PORTS u8PortId, PINS u8StPin ,uint8 u8PortVal);
 
 
-uint8 DIO_u8GetPortNibble(uint8 u8PortIdCopy , uint8 u8StPin );
+uint8 DIO_u8GetPortNibble(PORTS u8PortIdCopy , PINS u8StPin );
 
 
-uint8 DIO_u8GetPortValue(uint8 u8PortIdCopy);
+uint8 DIO_u8GetPortValue(PORTS u8PortIdCopy);
 # 16 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
 # 1 "02_HAL/STPR_cfg.h" 1

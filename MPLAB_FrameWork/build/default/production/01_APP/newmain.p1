@@ -1,25 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"25 01_APP/newmain.c
-[c E2540 0 1 2 3 .. ]
-[n E2540 . IDLE ACC Sat DeAcc  ]
+"34 01_APP/mainH.h
+[c E3488 0 1 2 3 .. ]
+[n E3488 . IDLE ACC Sat DeAcc  ]
 "34 02_HAL\STPR_int.h
-[s S270 `us 1 `us 1 `ul 1 `us 1 `uc 1 `E2540 1 ]
-[n S270 . stpPerMm stpVel stpWidth stprAccPerInterval UniqueId stprStat ]
-[p mainexit ]
-"93 03_MCAL\DIO_int.h
-[v _DIO_Inti `(v ~T0 @X0 0 ef ]
-"38 02_HAL\LCD_int.h
-[v _LCD_voidInit `(v ~T0 @X0 0 ef ]
-[v F2443 `(v ~T0 @X0 1 tf1`ul ]
-"203 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\pic18.h
-[v __delay `JF2443 ~T0 @X0 0 e ]
-[p i __delay ]
-"50 02_HAL\STPR_int.h
-[v _STPR_voidInitStpr `(v ~T0 @X0 0 ef5`*S270`uc`us`us`us ]
-"41 02_HAL\LCD_int.h
-[v _LCD_SetCursor `(v ~T0 @X0 0 ef1`uc ]
-"44
-[v _LCD_wStr `(v ~T0 @X0 0 ef1`*uc ]
+[s S273 `us 1 `us 1 `ul 1 `us 1 `uc 1 `E3488 1 ]
+[n S273 . stpPerMm stpVel stpWidth stprAccPerInterval UniqueId stprStat ]
 "5947 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 5947: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
@@ -48,10 +33,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6406
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 6406: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS262 ~T0 @X0 0 e@4082 ]
+"246 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\math.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\math.h: 246: float logf(float);
+[v _logf `(f ~T0 @X0 0 ef1`f ]
+"90 03_MCAL\DIO_int.h
+[v _DIO_Inti `(v ~T0 @X0 0 ef ]
+"29 03_MCAL\ADC_int.h
+[v _ADC_VoidInit `(v ~T0 @X0 0 ef ]
+"21 03_MCAL\UART_int.h
+[v _UART_voidInit `(v ~T0 @X0 0 ef ]
+"38 02_HAL\LCD_int.h
+[v _LCD_voidInit `(v ~T0 @X0 0 ef ]
+"42
+[v _LCD_wCmd `(v ~T0 @X0 0 ef1`uc ]
+"41
+[v _LCD_SetCursor `(v ~T0 @X0 0 ef1`uc ]
+"50 02_HAL\STPR_int.h
+[v _STPR_voidInitStpr `(v ~T0 @X0 0 ef5`*S273`uc`us`us`us ]
+"96 01_APP/mainH.h
+[c E3494 0 1 .. ]
+[n E3494 . DIR_Low DIR_High  ]
+"55 02_HAL\STPR_int.h
+[v _STPR_voidMoveStprStps `(v ~T0 @X0 0 ef3`*S273`us`E3494 ]
+[p mainexit ]
+"44 02_HAL\LCD_int.h
+[v _LCD_wStr `(v ~T0 @X0 0 ef1`*uc ]
+"34 03_MCAL\UART_int.h
+[v _UART_RxMsgSyn `(s ~T0 @X0 0 ef1`us ]
+"60
+[v _UART_RxArrMsg `(v ~T0 @X0 0 ef3`*s`uc`us ]
+[v F2433 `(v ~T0 @X0 1 tf1`ul ]
+"203 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\pic18.h
+[v __delay `JF2433 ~T0 @X0 0 e ]
+[p i __delay ]
 [t ~ __interrupt . k ]
 [t T39 __interrupt high_priority ]
 "87 02_HAL\STPR_int.h
-[v _STPR_callBack `(v ~T0 @X0 0 ef1`*S270 ]
+[v _STPR_callBack `(v ~T0 @X0 0 ef1`*S273 ]
 "39 E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork\Config_uC.h
 [p x OSC  =  HS          ]
 "40
@@ -529,103 +547,258 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"25 01_APP/newmain.c
-[v _MyStprs `S270 ~T0 @X0 -> 11 `i e ]
-"26
+"34 01_APP/mainH.h
+[v _MyStprs `S273 ~T0 @X0 -> 11 `i e ]
+"38
+[v _initT0Spaghetti `(v ~T0 @X0 1 ef ]
+"39
+{
+[e :U _initT0Spaghetti ]
+[f ]
+"41
+[e = _TMR0H -> -> 60 `i `uc ]
+"42
+[e = _TMR0L -> -> 175 `i `uc ]
+"43
+[e = _T0CON -> -> 3 `i `uc ]
+"44
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"45
+[e = . . _INTCONbits 1 5 -> -> 1 `i `uc ]
+"46
+[e :UE 274 ]
+}
+"48
+[v _GetNTC_temp `(s ~T0 @X0 1 ef1`us ]
+"49
+{
+[e :U _GetNTC_temp ]
+"48
+[v _ADC_val `us ~T0 @X0 1 r1 ]
+"49
+[f ]
+"50
+[v _tempVal `l ~T0 @X0 1 a ]
+"52
+[e $ ! || == -> _ADC_val `ui -> -> 1023 `i `ui == -> _ADC_val `ui -> -> 0 `i `ui 276  ]
+[e ) -> -U -> 273 `i `s ]
+[e $UE 275  ]
+[e :U 276 ]
+"60
+[e = _tempVal -> * * / - .1023.0 -> -> _ADC_val `ui `d -> -> _ADC_val `ui `d .1.0 -> -> 10000 `i `d `l ]
+"62
+[e = _tempVal -> -> - * / -> -> 3950 `i `d -> + -> * -> -> 298 `i `f ( _logf (1 -> _tempVal `f `d .1205.3185 `d -> -> 298 `i `d -> .273.25 `d `s `l ]
+"64
+[e ) -> _tempVal `s ]
+[e $UE 275  ]
+"65
+[e :UE 275 ]
+}
+"67
+[v _INIT_SYS `(v ~T0 @X0 1 ef ]
+"68
+{
+[e :U _INIT_SYS ]
+[f ]
+"73
+[e ( _DIO_Inti ..  ]
+"75
+[e ( _ADC_VoidInit ..  ]
+"77
+[e ( _UART_voidInit ..  ]
+"79
+[e ( _initT0Spaghetti ..  ]
+"84
+[e ( _LCD_voidInit ..  ]
+"85
+[e ( _LCD_wCmd (1 -> -> 1 `i `uc ]
+"86
+[e ( _LCD_SetCursor (1 -> -> 1 `i `uc ]
+"88
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 11 `i 278  ]
+[e $U 279  ]
+[e :U 278 ]
+[e ( _STPR_voidInitStpr (4 , , , , + &U _MyStprs * -> -> _i `i `x -> -> # *U &U _MyStprs `i `x _i -> -> 2 `i `us -> -> 3000 `i `us -> -> 900 `i `us ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 11 `i 278  ]
+[e :U 279 ]
+}
+"89
+[e :UE 277 ]
+}
+"92
+[v _moveLvr2Row `(v ~T0 @X0 1 ef1`uc ]
+"93
+{
+[e :U _moveLvr2Row ]
+"92
+[v _row `uc ~T0 @X0 1 r1 ]
+"93
+[f ]
+"94
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+"95
+[v F3556 `uc ~T0 @X0 1 s currentRow ]
+[i F3556
+-> -> 0 `i `uc
+]
+"96
+[v _myDir `E3494 ~T0 @X0 1 a ]
+"97
+[e $ ! == -> _row `i -> F3556 `i 282  ]
+[e $UE 281  ]
+[e $U 283  ]
+"98
+[e :U 282 ]
+[e $ ! > -> _row `i -> F3556 `i 284  ]
+[e = _myDir . `E3494 1 ]
+[e $U 285  ]
+"99
+[e :U 284 ]
+[e $ ! < -> _row `i -> F3556 `i 286  ]
+[e = _myDir . `E3494 0 ]
+[e :U 286 ]
+[e :U 285 ]
+[e :U 283 ]
+"102
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 500 `i 287  ]
+[e $U 288  ]
+[e :U 287 ]
+"103
+{
+"104
+[e ( _STPR_voidMoveStprStps (3 , , &U *U + &U _MyStprs * -> -> -> 0 `i `ui `ux -> -> # *U &U _MyStprs `ui `ux -> -> 2 `i `us _myDir ]
+"105
+[e ( _STPR_voidMoveStprStps (3 , , &U *U + &U _MyStprs * -> -> -> 1 `i `ui `ux -> -> # *U &U _MyStprs `ui `ux -> -> 2 `i `us _myDir ]
+"106
+}
+[e =+ _i -> 2 `i ]
+[e $ < _i -> 500 `i 287  ]
+[e :U 288 ]
+}
+"109
+[e $UE 281  ]
+"110
+[e :UE 281 ]
+}
+"32 01_APP/newmain.c
 [v _mymsg `s ~T0 @X0 1 e ]
+"33
+[v _val `us ~T0 @X0 1 e ]
+"36
+[v _buffer `uc ~T0 @X0 -> 10 `i e ]
+"40
+[v _myOrders `uc ~T0 @X0 -> 10 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"27
+"42
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"30
-[e ( _DIO_Inti ..  ]
-"31
-[e ( _LCD_voidInit ..  ]
-"32
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"37
-{
+"44
 [v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 11 `i 272  ]
-[e $U 273  ]
-[e :U 272 ]
-"38
+[v _item_index `uc ~T0 @X0 1 a ]
+[v _count `uc ~T0 @X0 1 a ]
+"46
+[e ( _INIT_SYS ..  ]
+"48
+[e :U 292 ]
+"49
 {
-"39
-[e ( _STPR_voidInitStpr (4 , , , , + &U _MyStprs * -> -> _i `i `x -> -> # *U &U _MyStprs `i `x _i -> -> 2 `i `us -> -> 3000 `i `us -> -> 900 `i `us ]
-"40
+"50
+[e ( _LCD_SetCursor (1 -> -> 1 `i `uc ]
+"51
+[e ( _LCD_wStr (1 :s 1C ]
+"52
+[e ( _LCD_wStr (1 :s 2C ]
+"54
+[e :U 296 ]
+"55
+{
+"58
+[e = *U + &U _myOrders * -> -> -> 0 `i `ui `ux -> -> # *U &U _myOrders `ui `ux -> ( _UART_RxMsgSyn (1 -> -> 5000 `i `us `uc ]
+"59
+}
+[e $ || == -> *U + &U _myOrders * -> -> -> 0 `i `ui `ux -> -> # *U &U _myOrders `ui `ux `i -U -> 1 `i == -> *U + &U _myOrders * -> -> -> 0 `i `ui `ux -> -> # *U &U _myOrders `ui `ux `i -U -> 2 `i 296  ]
+[e :U 295 ]
+"62
+[e ( _LCD_SetCursor (1 -> -> 1 `i `uc ]
+"63
+[e ( _LCD_wCmd (1 -> :s 3C `uc ]
+"64
+[e $ ! > -> *U + &U _myOrders * -> -> -> 0 `i `ui `ux -> -> # *U &U _myOrders `ui `ux `i -> 9 `i 297  ]
+[e = *U + &U _myOrders * -> -> -> 0 `i `ui `ux -> -> # *U &U _myOrders `ui `ux -> -> 9 `i `uc ]
+[e :U 297 ]
+"67
+[e ( _UART_RxArrMsg (3 , , -> + + &U _myOrders * -> -> 0 `i `x -> -> # *U &U _myOrders `i `x * -> -> 1 `i `x -> -> # *U + &U _myOrders * -> -> 0 `i `x -> -> # *U &U _myOrders `i `x `i `x `*s *U + &U _myOrders * -> -> -> 0 `i `ui `ux -> -> # *U &U _myOrders `ui `ux -> -> 5000 `i `us ]
+"76
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 301  ]
+[e :U 298 ]
+"77
+{
+"83
+[e ( _moveLvr2Row (1 -> + / -> _item_index `i -> 3 `i -> 1 `i `uc ]
+"85
+[e ( _STPR_voidMoveStprStps (3 , , &U *U + &U _MyStprs * -> -> + -> 2 `i -> _item_index `i `ui `ux -> -> # *U &U _MyStprs `ui `ux -> * -> _count `i -> 200 `i `us . `E3494 0 ]
+"86
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 11 `i 272  ]
-[e :U 273 ]
+[e :U 301 ]
+[e $ < -> _i `i -> *U + &U _myOrders * -> -> -> 0 `i `ui `ux -> -> # *U &U _myOrders `ui `ux `i 298  ]
+[e :U 299 ]
 }
-"43
-[e :U 276 ]
-"44
-{
-"47
-[e ( _LCD_SetCursor (1 -> -> 3 `i `uc ]
-"48
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"49
-[e ( _LCD_wStr (1 -> :s 1C `*uc ]
-"59
+"88
+[e ( _moveLvr2Row (1 -> -> 0 `i `uc ]
+"91
+[e ( _LCD_SetCursor (1 -> -> 1 `i `uc ]
+"92
+[e ( _LCD_wCmd (1 -> :s 4C `uc ]
+"93
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"62
+"116
 }
-[e :U 275 ]
-[e $U 276  ]
-[e :U 277 ]
-"64
-[e $UE 271  ]
-"65
-[e :UE 271 ]
-}
-"68
-[v _initT0Spaqitti `(v ~T0 @X0 1 ef ]
-"69
-{
-[e :U _initT0Spaqitti ]
-[f ]
-"71
-[e = _TMR0H -> -> 60 `i `uc ]
-"72
-[e = _TMR0L -> -> 175 `i `uc ]
-"73
-[e = _T0CON -> -> 3 `i `uc ]
-"74
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"75
-[e = . . _INTCONbits 1 5 -> -> 1 `i `uc ]
-"76
-[e :UE 278 ]
+[e :U 291 ]
+[e $U 292  ]
+[e :U 293 ]
+"117
+[e $UE 290  ]
+"118
+[e :UE 290 ]
 }
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-"77
+"125
 [v _high_isr `(v ~T39 @X0 1 ef ]
-"78
+"126
 {
 [e :U _high_isr ]
 [f ]
-"79
-[e $ ! && != -> . . _INTCONbits 1 2 `i -> 0 `i != -> . . _INTCONbits 1 5 `i -> 0 `i 280  ]
-"80
+"127
+[e $ ! && != -> . . _INTCONbits 1 2 `i -> 0 `i != -> . . _INTCONbits 1 5 `i -> 0 `i 303  ]
+"128
 {
-"81
+"129
 [e = _TMR0H -> -> 60 `i `uc ]
-"82
+"130
 [e = _TMR0L -> -> 175 `i `uc ]
-"83
+"131
 [e = . . _INTCONbits 1 2 -> -> 0 `i `uc ]
-"88
+"136
 [e ( _STPR_callBack (1 + &U _MyStprs * -> -> 1 `i `x -> -> # *U &U _MyStprs `i `x ]
-"89
+"137
 }
-[e :U 280 ]
-"90
-[e :UE 279 ]
+[e :U 303 ]
+"138
+[e :UE 302 ]
 }
-[a 1C 73 32 97 109 32 104 101 114 101 0 ]
+[a 4C 32 32 80 76 69 65 83 69 32 32 84 65 75 69 32 32 32 32 32 89 79 85 82 32 79 82 68 69 82 32 32 32 0 ]
+[a 3C 32 32 80 76 69 65 83 69 32 32 87 65 73 84 32 32 32 32 32 76 79 65 68 73 78 71 46 46 46 32 32 32 0 ]
+[a 1C 32 32 32 32 87 69 76 67 79 77 69 32 32 32 32 0 ]
+[a 2C 32 32 32 32 32 32 77 86 77 32 32 32 32 32 32 0 ]

@@ -12,6 +12,7 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="APP_inc" projectFiles="true">
         <itemPath>Config_uC.h</itemPath>
+        <itemPath>01_APP/mainH.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="HAL_inc" projectFiles="true">
         <itemPath>E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_cfg.h</itemPath>
@@ -72,7 +73,7 @@
         <targetDevice>PIC18F4620</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>3</platform>

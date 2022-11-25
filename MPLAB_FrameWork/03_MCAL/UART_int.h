@@ -8,6 +8,10 @@
 /*************************************************************************/
 #ifndef UART_INT_H
 #define UART_INT_H
+
+
+#define FRAME_ERROR -1
+#define RX_TIME_OUT -2
 /***************************************************************************/
 /*NOTE:communication type(Synchronous/Asynchronous) is definded in cfg file*/
 /***************************************************************************/

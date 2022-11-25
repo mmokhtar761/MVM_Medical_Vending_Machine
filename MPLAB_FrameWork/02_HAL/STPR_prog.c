@@ -12,7 +12,7 @@
 
 #include "Std_Types.h"
 #include "MANIPULATOR.h"
-#include "DIO_cfg.h"
+//#include "DIO_cfg.h"
 #include "DIO_int.h"
 #include "STPR_cfg.h"
 #include "STPR_int.h"

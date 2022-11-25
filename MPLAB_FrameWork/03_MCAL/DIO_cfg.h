@@ -10,8 +10,6 @@
 #ifndef DIO_CFG_H
 #define	DIO_CFG_H
 
-#define INPUT            1
-#define OUTPUT           0
 
 #define ENABLE_FOR_CONFIG 1
 
@@ -59,7 +57,11 @@ uint8 PORT_E_DEF[3]= {OUTPUT,  /*PIN 0*/
 #endif
 
 
-
+#define INIT_PORTA_VAL 0x0
+#define INIT_PORTB_VAL 0x0
+#define INIT_PORTC_VAL 0x0
+#define INIT_PORTD_VAL 0x0
+#define INIT_PORTE_VAL 0x0
 
 #endif	/* DIO_CFG_H */
 

@@ -63,8 +63,8 @@
 //#define E_TRIS TRISE0
 #define E_PIN  PIN3
 
-#define SET_PIN_HIGH(PORTx,PINx)      DIO_VidSetPinValue(PORTx,PINx,HIGH)
-#define SET_PIN_LOW(PORTx,PINx)       DIO_VidSetPinValue(PORTx,PINx,LOW)
+#define SET_PIN_HIGH(PORTx,PINx)      DIO_VidSetPinValue(PORTx,PINx,Pin_HIGH)
+#define SET_PIN_LOW(PORTx,PINx)       DIO_VidSetPinValue(PORTx,PINx,Pin_LOW)
 
 
 /*Incase of 8 line, you need to assign a Whole port*/

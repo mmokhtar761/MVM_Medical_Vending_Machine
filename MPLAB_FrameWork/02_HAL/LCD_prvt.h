@@ -20,7 +20,7 @@
 #define ENTRY_MODE_SET_CMD (0b100+LEFT2RIGHT)
 #define FUNCTION_SET       ((1<<5)+(LINE_WIDTH<<4)+(LINE_NUM<<3)+(CURSOR_MV_DIR))
 
-#define E_Pwidth          (1) //(ms) (1)
+#define E_Pwidth           (2) //(ms) (1)
 
 /*
   The enable pin is used by the LCD to latch information presented to its data pins.

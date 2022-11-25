@@ -11,6 +11,10 @@
 #include "Std_Types.h"
 #include "MANIPULATOR.h"
 
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
 
 /*MCAL modules inc*/
 #include "DIO_int.h"
@@ -25,36 +29,92 @@
 /*APP modules*/
 #include "mainH.h"
 
+                 sint16 mymsg;
+                          uint16 val;
 
 
-sint16 mymsg;
+uint8 buffer[10];
+
+/*first element represents the number of needed orders*/
+/*the next 16 one are the max possiple actual orders*/
+uint8 myOrders [MAX_ORDER_COUNT+1];
+
 void main(void) {
+    /*main counter*/
+    uint8 i,item_index,count;
+    /*Init the system HW modules*/
+    INIT_SYS ();
 
-        /*Init the system HW modules*/
-        void INIT_SYS (void)
+    while (1)
+    {
+        LCD_SetCursor (1);
+        LCD_wStr   ("    WELCOME    ");
+        LCD_wStr   ("      MVM      ");
+        
+        do
+        {
+            //Update temp on LCD
+            /*Check if any data received*/
+            myOrders[OrderSizeIndex] = UART_RxMsgSyn  (myTimeOutCount);
+        }while (myOrders[OrderSizeIndex] == FRAME_ERROR || myOrders[OrderSizeIndex] == RX_TIME_OUT);
+        
+        /*An order is required.....*/
+        LCD_SetCursor (1);
+        LCD_wCmd   ("  PLEASE  WAIT     LOADING...   ");
+        if ( myOrders[OrderSizeIndex] > MAX_ORDER_COUNT) myOrders[OrderSizeIndex] =MAX_ORDER_COUNT;
+        
+        /*please receive an array of size myOrders[OrderSizeIndex] and put them in the array starting from FrstOrderIndex */
+        UART_RxArrMsg  (myOrders+FrstOrderIndex, myOrders[OrderSizeIndex], myTimeOutCount);
+        
+        /*
+         
+         * confirm here that there is a person on the machine
+         
+         */
+        
+        /* A customer is waiting. Start serving orders */
+        for (i=0;i<myOrders[OrderSizeIndex];i++)
+        {
+            /*
+             * item_index 
+             * count
+             */
+            /*Move lever to the required item row*/
+            moveLvr2Row(GET_ROW(item_index));
+            /*Start feeding the item...*/
+            STPR_voidMoveStprStps (&MyStprs[FrstStepperUniqueID+item_index], count*200 , DIR_Low);
+        }
+        /*Move lever to the gate*/
+        moveLvr2Row(0);
+        
+        /*Order is ready please take it*/
+        LCD_SetCursor (1);
+        LCD_wCmd   ("  PLEASE  TAKE     YOUR ORDER   ");
+        __delay_ms(2000);
+         
+         //val = ADC_u16GetChannelReading(CHANNEL0);
+         //mymsg = GetNTC_temp(val);
+         //sprintf (buffer,mymsg );
 
-        while (1)
-                {
-                //UART_TxMsgSyn  ('x',100);
-                //mymsg = UART_RxMsgSyn  (10000);
-                LCD_SetCursor (3);
-                __delay_ms(20);
-                LCD_wStr   ((uint8 *)"I am here");
-                //while(1);
-                //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
+        //UART_TxMsgSyn  ('x',100);
+        //mymsg = UART_RxMsgSyn  (10000);
+        //while(1);
+        //__delay_ms(20);
 
-                //__delay_ms(500);
-                //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
-                // if (mymsg != -1 && mymsg!=-2) UART_TxArrMsg ((uint8 *)"I want to sleep", 16);
-                //else UART_TxArrMsg ("ERROR", 6);
-                //UART_TxMsgSyn  ('\n',100);
-                //UART_TxMsgSyn  ('\r',100);
-                __delay_ms(2000);
+        //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_High);
+        //PORTB =0;
+        //__delay_ms(50);
+        //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
+        // if (mymsg != -1 && mymsg!=-2) UART_TxArrMsg ((uint8 *)"I want to sleep", 16);
+        //else UART_TxArrMsg ("ERROR", 6);
+        //UART_TxMsgSyn  ('\n',100);
+        //UART_TxMsgSyn  ('\r',100);
+        //__delay_ms(20);
 
 
-                }
 
-        return;
+    }
+    return;
 }
 
 
