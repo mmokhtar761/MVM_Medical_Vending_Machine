@@ -31,6 +31,9 @@
         <itemPath>03_MCAL/ADC_confg.h</itemPath>
         <itemPath>03_MCAL/ADC_int.h</itemPath>
         <itemPath>03_MCAL/ADC_priv.h</itemPath>
+        <itemPath>03_MCAL/EXTI_config.h</itemPath>
+        <itemPath>03_MCAL/EXTI_int.h</itemPath>
+        <itemPath>03_MCAL/EXTI_priv.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -51,6 +54,7 @@
         <itemPath>03_MCAL/DIO_prog.c</itemPath>
         <itemPath>03_MCAL/UART_prog.c</itemPath>
         <itemPath>03_MCAL/ADC_Prog.c</itemPath>
+        <itemPath>03_MCAL/EXTI_prg.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

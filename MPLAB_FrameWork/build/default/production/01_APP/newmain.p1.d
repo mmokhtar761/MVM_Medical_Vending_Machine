@@ -8,6 +8,7 @@ E:/05-\ BOSS\ PROJECT/Project2/MPLAB_FrameWork/Config_uC.h  \
 03_MCAL/DIO_int.h  \
 03_MCAL/ADC_int.h  \
 03_MCAL/UART_int.h  \
+03_MCAL/EXTI_int.h  \
 02_HAL/STPR_int.h  \
 02_HAL/LCD_int.h  \
 01_APP/mainH.h 

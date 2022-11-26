@@ -23,6 +23,9 @@
 #define INIT_VELOCITY       (MICRO_PER_SEC/INIT_PULSE_WIDTH)   /*In: Steps per secound*/
 
 uint32 arrSTPR_LiveVel[MAX_STPR_NUM];
+
+uint8 EMERGANCY_Flag =0;
+
 //uint32 arrAccIntervalCount[MAX_STPR_NUM];
 
 void GenPulse(STPR_type* ptrSTPR , uint32 stpWidth)

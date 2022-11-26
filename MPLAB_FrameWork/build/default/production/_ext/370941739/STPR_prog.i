@@ -4550,7 +4550,14 @@ void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_st
 
 
 
+
+
 void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir);
+
+
+
+
+void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16 Copy_steps, STPR_Dir_type Copy_MveDir);
 
 
 
@@ -4583,11 +4590,23 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval);
 
 
  void STPR_callBack(STPR_type* ptrSTPR);
+
+
+
+
+void STOP_STPRS_Emergancy(void);
+
+
+
+void Clear_EMERGANCY(void);
 # 18 "E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c" 2
 
 # 1 "02_HAL/STPR_prvt.h" 1
 # 25 "02_HAL/STPR_prvt.h"
 uint32 arrSTPR_LiveVel[11];
+
+uint8 EMERGANCY_Flag =0;
+
 
 
 void GenPulse(STPR_type* ptrSTPR , uint32 stpWidth)
@@ -4641,6 +4660,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
 
         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
         GenPulse(ptrSTPR,width);
+        if (EMERGANCY_Flag) return;
 
         if (i >= Copy_steps/2)
         {
@@ -4660,6 +4680,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
         for (;i<satStps;i++)
         {
             GenPulse(ptrSTPR,width);
+            if (EMERGANCY_Flag) return;
         }
     }
 
@@ -4670,6 +4691,8 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
         if (ptrSTPR->stprStat != DeAcc || arrSTPR_LiveVel[ptrSTPR->UniqueId]<= (uint16)((uint32)(1000000)/(12500 + 12500))) break;
         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
         GenPulse(ptrSTPR,width);
+        if (EMERGANCY_Flag) return;
+
     }
 
     arrSTPR_LiveVel[ptrSTPR->UniqueId] = (uint16)((uint32)(1000000)/(12500 + 12500));
@@ -4677,6 +4700,77 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
 }
 
 
+
+
+void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16 Copy_steps, STPR_Dir_type Copy_MveDir)
+{
+    uint16 i,satStps,accStps;
+    uint32 width;
+    if (ptrSTPR_1->stprStat != IDLE || ptrSTPR_2->stprStat != IDLE || EMERGANCY_Flag !=0 ) return;
+
+
+    if (Copy_MveDir == DIR_High)
+    {
+        DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR_1->UniqueId][1], STPR_arrDirPortPin[ptrSTPR_1->UniqueId][1],1);;
+        DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR_2->UniqueId][1], STPR_arrDirPortPin[ptrSTPR_2->UniqueId][1],1);;
+    }
+    else if (Copy_MveDir == DIR_Low)
+    {
+        DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR_1->UniqueId][1], STPR_arrDirPortPin[ptrSTPR_1->UniqueId][1],0);;
+        DIO_VidSetPinValue(STPR_arrStpDirPorts[ptrSTPR_2->UniqueId][1], STPR_arrDirPortPin[ptrSTPR_2->UniqueId][1],0);;
+    }
+
+
+    ptrSTPR_1->stprStat = ACC;
+
+
+    for (i=0;arrSTPR_LiveVel[ptrSTPR_1->UniqueId] < ptrSTPR_1->stpVel;i++)
+    {
+
+        width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR_1->UniqueId];
+        GenPulse(ptrSTPR_1,width);
+        GenPulse(ptrSTPR_2,width);
+        if (EMERGANCY_Flag) return;
+
+        if (i >= Copy_steps/2)
+        {
+            ptrSTPR_1->stprStat = DeAcc;
+            break;
+        }
+    }
+
+
+    if (ptrSTPR_1->stprStat != DeAcc)
+    {
+
+
+        satStps= Copy_steps-i;
+        ptrSTPR_1->stprStat = Sat;
+        width = ptrSTPR_1->stpWidth;
+        for (;i<satStps;i++)
+        {
+            GenPulse(ptrSTPR_1,width);
+            GenPulse(ptrSTPR_2,width);
+            if (EMERGANCY_Flag) return;
+
+        }
+    }
+
+    ptrSTPR_1->stprStat = DeAcc;
+    for (;i< Copy_steps;i++)
+    {
+
+        if (ptrSTPR_1->stprStat != DeAcc || arrSTPR_LiveVel[ptrSTPR_1->UniqueId]<= (uint16)((uint32)(1000000)/(12500 + 12500))) break;
+        width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR_1->UniqueId];
+        GenPulse(ptrSTPR_1,width);
+        GenPulse(ptrSTPR_2,width);
+        if (EMERGANCY_Flag) return;
+
+    }
+
+    arrSTPR_LiveVel[ptrSTPR_1->UniqueId] = (uint16)((uint32)(1000000)/(12500 + 12500));
+    ptrSTPR_1->stprStat= IDLE;
+}
 
 
 
@@ -4765,4 +4859,13 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval)
 
             break;
     }
+ }
+
+ void STOP_STPRS_Emergancy(void)
+ {
+    EMERGANCY_Flag=0xFF;
+ }
+ void Clear_EMERGANCY(void)
+ {
+    EMERGANCY_Flag=0;
  }

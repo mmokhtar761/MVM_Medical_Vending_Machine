@@ -5273,6 +5273,23 @@ void UART_ReSetBaudRate (uint32 BR);
 uint32 UART_getBaudRate(void);
 # 22 "01_APP/newmain.c" 2
 
+# 1 "03_MCAL\\EXTI_int.h" 1
+# 13 "03_MCAL\\EXTI_int.h"
+void GIE_Enable(void);
+void GIE_Disable(void);
+
+void EXIT_Int(void);
+
+void EXIT0_Enable(void);
+void EXIT0_Disable(void);
+
+void EXIT1_Enable(void);
+void EXIT1_Disable(void);
+
+void EXIT2_Enable(void);
+void EXIT2_Disable(void);
+# 23 "01_APP/newmain.c" 2
+
 
 
 
@@ -5315,7 +5332,14 @@ void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16 Conpy_st
 
 
 
+
+
 void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type Copy_MveDir);
+
+
+
+
+void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16 Copy_steps, STPR_Dir_type Copy_MveDir);
 
 
 
@@ -5348,7 +5372,16 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval);
 
 
  void STPR_callBack(STPR_type* ptrSTPR);
-# 26 "01_APP/newmain.c" 2
+
+
+
+
+void STOP_STPRS_Emergancy(void);
+
+
+
+void Clear_EMERGANCY(void);
+# 27 "01_APP/newmain.c" 2
 
 # 1 "02_HAL\\LCD_int.h" 1
 # 38 "02_HAL\\LCD_int.h"
@@ -5359,12 +5392,16 @@ void LCD_SetCursor (uint8 p);
 void LCD_wCmd (uint8 d);
 void LCD_wData (uint8 d);
 void LCD_wStr (uint8* str);
-# 27 "01_APP/newmain.c" 2
+# 28 "01_APP/newmain.c" 2
 
 
 
 # 1 "01_APP/mainH.h" 1
-# 34 "01_APP/mainH.h"
+# 50 "01_APP/mainH.h"
+uint8 currentRow = 0;
+uint8 PersonExist = 0;
+
+
 STPR_type MyStprs [11];
 
 
@@ -5398,6 +5435,29 @@ sint16 GetNTC_temp(uint16 ADC_val)
     return tempVal;
 }
 
+void PrintTemp(sint16 tempVal)
+{
+  uint8 * TempStr = " 25 degCel";
+  if (tempVal<0)
+  {
+    TempStr[0] = '-';
+    tempVal*=-1;
+  }
+  else TempStr[0] = ' ';
+
+
+  TempStr[1] = (tempVal%10) + '0';
+
+  TempStr[2] = (tempVal/10) + '0';
+
+
+  LCD_SetCursor (1);
+  LCD_wStr ("System Temp is:    ");
+  LCD_wStr (TempStr);
+
+  LCD_wStr ("   ");
+}
+
 void INIT_SYS (void)
 {
 
@@ -5412,41 +5472,63 @@ void INIT_SYS (void)
 
     initT0Spaghetti();
 
+    EXIT_Int();
 
 
-
+    EXIT0_Enable();
+# 138 "01_APP/mainH.h"
     LCD_voidInit ();
     LCD_wCmd ((1));
     LCD_SetCursor (1);
 
     for (uint8 i=0; i<11;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,3000,900);
-}
 
+
+    STPR_voidMovePairStps (&MyStprs[0],&MyStprs[1], 3*500 , DIR_Low);
+
+    Clear_EMERGANCY();
+
+    STPR_voidMovePairStps (&MyStprs[0],&MyStprs[1], 100 , DIR_High);
+    currentRow = 0;
+}
 
 void moveLvr2Row (uint8 row)
 {
-  int i=0;
-  static uint8 currentRow = 0;
+  uint8 rowsToMove;
+
   STPR_Dir_type myDir;
   if (row == currentRow ) return;
-  else if (row > currentRow) myDir = DIR_High;
-  else if (row < currentRow) myDir = DIR_Low;
 
+  else if (row > currentRow)
+  {
+    myDir = DIR_High;
+    rowsToMove = currentRow - row;
+  }
+  else if (row < currentRow)
+  {
+    myDir = DIR_Low;
+    rowsToMove = currentRow - row;
+  }
 
-  for (i=0 ; i< 500;i+=2)
-    {
-        STPR_voidMoveStprStps (&MyStprs[0], 2 , myDir);
-        STPR_voidMoveStprStps (&MyStprs[1], 2 , myDir);
-    }
+  STPR_voidMovePairStps (&MyStprs[0],&MyStprs[1], rowsToMove*500 , myDir);
 
+  currentRow = row;
 
   return;
 }
-# 30 "01_APP/newmain.c" 2
 
+uint8 IS_SomeOneThere(void)
+{
+  if ( DIO_u8GetPinValue(PORT_C, PIN0 ) )
+  {
+    _delay((unsigned long)((20)*(16000000/4000.0)));
+    if ( DIO_u8GetPinValue(PORT_C, PIN0 ) ) return 1;
 
-                 sint16 mymsg;
-                          uint16 val;
+  }
+  return 0;
+}
+# 31 "01_APP/newmain.c" 2
+
 
 
 uint8 buffer[10];
@@ -5458,6 +5540,8 @@ uint8 myOrders [9 +1];
 void main(void) {
 
     uint8 i,item_index,count;
+    sint8 TempVal,frstMsg;
+    uint8 TempStr[4];
 
     INIT_SYS ();
 
@@ -5466,28 +5550,64 @@ void main(void) {
         LCD_SetCursor (1);
         LCD_wStr ("    WELCOME    ");
         LCD_wStr ("      MVM      ");
+        _delay((unsigned long)((2000)*(16000000/4000.0)));
+
 
         do
         {
 
-
-            myOrders[0] = UART_RxMsgSyn (5000);
-        }while (myOrders[0] == -1 || myOrders[0] == -2);
+            TempVal = GetNTC_temp(ADC_u16GetChannelReading(CHANNEL0));
 
 
-        LCD_SetCursor (1);
-        LCD_wCmd ("  PLEASE  WAIT     LOADING...   ");
-        if ( myOrders[0] > 9) myOrders[0] =9;
+
+            frstMsg = UART_RxMsgSyn (5000);
+
+        }while ( frstMsg == -1 || frstMsg == -2);
 
 
-        UART_RxArrMsg (myOrders+0 +1, myOrders[0], 5000);
-# 76 "01_APP/newmain.c"
-        for (i=0;i<myOrders[0];i++)
+        UART_RxArrMsg (myOrders+1, myOrders[0], 5000);
+
+
+        if ( (uint8)frstMsg > 9) myOrders[0] = 9;
+        else myOrders[0] = (uint8)frstMsg;
+
+
+
+        PersonExist = IS_SomeOneThere();
+        if (!PersonExist)
+        {
+            i = 5000;
+            while (--i)
+            {
+                PersonExist = IS_SomeOneThere();
+                _delay((unsigned long)((100)*(16000000/4000.0)));
+            }
+        }
+
+        if (!PersonExist)
         {
 
 
 
+            continue;
+        }
 
+
+
+        UART_TxMsgSyn (myOrders[0],0);
+
+
+
+
+        LCD_SetCursor (1);
+        LCD_wCmd ("  PLEASE  WAIT     LOADING...   ");
+
+        for (i=1; i <= myOrders[0]; i++)
+        {
+
+            item_index = ((myOrders[i]&(0XF<<0))>>0);
+
+            count = ((myOrders[i]&(0XF<<4))>>4);
 
             moveLvr2Row(((item_index/3)+1));
 
@@ -5496,11 +5616,10 @@ void main(void) {
 
         moveLvr2Row(0);
 
-
         LCD_SetCursor (1);
         LCD_wCmd ("  PLEASE  TAKE     YOUR ORDER   ");
         _delay((unsigned long)((2000)*(16000000/4000.0)));
-# 116 "01_APP/newmain.c"
+# 144 "01_APP/newmain.c"
     }
     return;
 }
@@ -5512,15 +5631,24 @@ void main(void) {
 
 void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
 {
-        if(INTCONbits.T0IF && INTCONbits.T0IE)
-        {
-                TMR0H = 0x3C;
-                TMR0L = 0xAF;
-                INTCONbits.T0IF = 0;
+    uint8 i;
+    if(INTCONbits.T0IF && INTCONbits.T0IE)
+    {
+        TMR0H = 0x3C;
+        TMR0L = 0xAF;
+        INTCONbits.T0IF = 0;
 
 
 
 
-                STPR_callBack(MyStprs+1);
-        }
+
+        for (i=0;i<11;i++)STPR_callBack(MyStprs+i);
+    }
+
+    if(((INTCON>>1)&(uint32)1)==1)
+    {
+        STOP_STPRS_Emergancy();
+        INTCON&= ~((uint32)1<<1);
+    }
+
 }

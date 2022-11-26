@@ -51,8 +51,15 @@ void STPR_voidInitStpr (STPR_type* ptrSTPR, uint8 Copy_UniqueId, uint16  Conpy_s
 
 /*
  * Move the stepper some steps.
+ * Vel and acc data will be assigned from stepper 1 
+ * which means only one call_back is needed for stepper 1 
  */
 void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_type Copy_MveDir);
+
+/*
+ * Move a pair of steppers some steps.
+ */
+void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16  Copy_steps, STPR_Dir_type Copy_MveDir);
 
 /*
  * Move the stepper some mm.
@@ -86,4 +93,12 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval);
 */
  void STPR_callBack(STPR_type* ptrSTPR);
 
+/*This function is called only if an emergancy had happened,
+ *All modules will stop and require a reset to work again
+ Ex: call on an external interrupt  */
+void STOP_STPRS_Emergancy(void);
+
+/*Dangerous, only call if you are sure
+ * Ex: movong a stepper to its initial position */
+void Clear_EMERGANCY(void);
 #endif  /*STPR_INT_H*/

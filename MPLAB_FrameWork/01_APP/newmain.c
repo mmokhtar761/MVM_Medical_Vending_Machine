@@ -20,6 +20,7 @@
 #include "DIO_int.h"
 #include "ADC_int.h"
 #include "UART_int.h"
+#include "EXTI_int.h"
 
 
 /*HAL modules inc*/
@@ -28,9 +29,6 @@
 
 /*APP modules*/
 #include "mainH.h"
-
-                 sint16 mymsg;
-                          uint16 val;
 
 
 uint8 buffer[10];
@@ -42,6 +40,8 @@ uint8 myOrders [MAX_ORDER_COUNT+1];
 void main(void) {
     /*main counter*/
     uint8 i,item_index,count;
+    sint8 TempVal,frstMsg;
+    uint8 TempStr[4];
     /*Init the system HW modules*/
     INIT_SYS ();
 
@@ -50,43 +50,73 @@ void main(void) {
         LCD_SetCursor (1);
         LCD_wStr   ("    WELCOME    ");
         LCD_wStr   ("      MVM      ");
+        __delay_ms(2000);
+
         
         do
         {
-            //Update temp on LCD
+            //Get the temp value
+            TempVal = GetNTC_temp(ADC_u16GetChannelReading(CHANNEL0));
+            if (TempVal > HighTempLimit) DIO_VidSetPinValue(TempO_PORT, TempO_PIN, 1);
+            if (TempVal < LowTempLimit) DIO_VidSetPinValue(TempO_PORT, TempO_PIN, 0);
+            //PrintTemp(TempVal);
+
             /*Check if any data received*/
-            myOrders[OrderSizeIndex] = UART_RxMsgSyn  (myTimeOutCount);
-        }while (myOrders[OrderSizeIndex] == FRAME_ERROR || myOrders[OrderSizeIndex] == RX_TIME_OUT);
-        
-        /*An order is required.....*/
-        LCD_SetCursor (1);
-        LCD_wCmd   ("  PLEASE  WAIT     LOADING...   ");
-        if ( myOrders[OrderSizeIndex] > MAX_ORDER_COUNT) myOrders[OrderSizeIndex] =MAX_ORDER_COUNT;
+            frstMsg = UART_RxMsgSyn  (myTimeOutCount);
+
+        }while ( frstMsg == FRAME_ERROR || frstMsg == RX_TIME_OUT);
         
         /*please receive an array of size myOrders[OrderSizeIndex] and put them in the array starting from FrstOrderIndex */
         UART_RxArrMsg  (myOrders+FrstOrderIndex, myOrders[OrderSizeIndex], myTimeOutCount);
-        
-        /*
-         
-         * confirm here that there is a person on the machine
-         
-         */
-        
-        /* A customer is waiting. Start serving orders */
-        for (i=0;i<myOrders[OrderSizeIndex];i++)
+
+        /*First frame is OrderSizeIndex, check it first*/
+        if (  (uint8)frstMsg > MAX_ORDER_COUNT) myOrders[OrderSizeIndex] = MAX_ORDER_COUNT;
+        else                                    myOrders[OrderSizeIndex] = (uint8)frstMsg;   
+        /*Orders are recieved and all is OK*/
+
+        /*Is there a person on the machine...?*/
+        PersonExist = IS_SomeOneThere();
+        if (!PersonExist) 
+        {
+            i = myTimeOutCount;
+            while (--i) 
+            {
+                PersonExist = IS_SomeOneThere();
+                __delay_ms(100);
+            }
+        }
+
+        if (!PersonExist)
         {
             /*
-             * item_index 
-             * count
-             */
+              Send to ESP that no person is here
+            */
+            continue;
+        } 
+        /*
+        Send back a notification of the successful message to ESP
+        */
+        UART_TxMsgSyn  (myOrders[OrderSizeIndex],0);
+
+        
+
+        /*There is a person waiting, start serving the order.. */
+        LCD_SetCursor (1);
+        LCD_wCmd   ("  PLEASE  WAIT     LOADING...   ");
+
+        for (i=FrstOrderIndex; i <= myOrders[OrderSizeIndex]; i++)
+        {
+            /*First 4 bits are the index*/
+            item_index = GET_NIBBLE(myOrders[i],0);
+            /*Second four bits are the count needed from thet item*/
+            count = GET_NIBBLE(myOrders[i],4);
             /*Move lever to the required item row*/
             moveLvr2Row(GET_ROW(item_index));
             /*Start feeding the item...*/
-            STPR_voidMoveStprStps (&MyStprs[FrstStepperUniqueID+item_index], count*200 , DIR_Low);
+            STPR_voidMoveStprStps (&MyStprs[FrstStepperUniqueID+item_index], count*STPS_FOR_AN_ITEM , DIR_Low);
         }
         /*Move lever to the gate*/
         moveLvr2Row(0);
-        
         /*Order is ready please take it*/
         LCD_SetCursor (1);
         LCD_wCmd   ("  PLEASE  TAKE     YOUR ORDER   ");
@@ -122,17 +152,26 @@ void main(void) {
 
 
 
-void __interrupt(high_priority) high_isr(void)      // interrupt function ��� //Low priority interrupt������������ // High priority interrupt
+void __interrupt(high_priority) high_isr(void)     
 {
-        if(INTCONbits.T0IF && INTCONbits.T0IE) 
-        {                                     // if timer flag is set & interrupt enabled
-                TMR0H = 0x3C;
-                TMR0L = 0xAF;               // reload the timer
-                INTCONbits.T0IF = 0;                  // clear the interrupt flag 
-                /*
-                  Eeach interbval, the call back fn must be called
-                  Use timer driver insted in the future...
-                */
-                STPR_callBack(MyStprs+1);
-        }
+    uint8 i;
+    if(INTCONbits.T0IF && INTCONbits.T0IE) 
+    {                                     // if timer flag is set & interrupt enabled
+        TMR0H = 0x3C;
+        TMR0L = 0xAF;               // reload the timer
+        INTCONbits.T0IF = 0;                  // clear the interrupt flag 
+        /*
+            Eeach interval, the call back fn must be called
+            Use timer driver instead in the future...
+        */
+        /*check for all steppers*/
+        for (i=0;i<MySteppersNum;i++)STPR_callBack(MyStprs+i);
+    }
+
+    if(GET_BIT(INTCON,1)==1)                    //polling for INT0 interrupt
+    { 
+        STOP_STPRS_Emergancy();
+        BIT_L(INTCON,1);                        //clearing INT0 interrupt flag
+    }
+   
 }
