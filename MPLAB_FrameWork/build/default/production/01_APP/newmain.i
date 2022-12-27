@@ -5397,12 +5397,18 @@ void LCD_wStr (uint8* str);
 
 
 # 1 "01_APP/mainH.h" 1
-# 50 "01_APP/mainH.h"
+# 14 "01_APP/mainH.h"
+  uint8 dep;
+# 56 "01_APP/mainH.h"
 uint8 currentRow = 0;
 uint8 PersonExist = 0;
 
 
 STPR_type MyStprs [11];
+
+
+
+
 
 
 
@@ -5437,7 +5443,9 @@ sint16 GetNTC_temp(uint16 ADC_val)
 
 void PrintTemp(sint16 tempVal)
 {
-  uint8 * TempStr = " 25 degCel";
+  uint8 TempStr[] = " 26 degCel";
+
+
   if (tempVal<0)
   {
     TempStr[0] = '-';
@@ -5446,13 +5454,12 @@ void PrintTemp(sint16 tempVal)
   else TempStr[0] = ' ';
 
 
-  TempStr[1] = (tempVal%10) + '0';
+  TempStr[2] = ((uint8)tempVal%10) + '0';
 
-  TempStr[2] = (tempVal/10) + '0';
-
+  TempStr[1] = ((uint8)tempVal/10) + '0';
 
   LCD_SetCursor (1);
-  LCD_wStr ("System Temp is:    ");
+  LCD_wStr ("System Temp is:   ");
   LCD_wStr (TempStr);
 
   LCD_wStr ("   ");
@@ -5475,18 +5482,42 @@ void INIT_SYS (void)
     EXIT_Int();
 
 
-    EXIT0_Enable();
-# 138 "01_APP/mainH.h"
+
+
+
+
     LCD_voidInit ();
-    LCD_wCmd ((1));
+
     LCD_SetCursor (1);
 
-    for (uint8 i=0; i<11;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,3000,900);
+    LCD_wCmd((15));
 
+
+
+    EXIT0_Enable();
+
+
+
+
+
+    for (uint8 i=0; i<11;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,0xFFFF,900);
+    T0CON|= ((uint32)1<<7);;
 
     STPR_voidMovePairStps (&MyStprs[0],&MyStprs[1], 3*500 , DIR_Low);
 
+
+
+
+    EXIT0_Disable();
+
+
+
+
+
+
+
     Clear_EMERGANCY();
+
 
     STPR_voidMovePairStps (&MyStprs[0],&MyStprs[1], 100 , DIR_High);
     currentRow = 0;
@@ -5519,10 +5550,10 @@ void moveLvr2Row (uint8 row)
 
 uint8 IS_SomeOneThere(void)
 {
-  if ( DIO_u8GetPinValue(PORT_C, PIN0 ) )
+  if ( DIO_u8GetPinValue(PORT_C, PIN1 ) )
   {
     _delay((unsigned long)((20)*(16000000/4000.0)));
-    if ( DIO_u8GetPinValue(PORT_C, PIN0 ) ) return 1;
+    if ( DIO_u8GetPinValue(PORT_C, PIN1 ) ) return 1;
 
   }
   return 0;
@@ -5544,42 +5575,44 @@ void main(void) {
     uint8 TempStr[4];
 
     INIT_SYS ();
-
+    UART_TxMsgSyn ('0',0);
     while (1)
     {
         LCD_SetCursor (1);
-        LCD_wStr ("    WELCOME    ");
-        LCD_wStr ("      MVM      ");
+        _delay((unsigned long)((100)*(16000000/4000.0)));
+        LCD_wStr ("    WELCOME          MVM      ");
         _delay((unsigned long)((2000)*(16000000/4000.0)));
 
 
         do
         {
-
-            TempVal = GetNTC_temp(ADC_u16GetChannelReading(CHANNEL0));
-
-
-
-            frstMsg = UART_RxMsgSyn (5000);
+            DIO_VidSetPinValue( PORT_C , PIN0 ,0);
+# 69 "01_APP/newmain.c"
+            frstMsg = UART_RxMsgSyn (1000);
+            UART_TxMsgSyn ('2',0);
 
         }while ( frstMsg == -1 || frstMsg == -2);
+        DIO_VidSetPinValue( PORT_C , PIN0 ,1);
 
-
-        UART_RxArrMsg (myOrders+1, myOrders[0], 5000);
-
-
-        if ( (uint8)frstMsg > 9) myOrders[0] = 9;
+        if ((uint8)frstMsg > 9) myOrders[0] = 9;
         else myOrders[0] = (uint8)frstMsg;
 
+        UART_RxArrMsg (myOrders+1, myOrders[0], 1000);
+
+
+
+        LCD_wStr ("Orders are recieved andAll is OK");
 
 
         PersonExist = IS_SomeOneThere();
         if (!PersonExist)
         {
-            i = 5000;
+
+            i = 1000;
             while (--i)
             {
                 PersonExist = IS_SomeOneThere();
+                if (PersonExist) break;
                 _delay((unsigned long)((100)*(16000000/4000.0)));
             }
         }
@@ -5589,6 +5622,8 @@ void main(void) {
 
 
 
+            UART_TxMsgSyn ('0',0);
+            LCD_wStr ("    NO person      MVM      ");
             continue;
         }
 
@@ -5619,7 +5654,7 @@ void main(void) {
         LCD_SetCursor (1);
         LCD_wCmd ("  PLEASE  TAKE     YOUR ORDER   ");
         _delay((unsigned long)((2000)*(16000000/4000.0)));
-# 144 "01_APP/newmain.c"
+# 157 "01_APP/newmain.c"
     }
     return;
 }

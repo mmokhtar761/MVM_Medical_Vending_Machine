@@ -44,44 +44,53 @@ void main(void) {
     uint8 TempStr[4];
     /*Init the system HW modules*/
     INIT_SYS ();
-
+    UART_TxMsgSyn  ('0',0);
     while (1)
     {
         LCD_SetCursor (1);
-        LCD_wStr   ("    WELCOME    ");
-        LCD_wStr   ("      MVM      ");
+        __delay_ms (100);
+        LCD_wStr   ("    WELCOME          MVM      ");
         __delay_ms(2000);
 
         
         do
         {
+            DEBUG_L;
+            /*
+            if( IS_SomeOneThere()) DEBUG_H;
+            else DEBUG_L;
             //Get the temp value
             TempVal = GetNTC_temp(ADC_u16GetChannelReading(CHANNEL0));
             if (TempVal > HighTempLimit) DIO_VidSetPinValue(TempO_PORT, TempO_PIN, 1);
             if (TempVal < LowTempLimit) DIO_VidSetPinValue(TempO_PORT, TempO_PIN, 0);
-            //PrintTemp(TempVal);
-
+            PrintTemp(TempVal);
+             */
             /*Check if any data received*/
             frstMsg = UART_RxMsgSyn  (myTimeOutCount);
+            UART_TxMsgSyn  ('2',0);
 
         }while ( frstMsg == FRAME_ERROR || frstMsg == RX_TIME_OUT);
-        
+        DEBUG_H;
+        /*First frame is OrderSizeIndex, check it first*/
+        if   ((uint8)frstMsg > MAX_ORDER_COUNT) myOrders[OrderSizeIndex] = MAX_ORDER_COUNT;
+        else myOrders[OrderSizeIndex] = (uint8)frstMsg;  
         /*please receive an array of size myOrders[OrderSizeIndex] and put them in the array starting from FrstOrderIndex */
         UART_RxArrMsg  (myOrders+FrstOrderIndex, myOrders[OrderSizeIndex], myTimeOutCount);
-
-        /*First frame is OrderSizeIndex, check it first*/
-        if (  (uint8)frstMsg > MAX_ORDER_COUNT) myOrders[OrderSizeIndex] = MAX_ORDER_COUNT;
-        else                                    myOrders[OrderSizeIndex] = (uint8)frstMsg;   
+        
+ 
         /*Orders are recieved and all is OK*/
+        LCD_wStr   ("Orders are recieved andAll is OK");
 
         /*Is there a person on the machine...?*/
         PersonExist = IS_SomeOneThere();
         if (!PersonExist) 
         {
+            
             i = myTimeOutCount;
             while (--i) 
             {
                 PersonExist = IS_SomeOneThere();
+                if (PersonExist) break;
                 __delay_ms(100);
             }
         }
@@ -91,6 +100,8 @@ void main(void) {
             /*
               Send to ESP that no person is here
             */
+            UART_TxMsgSyn  ('0',0);
+            LCD_wStr   ("    NO person      MVM      ");
             continue;
         } 
         /*

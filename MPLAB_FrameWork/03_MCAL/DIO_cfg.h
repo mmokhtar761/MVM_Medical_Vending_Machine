@@ -34,7 +34,7 @@ uint8 PORT_B_DEF[8]= {INPUT,  /*PIN 0*/
                       OUTPUT}; /*PIN 7*/
 
 uint8 PORT_C_DEF[8]= {OUTPUT,  /*PIN 0*/
-                      OUTPUT,  /*PIN 1*/
+                      INPUT,  /*PIN 1*/
                       OUTPUT,  /*PIN 2*/
                       OUTPUT,  /*PIN 3*/
                       INPUT,  /*PIN 4*/

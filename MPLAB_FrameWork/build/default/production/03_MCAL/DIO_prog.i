@@ -4490,7 +4490,7 @@ uint8 PORT_B_DEF[8]= {1,
                       0};
 
 uint8 PORT_C_DEF[8]= {0,
-                      0,
+                      1,
                       0,
                       0,
                       1,

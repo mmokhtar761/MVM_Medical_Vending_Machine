@@ -11,14 +11,15 @@
 /*************************************************************************/
 /*************************General config for the app**********************/
 /*************************************************************************/
-
+  uint8 dep;
+  
 #define MySteppersNum   11
 #define STEPS_PER_ROW   500
 #define NTC_RES_25      10000
 #define SER_RES_VAL_NTC 10000
 
 #define MAX_ORDER_COUNT 9
-#define myTimeOutCount  5000
+#define myTimeOutCount  1000 //5000
 #define OrderSizeIndex  0
 #define FrstOrderIndex  1
 
@@ -33,7 +34,7 @@
 #define STPS_FOR_AN_ITEM 200
  
 #define PIR_PORT     PORT_C
-#define PIR_PIN      PIN0
+#define PIR_PIN      PIN1
 
 #define TempO_PORT     PORT_B
 #define TempO_PIN      PIN1
@@ -57,6 +58,10 @@ uint8 PersonExist = 0;
 
 /*Array of stepper handlers*/
 STPR_type MyStprs [MySteppersNum];
+
+#define DEBUG_L DIO_VidSetPinValue( PORT_C , PIN0 ,0)
+
+#define DEBUG_H DIO_VidSetPinValue( PORT_C , PIN0 ,1)
 
 
 
@@ -91,7 +96,9 @@ sint16 GetNTC_temp(uint16 ADC_val)
 
 void PrintTemp(sint16 tempVal)
 {
-  uint8 * TempStr = " 25 degCel";
+  uint8 TempStr[] = " 26 degCel";
+
+  
   if (tempVal<0) 
   {
     TempStr[0] = '-';
@@ -100,13 +107,12 @@ void PrintTemp(sint16 tempVal)
   else           TempStr[0] = ' ';
 
   /*assigneng the first box value*/
-  TempStr[1] = (tempVal%10) + '0'; 
+  TempStr[2] = ((uint8)tempVal%10) + '0'; 
   /*assigneng the second box value*/
-  TempStr[2] = (tempVal/10) + '0';
-
+  TempStr[1] = ((uint8)tempVal/10) + '0';
 
   LCD_SetCursor (1);
-  LCD_wStr   ("System Temp is:    ");
+  LCD_wStr   ("System Temp is:   ");
   LCD_wStr   (TempStr);
   /*to clear any extra data remaining on the LCD*/
   LCD_wStr   ("   ");
@@ -127,6 +133,18 @@ void INIT_SYS (void)
     initT0Spaghetti();
     /*init external interrupt to detect the emergancy*/
     EXIT_Int();
+
+
+    /*************************************************************/
+    /**********************Init HAL modules***********************/
+    /*************************************************************/
+    /*LCD init communication 4 line mode*/
+    LCD_voidInit ();   
+    //LCD_wCmd   (Clear_Display_cmd);
+    LCD_SetCursor (1);
+    
+    LCD_wCmd(cursor_BLNK);
+
     /*Enable the needed channel*/
     #if   EXT_IRQ_CHANNEL == EXTI0 
     EXIT0_Enable();
@@ -135,22 +153,25 @@ void INIT_SYS (void)
     #elif EXT_IRQ_CHANNEL == EXTI2
     EXIT2_Enable();
     #endif
-
-    /*************************************************************/
-    /**********************Init HAL modules***********************/
-    /*************************************************************/
-    /*LCD init communication 4 line mode*/
-    LCD_voidInit ();   
-    LCD_wCmd   (Clear_Display_cmd);
-    LCD_SetCursor (1);
-    /*INIT all the steppers needed*/
-    for (uint8 i=0; i<MySteppersNum;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,3000,900);
-
+    for (uint8 i=0; i<MySteppersNum;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,0xFFFF,900);
+    StartTimer();
     /*Move lever Home, STOP on external interrupt and return*/
     STPR_voidMovePairStps (&MyStprs[StprAUniqueID],&MyStprs[StprBUniqueID], NumOfRows*STEPS_PER_ROW , DIR_Low);
+    //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
+
+    /*Disable the needed channel*/
+    #if   EXT_IRQ_CHANNEL == EXTI0 
+    EXIT0_Disable();
+    #elif EXT_IRQ_CHANNEL == EXTI1
+    EXIT1_Disable();
+    #elif EXT_IRQ_CHANNEL == EXTI2
+    EXIT2_Disable();
+    #endif
+
     /*Clearing emergancy limit switch*/
     Clear_EMERGANCY();
-    /*moving an offset*/
+
+    /*Moving an offset*/
     STPR_voidMovePairStps (&MyStprs[StprAUniqueID],&MyStprs[StprBUniqueID], LIMIT_OFFSET , DIR_High);
     currentRow  = 0;
 }
