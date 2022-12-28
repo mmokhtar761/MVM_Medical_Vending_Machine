@@ -659,8 +659,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 51:     uint32 width;
 [v _width `ul ~T0 @X0 1 a ]
 "52
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 52:     if (ptrSTPR->stprStat != IDLE) return;
-[e $ ! != -> . *U _ptrSTPR 5 `ui -> . `E2511 0 `ui 283  ]
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 52:     if (ptrSTPR->stprStat != IDLE || EMERGANCY_Flag !=0) return;
+[e $ ! || != -> . *U _ptrSTPR 5 `ui -> . `E2511 0 `ui != -> _EMERGANCY_Flag `i -> 0 `i 283  ]
 [e $UE 282  ]
 [e :U 283 ]
 "55
@@ -710,9 +710,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 70:         GenPulse(ptrSTPR,width);
 [e ( _GenPulse (2 , _ptrSTPR _width ]
 "71
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 71:         if (EMERGANCY_Flag) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 71:         if (EMERGANCY_Flag) break;
 [e $ ! != -> _EMERGANCY_Flag `i -> 0 `i 291  ]
-[e $UE 282  ]
+[e $U 288  ]
 [e :U 291 ]
 "73
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 73:         if (i >= Copy_steps/2)
@@ -765,9 +765,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 90:             GenPulse(ptrSTPR,width);
 [e ( _GenPulse (2 , _ptrSTPR _width ]
 "91
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 91:             if (EMERGANCY_Flag) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 91:             if (EMERGANCY_Flag) break;
 [e $ ! != -> _EMERGANCY_Flag `i -> 0 `i 298  ]
-[e $UE 282  ]
+[e $U 295  ]
 [e :U 298 ]
 "92
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 92:         }
@@ -804,9 +804,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 101:         GenPulse(ptrSTPR,width);
 [e ( _GenPulse (2 , _ptrSTPR _width ]
 "102
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 102:         if (EMERGANCY_Flag) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 102:         if (EMERGANCY_Flag) break;
 [e $ ! != -> _EMERGANCY_Flag `i -> 0 `i 304  ]
-[e $UE 282  ]
+[e $U 300  ]
 [e :U 304 ]
 "104
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 104:     }
@@ -911,9 +911,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 140:         GenPulse(ptrSTPR_2,width);
 [e ( _GenPulse (2 , _ptrSTPR_2 _width ]
 "141
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 141:         if (EMERGANCY_Flag) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 141:         if (EMERGANCY_Flag) break;
 [e $ ! != -> _EMERGANCY_Flag `i -> 0 `i 314  ]
-[e $UE 305  ]
+[e $U 311  ]
 [e :U 314 ]
 "143
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 143:         if (i >= Copy_steps/2)
@@ -969,9 +969,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 161:             GenPulse(ptrSTPR_2,width);
 [e ( _GenPulse (2 , _ptrSTPR_2 _width ]
 "162
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 162:             if (EMERGANCY_Flag) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 162:             if (EMERGANCY_Flag) break;
 [e $ ! != -> _EMERGANCY_Flag `i -> 0 `i 321  ]
-[e $UE 305  ]
+[e $U 318  ]
 [e :U 321 ]
 "164
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 164:         }
@@ -1011,9 +1011,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 174:         GenPulse(ptrSTPR_2,width);
 [e ( _GenPulse (2 , _ptrSTPR_2 _width ]
 "175
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 175:         if (EMERGANCY_Flag) return;
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 175:         if (EMERGANCY_Flag) break;
 [e $ ! != -> _EMERGANCY_Flag `i -> 0 `i 327  ]
-[e $UE 305  ]
+[e $U 323  ]
 [e :U 327 ]
 "177
 [; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 177:     }
@@ -1321,10 +1321,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _Clear_EMERGANCY ]
 [f ]
-"278
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 278:     EMERGANCY_Flag=0;
-[e = _EMERGANCY_Flag -> -> 0 `i `uc ]
 "279
-[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 279:  }
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 279:     EMERGANCY_Flag=0;
+[e = _EMERGANCY_Flag -> -> 0 `i `uc ]
+"280
+[; ;E:/05- BOSS PROJECT/Project2/MPLAB_FrameWork/02_HAL/STPR_prog.c: 280:  }
 [e :UE 351 ]
 }

@@ -57,7 +57,7 @@ void UART_TxArrMsg (uint8 * msgArr, uint8 ArrSize);
  * Receive an array of msgs. 
  * Wait until a time out counts is gone with no data received
  */
-void UART_RxArrMsg  (sint16* msg, uint8 ArrSize, uint16 TimeOutCount);
+void UART_RxArrMsg  (uint8* msg, uint8 ArrSize, uint16 TimeOutCount);
 /**************************************************************************/
 
 /*

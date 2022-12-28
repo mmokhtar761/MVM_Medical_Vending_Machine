@@ -49,7 +49,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_typ
 {
     uint16 i,satStps,accStps;
     uint32 width;
-    if (ptrSTPR->stprStat != IDLE) return; /*not initialized correctlly, get out of here*/
+    if (ptrSTPR->stprStat != IDLE || EMERGANCY_Flag !=0) return; /*not initialized correctlly, get out of here*/
 
     /*Set direction of moving*/
     if      (Copy_MveDir == DIR_High)  
@@ -68,7 +68,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_typ
         /*In this phase, width is dynamically calculated*/
         width= MICRO_PER_SEC/arrSTPR_LiveVel[ptrSTPR->UniqueId];
         GenPulse(ptrSTPR,width);
-        if (EMERGANCY_Flag) return;
+        if (EMERGANCY_Flag) break;
         /*If if more than the half of needed steps is gone, get out and deacc directly*/
         if (i >= Copy_steps/2) 
         {
@@ -88,7 +88,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_typ
         for (;i<satStps;i++)
         {
             GenPulse(ptrSTPR,width);
-            if (EMERGANCY_Flag) return;
+            if (EMERGANCY_Flag) break;
         }
     }
     /*Start Stopping with de-accelerating until reaching the INIT_VELOCITY then stop*/
@@ -99,7 +99,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16  Copy_steps, STPR_Dir_typ
         if (ptrSTPR->stprStat != DeAcc || arrSTPR_LiveVel[ptrSTPR->UniqueId]<= MIN_STEPS_PER_SEC) break;
         width= MICRO_PER_SEC/arrSTPR_LiveVel[ptrSTPR->UniqueId];
         GenPulse(ptrSTPR,width);
-        if (EMERGANCY_Flag) return;
+        if (EMERGANCY_Flag) break;
 
     }
     /*Make sure that the stepper is re init to idle and min vel*/
@@ -138,7 +138,7 @@ void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16  C
         width= MICRO_PER_SEC/arrSTPR_LiveVel[ptrSTPR_1->UniqueId];
         GenPulse(ptrSTPR_1,width);
         GenPulse(ptrSTPR_2,width);
-        if (EMERGANCY_Flag) return;
+        if (EMERGANCY_Flag) break;
         /*If if more than the half of needed steps are gone, get out and deacc directly*/
         if (i >= Copy_steps/2) 
         {
@@ -159,7 +159,7 @@ void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16  C
         {
             GenPulse(ptrSTPR_1,width);
             GenPulse(ptrSTPR_2,width);
-            if (EMERGANCY_Flag) return;
+            if (EMERGANCY_Flag) break;
 
         }
     }
@@ -172,7 +172,7 @@ void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16  C
         width= MICRO_PER_SEC/arrSTPR_LiveVel[ptrSTPR_1->UniqueId];
         GenPulse(ptrSTPR_1,width);
         GenPulse(ptrSTPR_2,width);
-        if (EMERGANCY_Flag) return;
+        if (EMERGANCY_Flag) break;
 
     }
     /*Make sure that the stepper is re init to idle and min vel*/
@@ -275,6 +275,7 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval)
  }
  void Clear_EMERGANCY(void)
  {
+     
     EMERGANCY_Flag=0;
  }
 

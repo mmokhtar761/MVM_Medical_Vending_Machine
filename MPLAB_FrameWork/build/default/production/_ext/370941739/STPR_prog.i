@@ -4641,7 +4641,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
 {
     uint16 i,satStps,accStps;
     uint32 width;
-    if (ptrSTPR->stprStat != IDLE) return;
+    if (ptrSTPR->stprStat != IDLE || EMERGANCY_Flag !=0) return;
 
 
     if (Copy_MveDir == DIR_High)
@@ -4660,7 +4660,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
 
         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
         GenPulse(ptrSTPR,width);
-        if (EMERGANCY_Flag) return;
+        if (EMERGANCY_Flag) break;
 
         if (i >= Copy_steps/2)
         {
@@ -4680,7 +4680,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
         for (;i<satStps;i++)
         {
             GenPulse(ptrSTPR,width);
-            if (EMERGANCY_Flag) return;
+            if (EMERGANCY_Flag) break;
         }
     }
 
@@ -4691,7 +4691,7 @@ void STPR_voidMoveStprStps (STPR_type* ptrSTPR, uint16 Copy_steps, STPR_Dir_type
         if (ptrSTPR->stprStat != DeAcc || arrSTPR_LiveVel[ptrSTPR->UniqueId]<= (uint16)((uint32)(1000000)/(12500 + 12500))) break;
         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR->UniqueId];
         GenPulse(ptrSTPR,width);
-        if (EMERGANCY_Flag) return;
+        if (EMERGANCY_Flag) break;
 
     }
 
@@ -4730,7 +4730,7 @@ void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16 Co
         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR_1->UniqueId];
         GenPulse(ptrSTPR_1,width);
         GenPulse(ptrSTPR_2,width);
-        if (EMERGANCY_Flag) return;
+        if (EMERGANCY_Flag) break;
 
         if (i >= Copy_steps/2)
         {
@@ -4751,7 +4751,7 @@ void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16 Co
         {
             GenPulse(ptrSTPR_1,width);
             GenPulse(ptrSTPR_2,width);
-            if (EMERGANCY_Flag) return;
+            if (EMERGANCY_Flag) break;
 
         }
     }
@@ -4764,7 +4764,7 @@ void STPR_voidMovePairStps (STPR_type* ptrSTPR_1,STPR_type* ptrSTPR_2, uint16 Co
         width= (uint32)(1000000)/arrSTPR_LiveVel[ptrSTPR_1->UniqueId];
         GenPulse(ptrSTPR_1,width);
         GenPulse(ptrSTPR_2,width);
-        if (EMERGANCY_Flag) return;
+        if (EMERGANCY_Flag) break;
 
     }
 
@@ -4867,5 +4867,6 @@ void STPR_voidSetStprAcc (STPR_type* ptrSTPR, uint16 Copy_AccPerInterval)
  }
  void Clear_EMERGANCY(void)
  {
+
     EMERGANCY_Flag=0;
  }

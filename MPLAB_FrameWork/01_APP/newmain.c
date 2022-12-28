@@ -39,7 +39,8 @@ uint8 myOrders [MAX_ORDER_COUNT+1];
 
 void main(void) {
     /*main counter*/
-    uint8 i,item_index,count;
+    uint16 i;
+    uint8 item_index,count;
     sint8 TempVal,frstMsg;
     uint8 TempStr[4];
     /*Init the system HW modules*/
@@ -51,12 +52,12 @@ void main(void) {
         __delay_ms (100);
         LCD_wStr   ("    WELCOME          MVM      ");
         __delay_ms(2000);
-
-        
         do
         {
-            DEBUG_L;
-            /*
+            
+        if (IS_SomeOneThere()) DEBUG_H;
+        else DEBUG_L;       
+        /*
             if( IS_SomeOneThere()) DEBUG_H;
             else DEBUG_L;
             //Get the temp value
@@ -66,23 +67,30 @@ void main(void) {
             PrintTemp(TempVal);
              */
             /*Check if any data received*/
+            UART_TxMsgSyn  (0,0);
             frstMsg = UART_RxMsgSyn  (myTimeOutCount);
-            UART_TxMsgSyn  ('2',0);
-
         }while ( frstMsg == FRAME_ERROR || frstMsg == RX_TIME_OUT);
-        DEBUG_H;
+        
         /*First frame is OrderSizeIndex, check it first*/
-        if   ((uint8)frstMsg > MAX_ORDER_COUNT) myOrders[OrderSizeIndex] = MAX_ORDER_COUNT;
-        else myOrders[OrderSizeIndex] = (uint8)frstMsg;  
+        if   ((uint8)frstMsg > MAX_ORDER_COUNT || (uint8)frstMsg == 0) continue;
+        else myOrders[OrderSizeIndex] = (uint8)frstMsg; 
+        /*Send a feedback to esp to inform a successful init msg*/
+        //UART_TxMsgSyn  (frstMsg,0); 
         /*please receive an array of size myOrders[OrderSizeIndex] and put them in the array starting from FrstOrderIndex */
         UART_RxArrMsg  (myOrders+FrstOrderIndex, myOrders[OrderSizeIndex], myTimeOutCount);
         
  
         /*Orders are recieved and all is OK*/
-        LCD_wStr   ("Orders are recieved andAll is OK");
-
+        LCD_wStr   ("Orders received  and All is OK ");
+        
         /*Is there a person on the machine...?*/
         PersonExist = IS_SomeOneThere();
+        
+        
+        if (PersonExist) DEBUG_H;
+        else DEBUG_L;
+        
+        
         if (!PersonExist) 
         {
             
@@ -91,19 +99,24 @@ void main(void) {
             {
                 PersonExist = IS_SomeOneThere();
                 if (PersonExist) break;
-                __delay_ms(100);
+                __delay_ms(120);
             }
         }
+        
+        
+        if (PersonExist) DEBUG_H;
+        else DEBUG_L;
 
+        
         if (!PersonExist)
         {
             /*
               Send to ESP that no person is here
             */
-            UART_TxMsgSyn  ('0',0);
+            UART_TxMsgSyn  (0,0);
             LCD_wStr   ("    NO person      MVM      ");
             continue;
-        } 
+        }
         /*
         Send back a notification of the successful message to ESP
         */

@@ -5261,7 +5261,7 @@ void UART_TxArrMsg (uint8 * msgArr, uint8 ArrSize);
 
 
 
-void UART_RxArrMsg (sint16* msg, uint8 ArrSize, uint16 TimeOutCount);
+void UART_RxArrMsg (uint8* msg, uint8 ArrSize, uint16 TimeOutCount);
 
 
 
@@ -5399,7 +5399,7 @@ void LCD_wStr (uint8* str);
 # 1 "01_APP/mainH.h" 1
 # 14 "01_APP/mainH.h"
   uint8 dep;
-# 56 "01_APP/mainH.h"
+# 58 "01_APP/mainH.h"
 uint8 currentRow = 0;
 uint8 PersonExist = 0;
 
@@ -5485,12 +5485,11 @@ void INIT_SYS (void)
 
 
 
-
     LCD_voidInit ();
-
+    LCD_wCmd ((1));
     LCD_SetCursor (1);
-
     LCD_wCmd((15));
+    for (uint8 i=0; i<11;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,0xFFFF,900);
 
 
 
@@ -5500,8 +5499,8 @@ void INIT_SYS (void)
 
 
 
-    for (uint8 i=0; i<11;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,0xFFFF,900);
     T0CON|= ((uint32)1<<7);;
+
 
     STPR_voidMovePairStps (&MyStprs[0],&MyStprs[1], 3*500 , DIR_Low);
 
@@ -5515,8 +5514,8 @@ void INIT_SYS (void)
 
 
 
-
     Clear_EMERGANCY();
+    _delay((unsigned long)((300)*(16000000/4000.0)));
 
 
     STPR_voidMovePairStps (&MyStprs[0],&MyStprs[1], 100 , DIR_High);
@@ -5582,20 +5581,21 @@ void main(void) {
         _delay((unsigned long)((100)*(16000000/4000.0)));
         LCD_wStr ("    WELCOME          MVM      ");
         _delay((unsigned long)((2000)*(16000000/4000.0)));
-
-
         do
         {
-            DIO_VidSetPinValue( PORT_C , PIN0 ,0);
+
+        if (IS_SomeOneThere()) DIO_VidSetPinValue( PORT_C , PIN0 ,1);
+        else DIO_VidSetPinValue( PORT_C , PIN0 ,0);
 # 69 "01_APP/newmain.c"
+            UART_TxMsgSyn (0,0);
             frstMsg = UART_RxMsgSyn (1000);
-            UART_TxMsgSyn ('2',0);
-
         }while ( frstMsg == -1 || frstMsg == -2);
-        DIO_VidSetPinValue( PORT_C , PIN0 ,1);
 
-        if ((uint8)frstMsg > 9) myOrders[0] = 9;
+
+        if ((uint8)frstMsg > 9 || (uint8)frstMsg == 0) continue;
         else myOrders[0] = (uint8)frstMsg;
+
+
 
         UART_RxArrMsg (myOrders+1, myOrders[0], 1000);
 
@@ -5605,6 +5605,12 @@ void main(void) {
 
 
         PersonExist = IS_SomeOneThere();
+
+
+        if (PersonExist) DIO_VidSetPinValue( PORT_C , PIN0 ,1);
+        else DIO_VidSetPinValue( PORT_C , PIN0 ,0);
+
+
         if (!PersonExist)
         {
 
@@ -5617,8 +5623,15 @@ void main(void) {
             }
         }
 
+
+        if (PersonExist) DIO_VidSetPinValue( PORT_C , PIN0 ,1);
+        else DIO_VidSetPinValue( PORT_C , PIN0 ,0);
+
+
         if (!PersonExist)
         {
+
+
 
 
 
@@ -5654,7 +5667,7 @@ void main(void) {
         LCD_SetCursor (1);
         LCD_wCmd ("  PLEASE  TAKE     YOUR ORDER   ");
         _delay((unsigned long)((2000)*(16000000/4000.0)));
-# 157 "01_APP/newmain.c"
+# 171 "01_APP/newmain.c"
     }
     return;
 }

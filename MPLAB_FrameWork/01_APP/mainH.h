@@ -14,7 +14,7 @@
   uint8 dep;
   
 #define MySteppersNum   11
-#define STEPS_PER_ROW   500
+#define STEPS_PER_ROW   200
 #define NTC_RES_25      10000
 #define SER_RES_VAL_NTC 10000
 
@@ -32,6 +32,8 @@
 #define LIMIT_OFFSET 100
 
 #define STPS_FOR_AN_ITEM 200
+  
+#define BREAK_TME 300
  
 #define PIR_PORT     PORT_C
 #define PIR_PIN      PIN1
@@ -134,16 +136,15 @@ void INIT_SYS (void)
     /*init external interrupt to detect the emergancy*/
     EXIT_Int();
 
-
     /*************************************************************/
     /**********************Init HAL modules***********************/
     /*************************************************************/
     /*LCD init communication 4 line mode*/
     LCD_voidInit ();   
-    //LCD_wCmd   (Clear_Display_cmd);
+    LCD_wCmd   (Clear_Display_cmd);
     LCD_SetCursor (1);
-    
     LCD_wCmd(cursor_BLNK);
+    for (uint8 i=0; i<MySteppersNum;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,0xFFFF,900);
 
     /*Enable the needed channel*/
     #if   EXT_IRQ_CHANNEL == EXTI0 
@@ -153,8 +154,8 @@ void INIT_SYS (void)
     #elif EXT_IRQ_CHANNEL == EXTI2
     EXIT2_Enable();
     #endif
-    for (uint8 i=0; i<MySteppersNum;i++) STPR_voidInitStpr (MyStprs+i,i,(uint16)2,0xFFFF,900);
     StartTimer();
+    
     /*Move lever Home, STOP on external interrupt and return*/
     STPR_voidMovePairStps (&MyStprs[StprAUniqueID],&MyStprs[StprBUniqueID], NumOfRows*STEPS_PER_ROW , DIR_Low);
     //STPR_voidMoveStprStps (MyStprs+1, 600 , DIR_Low);
@@ -167,9 +168,9 @@ void INIT_SYS (void)
     #elif EXT_IRQ_CHANNEL == EXTI2
     EXIT2_Disable();
     #endif
-
     /*Clearing emergancy limit switch*/
     Clear_EMERGANCY();
+    __delay_ms(BREAK_TME);
 
     /*Moving an offset*/
     STPR_voidMovePairStps (&MyStprs[StprAUniqueID],&MyStprs[StprBUniqueID], LIMIT_OFFSET , DIR_High);
@@ -186,7 +187,7 @@ void moveLvr2Row (uint8 row)
   else if (row > currentRow) 
   {
     myDir = DIR_High;
-    rowsToMove = currentRow - row;
+    rowsToMove = row - currentRow;
   }
   else if (row < currentRow) 
   {

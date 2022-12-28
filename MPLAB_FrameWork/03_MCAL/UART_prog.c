@@ -132,7 +132,8 @@ void Rx_ISR_arrHandler(sint16 * msg, uint8 ArrSize,uint16 TimeOutCount)
         /*date is ok and ready to be read*/
         else msg[i] = mRCREG;
         /*If no another data is here, wait some cycles before the next read*/
-        while (!GET_BIT(mPIR1,5) && TimeOutCount != 0) TimeOutCount--;
+        while (!GET_BIT(mPIR1,5) && TimeOutCount != 0)
+            TimeOutCount--;
     }
 }
 /**************************************************************************/
@@ -162,11 +163,13 @@ void UART_TxArrMsg (uint8 * msgArr, uint8 ArrSize)
  * Receive an array of msgs. 
  * Wait until a time out counts is gone with no data received
  */
-void UART_RxArrMsg  (sint16* msg, uint8 ArrSize, uint16 TimeOutCount)
+void UART_RxArrMsg  (uint8* msg, uint8 ArrSize, uint16 TimeOutCount)
 {
+    uint8 i;
     /*Start the module to receive*/
-    UART_RxMsgAsyn();
-    Rx_ISR_arrHandler(msg,ArrSize,TimeOutCount);
+    //UART_RxMsgAsyn();
+   // Rx_ISR_arrHandler(msg,ArrSize,TimeOutCount);
+    for (i=0;i<ArrSize;i++) msg[i] =(uint8) UART_RxMsgSyn  (TimeOutCount);
 }
 /**************************************************************************/
 
