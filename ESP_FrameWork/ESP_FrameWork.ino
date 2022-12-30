@@ -30,7 +30,7 @@ int str_len;
 //int* ptr = (int*)malloc(str_len * sizeof(int));
 
 //Your Domain name with URL path or IP address with path
-String serverName = "http://192.168.1.3:80/msg.txt";
+String serverName = "http://192.168.1.4:80";
 
 
 // the following variables are unsigned longs because the time, measured in
@@ -39,7 +39,7 @@ unsigned long lastTime = 0;
 // Timer set to 10 minutes (600000)
 //unsigned long timerDelay = 600000;
 // Set timer to 5 seconds (5000)
-unsigned long timerDelay = 5000;
+unsigned long timerDelay = 3000;
 
 // the following array is used to store data that will be sent to the PIC micrcontroller
 short int dataextracted[PLACES]={0};
@@ -70,7 +70,6 @@ void setup() {
   Serial.println(WiFi.localIP());
   Serial.println("Timer set to 5 seconds (timerDelay variable), it will take 5 seconds before publishing the first reading.");
   #endif
-
 }
 
 
@@ -111,92 +110,142 @@ Serial.print("The number of orders :");Serial.println(NumOfOrders);
 }   
 
 void loop() {
-  /*
-  // Send an HTTP POST request depending on timerDelay
-  if ((millis() - lastTime) > timerDelay) {
-    //Check WiFi connection status
-    if(WiFi.status()== WL_CONNECTED){
-      WiFiClient client;
-      HTTPClient http;
-      String serverPath = serverName + "?temperature=24.37";
+  //Initial value D fro Defult
+  char feedBack ='D';
+  int i =0;
+
+  
+    // Send an HTTP POST request depending on timerDelay
+    if ((millis() - lastTime) > timerDelay) {
+      //Check WiFi connection status
+      if(WiFi.status()== WL_CONNECTED){
+        WiFiClient client;
+        HTTPClient http;
+        String serverPath = serverName + "/Orders.txt" ;
+        // Your Domain name with URL path or IP address with path
+        http.begin(client, serverPath.c_str());
+        
+        // Send HTTP GET request
+        int httpResponseCode = http.GET();
+        
+        if (httpResponseCode>0) {
+          
+          #ifdef debugg
+          Serial.print("HTTP Response code: ");
+          Serial.println(httpResponseCode);
+          #endif
+          //Get the response 
+          String payload = http.getString();
+          str_len = payload.length() + 1; 
+          //if TXT file is empty, continue
+          if (str_len == 1) return;
+          //Save it as an array of chars into data variable
+          payload.toCharArray(data, str_len);
+          
+          #ifdef debugg
+          Serial.println(payload);
+          #endif
+          
+        }
+        else 
+        {
+          //bad response
+          //ESP.deepSleep(2e6);
+          
+          #ifdef debugg
+          Serial.print("Error code: ");
+          Serial.println(httpResponseCode);
+          #endif
+          return;
+        }
+        
+        // Free resources
+        http.end();
+      }
+      else
+      {
+         #ifdef debugg
+        Serial.println("WiFi Disconnected");
+        #endif
+        //Error in the wifi
+        //ESP.deepSleep(2e6);
+        return;
+       
+      }
+      //Convert the orders into the form PIC needs
+      TransFromServCodeToNum(data);
+    
+      while (!Serial.available() || Serial.read ()!= '0');
+      for(i=0;i<=dataextracted[NUM_OF_ORDERS_POS];i++) Serial.write (dataextracted[i]);
       
+      // Wait until the system inform that is a person is there
+      do
+      { 
+        if(Serial.available()) feedBack = Serial.read ();
+      }
+      while (feedBack != dataextracted[NUM_OF_ORDERS_POS] && feedBack != 'e' );
+     
+      if   (feedBack==dataextracted[NUM_OF_ORDERS_POS])
+      {
+        //#ifdef debugg
+        Serial.println("Order Is OK");
+        //#endif
+        //INFORM server that is order is done
+        //serverPath = serverName + "?state=1";
+      }
+      else if (feedBack == 'e')
+      {
+        //#ifdef debugg
+        Serial.println("No person");
+        //#endif
+        //INFORM server that is no person
+        //serverPath = serverName + "?state=0";
+      }
+  
+      /*
       // Your Domain name with URL path or IP address with path
       http.begin(client, serverPath.c_str());
-      
       // Send HTTP GET request
-      int httpResponseCode = http.GET();
-      
-      if (httpResponseCode>0) {
-        Serial.print("HTTP Response code: ");
+      httpResponseCode = http.GET();
+      if (httpResponseCode>0) 
+      {
+        #ifdef debugg
+        Serial.print("Server now is updated");
+        Serial.print("HTTP Response code 2: ");
         Serial.println(httpResponseCode);
-        String payload = http.getString();
-         str_len = payload.length() + 1; 
-        payload.toCharArray(data, str_len);
-        //payload.toCharArray(ptr, str_len);
-
-
-        
-
-        Serial.println(payload);
+        #endif
       }
-      else {
+      else 
+      {
+        //bad response
+        #ifdef debugg
         Serial.print("Error code: ");
         Serial.println(httpResponseCode);
-      }
+        #endif
+      }*/
+  
+      feedBack = 'D';
+      #ifdef debugg
+      delay(2000);
+      #endif
+      for(i=0;i<=dataextracted[NUM_OF_ORDERS_POS];i++) dataextracted[i]=0;
+      //data = "";
+      
       // Free resources
-      http.end();
-    }
-    else {
-      Serial.println("WiFi Disconnected");
-    }
+      //http.end();
+      
+      lastTime = millis();
+      #ifdef debugg
+      Serial.println(lastTime);
+      #endif
     
-    /*Me:
-    //if (/*there is no data in payload)
-    //{
-      //sleep for ex 2sec
-      // ESP.deepSleep(2e6); 
-   // }
-   // else 
-   // {
-     // send data to PIC
-     // digitalWrite(chipSelectPin, LOW);
-      //SPI.transfer(0x00);
-      // take the chip select high to de-select:
-     // digitalWrite(chipSelectPin, HIGH);
-      //send feedback to server
-      //then sleep
-   // }
-   // }
-   // lastTime = millis();
- // }   */
-
- int i=0;
- 
- String x = "A3a0A1a0";
- 
- x.toCharArray(data, 9);
-//char mdata[] = { 'A','3' ,'a','0','A','1','a','0'};
-//char mdata[] = "A3a0A1a0";
-TransFromServCodeToNum(data);
-
-while (!Serial.available() || Serial.read ()!= 0);
-for(i=0;i<=dataextracted[NUM_OF_ORDERS_POS];i++) Serial.write (dataextracted[i]);
-
-// Wait until the system inform that is a person is there
-while (!Serial.available())
-{
-  if   (Serial.read ()==dataextracted[NUM_OF_ORDERS_POS])
-  {
-    //INFORM server that is order is done
-    break;
-  }
-  else if (Serial.read() == 0)
-  {
-    //INFORM server that is no person
-    break;
-  }
-}
-for(i=0;i<=dataextracted[NUM_OF_ORDERS_POS];i++) dataextracted[i]=0;
+      
+    
+    }
+    #ifdef debugg
+    Serial.println(millis());
+    #endif
+  
 }
 
 
