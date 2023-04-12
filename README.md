@@ -10,7 +10,7 @@ The software of the machine consists of three main components:
 - Then, lead the actuators. Besides that, it gets some readings from sensors to make the right decisions. Like temperature using NTC sensor. PIR is used to indicate customer presence. 
 ----------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------
-/** ESP8266**/ 
+## ESP8266
 1.1 How the code works 
 1.	The code starts by connecting to WIFI (Local Server). 
 2.	The Wi-Fi connection status is checked. 
@@ -20,24 +20,26 @@ The software of the machine consists of three main components:
 6.	The array of orders is finally sent to the PIC microcontroller with UART protocol.
 ----------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------
-/**PIC**/ // Written from scratch (MPLAB XC8)
-1- PIC represents the main brain of the machine that moves its actuators and processes the data to deliver the needed materials. 
-2- The software used is built on the main loop software architecture. OS wasn’t needed as the tasks are sequential and no need for concurrent actions.
+## PIC
+Written from scratch (MPLAB XC8)
+1. PIC represents the main brain of the machine that moves its actuators and processes the data to deliver the needed materials. 
+2. The software used is built on the main loop software architecture. OS wasn’t needed as the tasks are sequential and no need for concurrent actions.
 ----------------------------------------------------------------------------------------------------------------------------
-Software components: 
+### Software components: 
 
 •	MCAL 
-o	DIO 
-o	UART 
-o	ADC 
-o	External interrupt
+  o	DIO 
+  o	UART 
+  o	ADC 
+  o	External interrupt
 
 •	HAL
-o	Stepper controller
-o	LCD 
+  o	Stepper controller
+  o	LCD 
 
 •	APP
-o	The main loop app (as illustrated)
+  o	The main loop app (as illustrated)
+  
 ----------------------------------------------------------------------------------------------------------------------------
 Each software components (say X) have the following files:
 -	X_prog.c: contains the function definitions.
